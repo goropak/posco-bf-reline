@@ -1,6 +1,117 @@
 {
   "meta": {
     "siteName": "고로개수TF",
-    "updatedAt": "2026-04-16"
-  }
+    "subtitle": "광양 2고로 부분개수 투자 관리",
+    "updatedAt": "2026-04-16 14:30"
+  },
+  "project": {
+    "name": "광양 2고로 2차 부분개수",
+    "progress": 75,
+    "budgetTotal": 1000,
+    "budgetSpent": 780,
+    "safetyDays": 450,
+    "issueCount": 1,
+    "targetDate": "2026-12-31"
+  },
+  "milestones": [
+    { "name": "감풍", "planDate": "2026-01-15", "actualDate": "2026-01-15", "status": "완료" },
+    { "name": "휴풍", "planDate": "2026-02-01", "actualDate": "2026-02-03", "status": "완료" },
+    { "name": "잔선처리", "planDate": "2026-03-15", "actualDate": "2026-03-20", "status": "완료" },
+    { "name": "내화물시공", "planDate": "2026-06-01", "actualDate": null, "status": "진행중" },
+    { "name": "냉각장치설치", "planDate": "2026-08-01", "actualDate": null, "status": "예정" },
+    { "name": "화입", "planDate": "2026-12-31", "actualDate": null, "status": "예정" }
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "level": "red",
+      "title": "내화물 납기 2주 지연",
+      "action": "포스코퓨처엠 긴급 협의 중\n대체 공급선 확보 병행 검토",
+      "dueDate": "2026-05-01"
+    },
+    {
+      "id": 2,
+      "level": "yellow",
+      "title": "냉각수 배관 설계 변경 검토",
+      "action": "설비부 설계 협의 진행 중\n변경 시 공기 1주 추가 예상",
+      "dueDate": "2026-05-15"
+    },
+    {
+      "id": 3,
+      "level": "green",
+      "title": "잔선처리 완료 확인",
+      "action": "품질 검사 완료\n노저부 상태 양호 판정",
+      "dueDate": "2026-03-20"
+    }
+  ],
+  "photos": [
+    {
+      "filename": "",
+      "caption": "잔선처리 완료 후 노내 상태",
+      "date": "2026-04-01"
+    },
+    {
+      "filename": "",
+      "caption": "잔선 천공기 작업 현장",
+      "date": "2026-03-15"
+    },
+    {
+      "filename": "",
+      "caption": "휴풍 작업 전경",
+      "date": "2026-02-10"
+    },
+    {
+      "filename": "",
+      "caption": "감풍 완료 기념",
+      "date": "2026-01-15"
+    }
+  ],
+  "team": {
+    "leader": {
+      "name": "홍길동",
+      "title": "팀장",
+      "role": "고로개수 투자 총괄",
+      "photo": ""
+    },
+    "members": [
+      { "name": "김OO", "title": "과장", "role": "투자기획", "photo": "" },
+      { "name": "이OO", "title": "대리", "role": "설비기술", "photo": "" },
+      { "name": "박OO", "title": "대리", "role": "공정관리", "photo": "" }
+    ],
+    "relatedOrgs": [
+      "포스코이앤씨",
+      "포스코퓨처엠",
+      "광양제철소 제선부",
+      "광양제철소 설비부"
+    ]
+  },
+  "aiAgents": [
+    { "id": 1, "name": "노황예측 AI", "summary": "고로 내부 상태를 실시간 예측하여 조업 최적화", "status": "운영중", "coverImage": "", "detail": "센서 데이터 기반 LSTM 모델로 노황 지수를 30분 전 예측" },
+    { "id": 2, "name": "안전감지 AI", "summary": "현장 CCTV 영상 분석으로 안전 위험 실시간 감지", "status": "개발중", "coverImage": "", "detail": "YOLO 기반 객체 감지로 안전모·안전벨트 미착용 실시간 알림" },
+    { "id": 3, "name": "보고서 자동화", "summary": "주간/월간 보고서 데이터 수집 및 초안 자동 생성", "status": "개발중", "coverImage": "", "detail": "SAP 데이터 연동 + GPT 기반 보고서 초안 작성" },
+    { "id": 4, "name": "납기예측 AI", "summary": "자재 납기 지연 위험을 사전 예측", "status": "기획중", "coverImage": "", "detail": "협력사 납품 이력 분석으로 지연 확률 예측" },
+    { "id": 5, "name": "품질예측 AI", "summary": "내화물 시공 품질을 사전 예측", "status": "기획중", "coverImage": "", "detail": "시공 조건 데이터 기반 품질 등급 예측 모델" },
+    { "id": 6, "name": "에너지최적화 AI", "summary": "고로 에너지 소비 패턴 분석 및 최적화", "status": "기획중", "coverImage": "", "detail": "열풍로·냉각수 에너지 효율 최적화 알고리즘" }
+  ],
+  "internalLinks": [
+    { "name": "투자집행 상세", "url": "http://intra.posco.co.kr/invest/bf2" },
+    { "name": "공정관리 문서 (EDMS)", "url": "http://edms.posco.co.kr/project/bf2" },
+    { "name": "설계 도면함", "url": "http://edms.posco.co.kr/drawing/bf2" },
+    { "name": "현장 사진 저장소", "url": "http://nas.posco.co.kr/photos/bf2" }
+  ],
+  "history": [
+    { "year": 1973, "event": "포항 1고로 화입", "detail": "대한민국 최초 용광로, 내용적 1,660m³", "highlight": false },
+    { "year": 1976, "event": "포항 2고로 화입", "detail": "내용적 2,500m³", "highlight": false },
+    { "year": 1978, "event": "포항 3고로 화입", "detail": "내용적 2,500m³", "highlight": false },
+    { "year": 1981, "event": "포항 4고로 화입", "detail": "내용적 3,800m³", "highlight": false },
+    { "year": 1987, "event": "광양 1고로 화입", "detail": "광양제철소 시대 개막", "highlight": false },
+    { "year": 1988, "event": "광양 2고로 화입", "detail": "내용적 3,800m³", "highlight": true },
+    { "year": 1990, "event": "광양 3고로 화입", "detail": "내용적 3,800m³", "highlight": false },
+    { "year": 1992, "event": "광양 4·5고로 화입", "detail": "5고로 내용적 5,500m³ 세계 최대급", "highlight": false },
+    { "year": 2003, "event": "광양 2고로 1차 개수", "detail": "첫 번째 대규모 보수", "highlight": true },
+    { "year": 2020, "event": "광양 3고로 3차 개수 완료", "detail": "연산 460만톤", "highlight": false },
+    { "year": 2021, "event": "포항 1고로 영구 휴풍", "detail": "48.5년 만에 가동 중단", "highlight": false },
+    { "year": 2024, "event": "포항 4고로 개수 완료", "detail": "최신 설비로 교체", "highlight": false },
+    { "year": 2025, "event": "광양 2고로 2차 부분개수 착수", "detail": "현재 프로젝트", "highlight": true }
+  ]
 }
