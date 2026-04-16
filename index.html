@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>고로개수TF</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+<!-- 배경 영상 -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="videos/bg-video.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- 어두운 오버레이 -->
+<div class="login-overlay"></div>
+
+<!-- 불꽃 파티클 -->
+<div class="particles" id="particles"></div>
+
+<!-- 로그인 -->
+<div class="login-wrap">
+  <div class="login-box">
+    <div class="login-eyebrow">POSCO · Gwangyang Steelworks</div>
+    <div class="login-title">고로개수TF</div>
+    <div class="login-sub">
+      광양 2고로 부분개수 투자 관리 시스템<br>
+      Blast Furnace #2 Partial Reline Dashboard
+    </div>
+    <div class="input-wrap">
+      <span class="input-icon">🔑</span>
+      <input type="password" id="pwInput" placeholder="Access Code" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div class="remember">
+      <input type="checkbox" id="rememberMe">
+      <label for="rememberMe">이 기기에서 기억하기</label>
+    </div>
+    <button class="login-btn" onclick="doLogin()">ENTER DASHBOARD →</button>
+    <div class="login-error" id="loginError">비밀번호가 올바르지 않습니다</div>
+    <div class="login-footer">
+      © 2026 고로개수TF · POSCO Blast Furnace Reline Investment Team
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>
