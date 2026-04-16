@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>고로개수TF - 대시보드</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 배경 오브 -->
+<div class="bg-orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-mark">TF</div>
+      <div class="logo-text">고로개수TF <span>Gwangyang BF#2 · 2025–2026</span></div>
+    </div>
+    <nav>
+      <a href="#dashboard" class="active">대시보드</a>
+      <a href="#history-sec">고로역사</a>
+      <a href="#invest-sec">투자범위</a>
+      <a href="#team-sec">조직소개</a>
+      <a href="#ai-sec">AI Agent</a>
+    </nav>
+    <div class="update-badge" id="updateTime">Updated --</div>
+  </div>
+
+  <!-- 히어로 -->
+  <div class="hero fade-up" id="dashboard">
+    <div class="hero-badge">광양제철소 제2고로 · 부분개수 · 진행중</div>
+    <h1>광양 2고로<br>부분개수 프로젝트</h1>
+    <p>내용적 4,350m³ · 연산 435만톤<br>냉각장치 + 내화물 교체 · 투자 약 1,000억원</p>
+  </div>
+
+  <div class="main">
+
+    <!-- ── KPI ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">📊</div>
+      <div class="sec-label">Key Metrics</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="kpi-grid fade-up" id="kpiGrid">
+      <!-- JS에서 site-data.json 읽어서 채움 -->
+    </div>
+
+    <!-- ── 마일스톤 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">🗓️</div>
+      <div class="sec-label">Milestone</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="ms-wrap fade-up">
+      <div class="ms-track" id="msTrack">
+        <div class="ms-rail"><div class="ms-rail-fill" id="msRailFill"></div></div>
+        <!-- JS에서 채움 -->
+      </div>
+    </div>
+
+    <!-- ── 이슈 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">⚠️</div>
+      <div class="sec-label">Issues</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="issue-grid fade-up" id="issueGrid">
+      <!-- JS에서 채움 -->
+    </div>
+
+    <!-- ── 사진 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">📷</div>
+      <div class="sec-label">Site Photos</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="photo-row fade-up" id="photoRow">
+      <!-- JS에서 채움 -->
+    </div>
+
+    <!-- ── 서브페이지 커버 카드 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">📁</div>
+      <div class="sec-label">Explore</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cover-grid fade-up">
+      <a class="cover-card" href="history.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-purple"></div><div class="emoji">🏭</div></div>
+        <div class="cover-bottom"><div class="cover-name">포스코 고로 역사</div><div class="cover-desc">1973 포항 1고로부터 현재까지 반세기</div></div>
+      </a>
+      <a class="cover-card" href="invest.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-cyan"></div><div class="emoji">📐</div></div>
+        <div class="cover-bottom"><div class="cover-name">투자범위</div><div class="cover-desc">전면 vs 부분개수 비교, 교체 항목</div></div>
+      </a>
+      <a class="cover-card" href="team.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-green"></div><div class="emoji">👥</div></div>
+        <div class="cover-bottom"><div class="cover-name">조직소개</div><div class="cover-desc">고로개수TF 팀원 및 협업 조직</div></div>
+      </a>
+      <a class="cover-card" href="ai.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-pink"></div><div class="emoji">🤖</div></div>
+        <div class="cover-bottom"><div class="cover-name">AI Agent</div><div class="cover-desc">TF 추진 AI 과제 6건+</div></div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    © 2026 고로개수TF · POSCO Gwangyang Steelworks · Blast Furnace #2 Partial Reline
+  </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
