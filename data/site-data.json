@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026. 4. 20. 오전 7:29:29"
+    "updatedAt": "2026. 4. 20. 오전 7:29:51"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -444,8 +444,8 @@
   "aiAgents": [
     {
       "id": 1,
-      "name": "고로 열풍로 AI wpdj",
-      "summary": "열풍로 내부 상태를 실시간 예측하여 조업 최적화",
+      "name": "노황예측 AI",
+      "summary": "고로 내부 상태를 실시간 예측하여 조업 최적화",
       "status": "운영중",
       "detail": "센서 데이터 기반 LSTM 모델로 노황 지수를 30분 전 예측",
       "url": ""
@@ -489,14 +489,6 @@
       "status": "기획중",
       "detail": "열풍로·냉각수 에너지 효율 최적화 알고리즘",
       "url": ""
-    },
-    {
-      "id": 7,
-      "name": "제선 조업, 투자 AI 주재원",
-      "summary": "",
-      "status": "개발중",
-      "detail": "",
-      "url": ""
     }
   ],
   "links": [
@@ -508,7 +500,7 @@
     },
     {
       "category": "사내 시스템",
-      "name": "공정관리 ",
+      "name": "공정관리 (EDMS)",
       "url": "http://edms.posco.co.kr/project/bf2",
       "desc": "공정 관리 문서"
     },
