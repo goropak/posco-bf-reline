@@ -6,18 +6,44 @@
 <meta name="robots" content="noindex, nofollow">
 <title>고로개수TF - 대시보드</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* 최근실적 타임라인 */
+.track-section{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:32px;overflow-x:auto}
+.track-row{display:flex;gap:0;min-width:1100px;position:relative;padding:20px 0}
+.track-rail{position:absolute;top:28px;left:30px;right:30px;height:2px;background:rgba(255,255,255,.06)}
+.track-item{flex:1;text-align:center;position:relative;z-index:2;min-width:90px}
+.track-dot{width:16px;height:16px;border-radius:50%;margin:0 auto 10px;position:relative}
+.track-dot.done{background:linear-gradient(135deg,#7b68ee,#06b6d4);box-shadow:0 0 12px rgba(123,104,238,.4)}
+.track-dot.current{background:linear-gradient(135deg,#f97316,#fb923c);box-shadow:0 0 16px rgba(249,115,22,.5);animation:dotPulse 2s infinite}
+.track-dot.plan{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+.track-year{font-size:12px;font-weight:700;color:rgba(255,255,255,.6)}
+.track-name{font-size:11px;color:rgba(255,255,255,.35);margin-top:4px;line-height:1.4}
+.track-badge{display:inline-block;font-size:9px;padding:2px 8px;border-radius:4px;margin-top:4px;font-weight:600}
+.track-badge.done-b{background:rgba(123,104,238,.1);color:#a78bfa}
+.track-badge.current-b{background:rgba(249,115,22,.15);color:#fb923c}
+.track-badge.plan-b{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25)}
+
+/* 마일스톤 탭 */
+.ms-tabs{display:flex;gap:8px;margin-bottom:20px}
+.ms-tab{padding:8px 20px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:rgba(255,255,255,.4);transition:all .2s}
+.ms-tab.active{background:rgba(123,104,238,.15);border-color:rgba(123,104,238,.3);color:#a78bfa}
+.ms-tab:hover{border-color:rgba(255,255,255,.15)}
+.ms-panel{display:none}
+.ms-panel.active{display:block}
+
+/* 오늘 표시 */
+.today-marker{position:absolute;top:-8px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:10;pointer-events:none}
+.today-line{width:2px;height:80px;background:linear-gradient(180deg,#f97316,transparent)}
+.today-label{font-size:10px;font-weight:700;color:#fb923c;background:rgba(249,115,22,.15);padding:2px 8px;border-radius:4px;white-space:nowrap}
+
+/* 안전 KPI 특별 스타일 */
+.kpi-score{font-size:14px;font-weight:700;color:#a78bfa}
+</style>
 </head>
 <body>
-
-<!-- 배경 오브 -->
-<div class="bg-orbs">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-</div>
+<div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 
 <div class="content-wrap">
-
   <!-- 헤더 -->
   <div class="header">
     <div class="logo-area">
@@ -26,17 +52,17 @@
     </div>
     <nav>
       <a href="#dashboard" class="active">대시보드</a>
-      <a href="#history-sec">고로역사</a>
-      <a href="#invest-sec">투자범위</a>
-      <a href="#team-sec">조직소개</a>
-      <a href="#ai-sec">AI Agent</a>
+      <a href="team.html">조직소개</a>
+      <a href="invest.html">사업개요</a>
+      <a href="safety.html">안전관리</a>
+      <a href="ai.html">AI Agent</a>
+      <a href="links.html">링크자료</a>
     </nav>
-   <div style="display:flex;align-items:center;gap:12px;">
-  <div class="update-badge" id="updateTime">Updated --</div>
-     <a href="admin.html" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='#a78bfa';this.style.borderColor='rgba(123,104,238,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'">⚙️ 관리자</a>
-
-  <button onclick="doLogout()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(239,68,68,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'">로그아웃</button>
-</div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="update-badge" id="updateTime">Updated --</div>
+      <a href="admin.html" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='#a78bfa';this.style.borderColor='rgba(123,104,238,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'">⚙️ 관리자</a>
+      <button onclick="doLogout()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(239,68,68,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'">로그아웃</button>
+    </div>
   </div>
 
   <!-- 히어로 -->
@@ -48,15 +74,85 @@
 
   <div class="main">
 
+    <!-- ── 최근실적 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">🏭</div>
+      <div class="sec-label">최근실적 · Track Record</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="track-section fade-up">
+      <div class="track-row">
+        <div class="track-rail"></div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'16</div>
+          <div class="track-name">광양 5고로<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'17</div>
+          <div class="track-name">포항 3고로<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'20</div>
+          <div class="track-name">광양 3고로<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'22</div>
+          <div class="track-name">포항 4고로<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'24</div>
+          <div class="track-name">포항 4고로<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot done"></div>
+          <div class="track-year">'25</div>
+          <div class="track-name">3FINEX<br>개수</div>
+          <div class="track-badge done-b">완료</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot current"></div>
+          <div class="track-year">'26</div>
+          <div class="track-name">광양 2고로<br>개수</div>
+          <div class="track-badge current-b">진행중</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot plan"></div>
+          <div class="track-year">'28</div>
+          <div class="track-name">PT.KP 열풍로<br>증설</div>
+          <div class="track-badge plan-b">계획</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot plan"></div>
+          <div class="track-year">'30</div>
+          <div class="track-name">PK.KP 개수<br>지원</div>
+          <div class="track-badge plan-b">계획</div>
+        </div>
+        <div class="track-item">
+          <div class="track-dot plan"></div>
+          <div class="track-year">'31</div>
+          <div class="track-name">광양 1고로<br>개수</div>
+          <div class="track-badge plan-b">계획</div>
+        </div>
+      </div>
+    </div>
+
     <!-- ── KPI ── -->
     <div class="sec-head fade-up">
       <div class="sec-icon">📊</div>
       <div class="sec-label">Key Metrics</div>
       <div class="sec-line"></div>
     </div>
-    <div class="kpi-grid fade-up" id="kpiGrid">
-      <!-- JS에서 site-data.json 읽어서 채움 -->
-    </div>
+    <div class="kpi-grid fade-up" id="kpiGrid"></div>
 
     <!-- ── 마일스톤 ── -->
     <div class="sec-head fade-up">
@@ -64,31 +160,17 @@
       <div class="sec-label">Milestone</div>
       <div class="sec-line"></div>
     </div>
-    <div class="ms-wrap fade-up">
-      <div class="ms-track" id="msTrack">
-        <div class="ms-rail"><div class="ms-rail-fill" id="msRailFill"></div></div>
-        <!-- JS에서 채움 -->
+    <div class="fade-up">
+      <div class="ms-tabs">
+        <div class="ms-tab active" onclick="switchMS('pre')">사전공사</div>
+        <div class="ms-tab" onclick="switchMS('main')">본공사</div>
       </div>
-    </div>
-
-    <!-- ── 이슈 ── -->
-    <div class="sec-head fade-up">
-      <div class="sec-icon">⚠️</div>
-      <div class="sec-label">Issues</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="issue-grid fade-up" id="issueGrid">
-      <!-- JS에서 채움 -->
-    </div>
-
-    <!-- ── 사진 ── -->
-    <div class="sec-head fade-up">
-      <div class="sec-icon">📷</div>
-      <div class="sec-label">Site Photos</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="photo-row fade-up" id="photoRow">
-      <!-- JS에서 채움 -->
+      <div class="ms-panel active" id="msPanel-pre">
+        <div class="ms-wrap"><div class="ms-track" id="msTrack-pre"><div class="ms-rail"><div class="ms-rail-fill" id="msRailFill-pre"></div></div></div></div>
+      </div>
+      <div class="ms-panel" id="msPanel-main">
+        <div class="ms-wrap"><div class="ms-track" id="msTrack-main"><div class="ms-rail"><div class="ms-rail-fill" id="msRailFill-main"></div></div></div></div>
+      </div>
     </div>
 
     <!-- ── 서브페이지 커버 카드 ── -->
@@ -97,36 +179,37 @@
       <div class="sec-label">Explore</div>
       <div class="sec-line"></div>
     </div>
-    <div class="cover-grid fade-up">
-      <a class="cover-card" href="history.html">
-        <div class="cover-arrow">→</div>
-        <div class="cover-top"><div class="glow g-purple"></div><div class="emoji">🏭</div></div>
-        <div class="cover-bottom"><div class="cover-name">포스코 고로 역사</div><div class="cover-desc">1973 포항 1고로부터 현재까지 반세기</div></div>
-      </a>
-      <a class="cover-card" href="invest.html">
-        <div class="cover-arrow">→</div>
-        <div class="cover-top"><div class="glow g-cyan"></div><div class="emoji">📐</div></div>
-        <div class="cover-bottom"><div class="cover-name">투자범위</div><div class="cover-desc">전면 vs 부분개수 비교, 교체 항목</div></div>
-      </a>
+    <div class="cover-grid fade-up" style="grid-template-columns:repeat(5,1fr)">
       <a class="cover-card" href="team.html">
         <div class="cover-arrow">→</div>
         <div class="cover-top"><div class="glow g-green"></div><div class="emoji">👥</div></div>
         <div class="cover-bottom"><div class="cover-name">조직소개</div><div class="cover-desc">고로개수TF 팀원 및 협업 조직</div></div>
+      </a>
+      <a class="cover-card" href="invest.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-cyan"></div><div class="emoji">📐</div></div>
+        <div class="cover-bottom"><div class="cover-name">사업개요</div><div class="cover-desc">투자범위 · 교체항목 · 공사 개요</div></div>
+      </a>
+      <a class="cover-card" href="safety.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow" style="background:#f59e0b"></div><div class="emoji">🛡️</div></div>
+        <div class="cover-bottom"><div class="cover-name">안전관리</div><div class="cover-desc">안전 지표 · 중대재해 관리 · 점검</div></div>
       </a>
       <a class="cover-card" href="ai.html">
         <div class="cover-arrow">→</div>
         <div class="cover-top"><div class="glow g-pink"></div><div class="emoji">🤖</div></div>
         <div class="cover-bottom"><div class="cover-name">AI Agent</div><div class="cover-desc">TF 추진 AI 과제 6건+</div></div>
       </a>
+      <a class="cover-card" href="links.html">
+        <div class="cover-arrow">→</div>
+        <div class="cover-top"><div class="glow g-purple"></div><div class="emoji">🔗</div></div>
+        <div class="cover-bottom"><div class="cover-name">링크자료</div><div class="cover-desc">사내 시스템 · 문서 · 외부 링크</div></div>
+      </a>
     </div>
 
   </div>
 
-  <!-- 푸터 -->
-  <div class="footer">
-    © 2026 고로개수TF · POSCO Gwangyang Steelworks · Blast Furnace #2 Partial Reline
-  </div>
-
+  <div class="footer">© 2026 고로개수TF · POSCO Gwangyang Steelworks · Blast Furnace #2 Partial Reline</div>
 </div>
 
 <script src="js/auth.js"></script>
