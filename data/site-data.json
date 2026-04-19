@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026. 4. 19. 오후 3:34:01"
+    "updatedAt": "2026. 4. 19. 오후 3:43:55"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -19,7 +19,7 @@
     "name": "광양 2고로 2차 부분개수",
     "progress": 75,
     "budgetTotal": 1000,
-    "budgetSpent": 955,
+    "budgetSpent": 920,
     "severeAccident": 0,
     "safetyScore": 14.7,
     "safetyScoreSub": "/ 15점 만점",
@@ -90,24 +90,24 @@
   "milestones": [
     {
       "phase": "사전공사",
-      "name": "항목1",
-      "planDate": "2026-01-01",
-      "actualDate": null,
-      "status": "예정"
+      "name": "본체설계",
+      "planDate": "2025-06-30",
+      "actualDate": "2025-06-14",
+      "status": "완료"
     },
     {
       "phase": "사전공사",
-      "name": "항목2",
-      "planDate": "2026-02-01",
-      "actualDate": null,
-      "status": "예정"
+      "name": "철피생산",
+      "planDate": "2025-07-30",
+      "actualDate": "2025-07-17",
+      "status": "완료"
     },
     {
       "phase": "사전공사",
-      "name": "항목3",
+      "name": "Hearth철피입고",
       "planDate": "2026-03-01",
-      "actualDate": null,
-      "status": "예정"
+      "actualDate": "2026-02-17",
+      "status": "완료"
     },
     {
       "phase": "본공사",
@@ -127,6 +127,27 @@
       "phase": "본공사",
       "name": "항목3",
       "planDate": "2026-12-01",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "사전공사",
+      "name": "Top Cone입고",
+      "planDate": "2026-07-31",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "사전공사",
+      "name": "철피 지조립 완료",
+      "planDate": "2026-11-07",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "사전공사",
+      "name": "본체 상개조 & 보강 완료",
+      "planDate": "2026-11-11",
       "actualDate": null,
       "status": "예정"
     }
