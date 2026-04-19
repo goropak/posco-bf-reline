@@ -4,6 +4,17 @@
     "subtitle": "광양 2고로 부분개수 투자 관리",
     "updatedAt": "2026-04-19 09:00"
   },
+  "hero": {
+    "badge": "광양제철소 제2고로 · 부분개수 · 진행중",
+    "title": "광양 2고로<br>부분개수 프로젝트",
+    "desc": "내용적 4,350m³ · 연산 435만톤<br>냉각장치 + 내화물 교체 · 투자 약 1,000억원"
+  },
+  "sectionTitles": {
+    "trackRecord": "최근실적 · Track Record",
+    "keyMetrics": "Key Metrics",
+    "milestone": "Milestone",
+    "explore": "Explore"
+  },
   "project": {
     "name": "광양 2고로 2차 부분개수",
     "progress": 75,
@@ -14,6 +25,18 @@
     "safetyScoreSub": "/ 15점 만점",
     "targetDate": "2026-12-31"
   },
+  "trackRecord": [
+    { "year": "'16", "line1": "광양 5고로", "line2": "개수", "status": "done" },
+    { "year": "'17", "line1": "포항 3고로", "line2": "개수", "status": "done" },
+    { "year": "'20", "line1": "광양 3고로", "line2": "개수", "status": "done" },
+    { "year": "'22", "line1": "포항 4고로", "line2": "개수", "status": "done" },
+    { "year": "'24", "line1": "포항 4고로", "line2": "개수", "status": "done" },
+    { "year": "'25", "line1": "3FINEX", "line2": "개수", "status": "done" },
+    { "year": "'26", "line1": "광양 2고로", "line2": "개수", "status": "current" },
+    { "year": "'28", "line1": "PT.KP 열풍로", "line2": "증설", "status": "plan" },
+    { "year": "'30", "line1": "PK.KP 개수", "line2": "지원", "status": "plan" },
+    { "year": "'31", "line1": "광양 1고로", "line2": "개수", "status": "plan" }
+  ],
   "milestones": [
     { "phase": "사전공사", "name": "항목1", "planDate": "2026-01-01", "actualDate": null, "status": "예정" },
     { "phase": "사전공사", "name": "항목2", "planDate": "2026-02-01", "actualDate": null, "status": "예정" },
@@ -29,12 +52,7 @@
       { "name": "이OO", "title": "대리", "role": "설비기술", "photo": "" },
       { "name": "박OO", "title": "대리", "role": "공정관리", "photo": "" }
     ],
-    "relatedOrgs": [
-      "포스코이앤씨",
-      "포스코퓨처엠",
-      "광양제철소 제선부",
-      "광양제철소 설비부"
-    ]
+    "relatedOrgs": ["포스코이앤씨", "포스코퓨처엠", "광양제철소 제선부", "광양제철소 설비부"]
   },
   "aiAgents": [
     { "id": 1, "name": "노황예측 AI", "summary": "고로 내부 상태를 실시간 예측하여 조업 최적화", "status": "운영중", "detail": "센서 데이터 기반 LSTM 모델로 노황 지수를 30분 전 예측" },
