@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026. 4. 20. 오전 7:29:15"
+    "updatedAt": "2026. 4. 20. 오전 7:29:29"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -508,7 +508,7 @@
     },
     {
       "category": "사내 시스템",
-      "name": "공정관리 (EDMS)",
+      "name": "공정관리 ",
       "url": "http://edms.posco.co.kr/project/bf2",
       "desc": "공정 관리 문서"
     },
