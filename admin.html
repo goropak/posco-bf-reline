@@ -21,8 +21,9 @@
 .field textarea{resize:vertical;min-height:60px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.ms-row{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1fr;gap:10px;align-items:end;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.row4{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1fr;gap:10px;align-items:end;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .issue-block{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:16px;margin-bottom:12px}
+.link-block{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:16px;margin-bottom:12px}
 .btn-row{display:flex;gap:10px;margin-top:24px}
 .btn-save{padding:14px 32px;background:linear-gradient(135deg,#7b68ee,#06b6d4);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
 .btn-save:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,104,238,.3)}
@@ -35,10 +36,10 @@
 .toast.success{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6ee7b7}
 .toast.error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#fca5a5}
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.token-section{margin-bottom:20px}
 .token-input{display:flex;gap:10px}
 .token-input input{flex:1}
 .token-input button{padding:10px 20px;background:rgba(123,104,238,.15);border:1px solid rgba(123,104,238,.3);border-radius:10px;color:#a78bfa;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.phase-label{font-size:12px;font-weight:700;color:#fb923c;margin:16px 0 8px;padding:6px 12px;background:rgba(249,115,22,.1);border-radius:8px;display:inline-block}
 </style>
 </head>
 <body>
@@ -49,8 +50,8 @@
   <a href="dashboard.html" class="admin-back">← 대시보드로 돌아가기</a>
 </div>
 
-<!-- 토큰 설정 -->
-<div class="section token-section">
+<!-- 토큰 -->
+<div class="section">
   <div class="section-title">🔑 GitHub 토큰 (최초 1회 설정)</div>
   <div class="token-input">
     <input type="password" id="ghToken" placeholder="ghp_xxxx... 토큰 붙여넣기">
@@ -59,7 +60,7 @@
   <div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px" id="tokenStatus">토큰이 설정되지 않았습니다</div>
 </div>
 
-<!-- 프로젝트 KPI -->
+<!-- KPI -->
 <div class="section">
   <div class="section-title">📊 프로젝트 KPI</div>
   <div class="row3">
@@ -68,31 +69,31 @@
     <div class="field"><label>집행 예산 (억원)</label><input type="number" id="budgetSpent"></div>
   </div>
   <div class="row3">
-    <div class="field"><label>무재해 일수</label><input type="number" id="safetyDays"></div>
-    <div class="field"><label>핵심 이슈 건수</label><input type="number" id="issueCount"></div>
+    <div class="field"><label>중대재해 (건)</label><input type="number" id="severeAccident"></div>
+    <div class="field"><label>안전과정지표 (점)</label><input type="number" id="safetyScore" step="0.1"></div>
     <div class="field"><label>목표일</label><input type="text" id="targetDate" placeholder="2026-12-31"></div>
   </div>
 </div>
 
-<!-- 마일스톤 -->
+<!-- 마일스톤 사전공사 -->
 <div class="section">
-  <div class="section-title">🗓️ 마일스톤 <button class="btn-add" onclick="addMilestone()" style="margin-left:auto">+ 추가</button></div>
-  <div id="msContainer"></div>
+  <div class="section-title">🗓️ 마일스톤 — 사전공사 <button class="btn-add" onclick="addMS('사전공사')" style="margin-left:auto">+ 추가</button></div>
+  <div id="msContainer-pre"></div>
 </div>
 
-<!-- 이슈 -->
+<!-- 마일스톤 본공사 -->
 <div class="section">
-  <div class="section-title">⚠️ 이슈 <button class="btn-add" onclick="addIssue()" style="margin-left:auto">+ 추가</button></div>
-  <div id="issueContainer"></div>
+  <div class="section-title">🗓️ 마일스톤 — 본공사 <button class="btn-add" onclick="addMS('본공사')" style="margin-left:auto">+ 추가</button></div>
+  <div id="msContainer-main"></div>
 </div>
 
-<!-- 사진 -->
+<!-- 링크자료 -->
 <div class="section">
-  <div class="section-title">📷 현장 사진 <button class="btn-add" onclick="addPhoto()" style="margin-left:auto">+ 추가</button></div>
-  <div id="photoContainer"></div>
+  <div class="section-title">🔗 링크자료 <button class="btn-add" onclick="addLink()" style="margin-left:auto">+ 추가</button></div>
+  <div id="linkContainer"></div>
 </div>
 
-<!-- 저장 버튼 -->
+<!-- 저장 -->
 <div class="btn-row">
   <button class="btn-save" onclick="saveToGitHub()">💾 GitHub에 저장 (바로 반영)</button>
   <button class="btn-copy" onclick="copyJSON()">📋 JSON 복사</button>
@@ -104,13 +105,12 @@
 <script src="js/auth.js"></script>
 <script>
 checkAuth();
+var REPO_OWNER='goropak';
+var REPO_NAME='posco-bf-reline';
+var FILE_PATH='data/site-data.json';
+var siteData=null;
 
-const REPO_OWNER = 'goropak';
-const REPO_NAME = 'posco-bf-reline';
-const FILE_PATH = 'data/site-data.json';
-var siteData = null;
-
-/* 토큰 관리 */
+/* 토큰 */
 function saveToken(){
   var t=document.getElementById('ghToken').value.trim();
   if(!t){showToast('토큰을 입력하세요','error');return;}
@@ -130,10 +130,7 @@ function updateTokenStatus(){
 function loadData(){
   fetch('data/site-data.json?t='+Date.now())
     .then(function(r){return r.json();})
-    .then(function(d){
-      siteData=d;
-      fillForm(d);
-    })
+    .then(function(d){siteData=d;fillForm(d);})
     .catch(function(e){showToast('데이터 로드 실패: '+e,'error');});
 }
 
@@ -142,129 +139,117 @@ function fillForm(d){
   document.getElementById('progress').value=p.progress||0;
   document.getElementById('budgetTotal').value=p.budgetTotal||0;
   document.getElementById('budgetSpent').value=p.budgetSpent||0;
-  document.getElementById('safetyDays').value=p.safetyDays||0;
-  document.getElementById('issueCount').value=p.issueCount||0;
+  document.getElementById('severeAccident').value=p.severeAccident||0;
+  document.getElementById('safetyScore').value=p.safetyScore||0;
   document.getElementById('targetDate').value=p.targetDate||'';
-  renderMilestones(d.milestones||[]);
-  renderIssues(d.issues||[]);
-  renderPhotos(d.photos||[]);
+  var pre=(d.milestones||[]).filter(function(m){return m.phase==='사전공사';});
+  var main=(d.milestones||[]).filter(function(m){return m.phase==='본공사';});
+  renderMSAdmin('pre',pre);
+  renderMSAdmin('main',main);
+  renderLinks(d.links||[]);
 }
 
-/* 마일스톤 */
-function renderMilestones(list){
-  var c=document.getElementById('msContainer');
+/* 마일스톤 관리 */
+function renderMSAdmin(type,list){
+  var c=document.getElementById('msContainer-'+type);
   c.innerHTML='';
   list.forEach(function(m,i){
     var div=document.createElement('div');
-    div.className='ms-row';
-    div.innerHTML='<div class="field"><label>이름</label><input data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div>'
-      +'<div class="field"><label>계획일</label><input data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div>'
-      +'<div class="field"><label>실적일</label><input data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div>'
-      +'<div class="field"><label>상태</label><select data-ms="'+i+'" data-key="status">'
+    div.className='row4';
+    div.innerHTML='<div class="field"><label>이름</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div>'
+      +'<div class="field"><label>계획일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div>'
+      +'<div class="field"><label>실적일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div>'
+      +'<div class="field"><label>상태</label><select data-ms-type="'+type+'" data-ms="'+i+'" data-key="status">'
       +'<option value="완료"'+(m.status==='완료'?' selected':'')+'>완료</option>'
       +'<option value="진행중"'+(m.status==='진행중'?' selected':'')+'>진행중</option>'
       +'<option value="예정"'+(m.status==='예정'?' selected':'')+'>예정</option>'
-      +'</select><button class="btn-del" style="margin-top:6px" onclick="delMilestone('+i+')">삭제</button></div>';
+      +'</select><button class="btn-del" style="margin-top:6px" onclick="delMS(\''+type+'\','+i+')">삭제</button></div>';
     c.appendChild(div);
   });
 }
-function addMilestone(){
+
+function addMS(phase){
   if(!siteData.milestones) siteData.milestones=[];
-  siteData.milestones.push({name:'',planDate:'',actualDate:null,status:'예정'});
-  renderMilestones(siteData.milestones);
-}
-function delMilestone(i){
-  siteData.milestones.splice(i,1);
-  renderMilestones(siteData.milestones);
+  siteData.milestones.push({phase:phase,name:'',planDate:'',actualDate:null,status:'예정'});
+  var type=phase==='사전공사'?'pre':'main';
+  var list=siteData.milestones.filter(function(m){return m.phase===phase;});
+  renderMSAdmin(type,list);
 }
 
-/* 이슈 */
-function renderIssues(list){
-  var c=document.getElementById('issueContainer');
+function delMS(type,i){
+  var phase=type==='pre'?'사전공사':'본공사';
+  var list=siteData.milestones.filter(function(m){return m.phase===phase;});
+  var target=list[i];
+  var idx=siteData.milestones.indexOf(target);
+  if(idx!==-1) siteData.milestones.splice(idx,1);
+  list=siteData.milestones.filter(function(m){return m.phase===phase;});
+  renderMSAdmin(type,list);
+}
+
+/* 링크 관리 */
+function renderLinks(list){
+  var c=document.getElementById('linkContainer');
   c.innerHTML='';
-  list.forEach(function(issue,i){
+  list.forEach(function(link,i){
     var div=document.createElement('div');
-    div.className='issue-block';
+    div.className='link-block';
     div.innerHTML='<div class="row" style="margin-bottom:10px">'
-      +'<div class="field"><label>제목</label><input data-iss="'+i+'" data-key="title" value="'+(issue.title||'')+'"></div>'
-      +'<div class="field"><label>등급</label><select data-iss="'+i+'" data-key="level">'
-      +'<option value="red"'+(issue.level==='red'?' selected':'')+'>🔴 긴급</option>'
-      +'<option value="yellow"'+(issue.level==='yellow'?' selected':'')+'>🟡 주의</option>'
-      +'<option value="green"'+(issue.level==='green'?' selected':'')+'>🟢 완료</option>'
-      +'</select></div></div>'
-      +'<div class="field"><label>조치사항</label><textarea data-iss="'+i+'" data-key="action">'+(issue.action||'')+'</textarea></div>'
-      +'<div class="row"><div class="field"><label>기한</label><input data-iss="'+i+'" data-key="dueDate" value="'+(issue.dueDate||'')+'"></div>'
-      +'<div style="display:flex;align-items:end"><button class="btn-del" onclick="delIssue('+i+')">삭제</button></div></div>';
+      +'<div class="field"><label>이름</label><input data-lnk="'+i+'" data-key="name" value="'+(link.name||'')+'"></div>'
+      +'<div class="field"><label>카테고리</label><input data-lnk="'+i+'" data-key="category" value="'+(link.category||'')+'"></div></div>'
+      +'<div class="row" style="margin-bottom:10px">'
+      +'<div class="field"><label>URL</label><input data-lnk="'+i+'" data-key="url" value="'+(link.url||'')+'"></div>'
+      +'<div class="field"><label>설명</label><input data-lnk="'+i+'" data-key="desc" value="'+(link.desc||'')+'"></div></div>'
+      +'<button class="btn-del" onclick="delLink('+i+')">삭제</button>';
     c.appendChild(div);
   });
 }
-function addIssue(){
-  if(!siteData.issues) siteData.issues=[];
-  var newId=siteData.issues.length>0?Math.max.apply(null,siteData.issues.map(function(x){return x.id||0;}))+1:1;
-  siteData.issues.push({id:newId,level:'yellow',title:'',action:'',dueDate:''});
-  renderIssues(siteData.issues);
-}
-function delIssue(i){
-  siteData.issues.splice(i,1);
-  renderIssues(siteData.issues);
+
+function addLink(){
+  if(!siteData.links) siteData.links=[];
+  siteData.links.push({category:'',name:'',url:'',desc:''});
+  renderLinks(siteData.links);
 }
 
-/* 사진 */
-function renderPhotos(list){
-  var c=document.getElementById('photoContainer');
-  c.innerHTML='';
-  list.forEach(function(p,i){
-    var div=document.createElement('div');
-    div.className='ms-row';
-    div.innerHTML='<div class="field"><label>캡션</label><input data-ph="'+i+'" data-key="caption" value="'+(p.caption||'')+'"></div>'
-      +'<div class="field"><label>날짜</label><input data-ph="'+i+'" data-key="date" value="'+(p.date||'')+'"></div>'
-      +'<div class="field"><label>파일명</label><input data-ph="'+i+'" data-key="filename" value="'+(p.filename||'')+'"></div>'
-      +'<div style="display:flex;align-items:end"><button class="btn-del" onclick="delPhoto('+i+')">삭제</button></div>';
-    c.appendChild(div);
-  });
-}
-function addPhoto(){
-  if(!siteData.photos) siteData.photos=[];
-  siteData.photos.push({filename:'',caption:'',date:''});
-  renderPhotos(siteData.photos);
-}
-function delPhoto(i){
-  siteData.photos.splice(i,1);
-  renderPhotos(siteData.photos);
+function delLink(i){
+  siteData.links.splice(i,1);
+  renderLinks(siteData.links);
 }
 
-/* 폼에서 데이터 수집 */
+/* 데이터 수집 */
 function collectData(){
   siteData.meta.updatedAt=new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'});
   siteData.project.progress=parseInt(document.getElementById('progress').value)||0;
   siteData.project.budgetTotal=parseInt(document.getElementById('budgetTotal').value)||0;
   siteData.project.budgetSpent=parseInt(document.getElementById('budgetSpent').value)||0;
-  siteData.project.safetyDays=parseInt(document.getElementById('safetyDays').value)||0;
-  siteData.project.issueCount=parseInt(document.getElementById('issueCount').value)||0;
+  siteData.project.severeAccident=parseInt(document.getElementById('severeAccident').value)||0;
+  siteData.project.safetyScore=parseFloat(document.getElementById('safetyScore').value)||0;
   siteData.project.targetDate=document.getElementById('targetDate').value;
 
-  document.querySelectorAll('[data-ms]').forEach(function(el){
-    var i=parseInt(el.getAttribute('data-ms'));
-    var k=el.getAttribute('data-key');
-    if(siteData.milestones[i]) siteData.milestones[i][k]=el.value||(k==='actualDate'?null:'');
+  /* 마일스톤 수집 */
+  ['pre','main'].forEach(function(type){
+    var phase=type==='pre'?'사전공사':'본공사';
+    var list=siteData.milestones.filter(function(m){return m.phase===phase;});
+    document.querySelectorAll('[data-ms-type="'+type+'"]').forEach(function(el){
+      var i=parseInt(el.getAttribute('data-ms'));
+      var k=el.getAttribute('data-key');
+      if(list[i]){
+        if(k==='actualDate'){list[i][k]=el.value||null;}
+        else{list[i][k]=el.value;}
+      }
+    });
   });
 
-  document.querySelectorAll('[data-iss]').forEach(function(el){
-    var i=parseInt(el.getAttribute('data-iss'));
+  /* 링크 수집 */
+  document.querySelectorAll('[data-lnk]').forEach(function(el){
+    var i=parseInt(el.getAttribute('data-lnk'));
     var k=el.getAttribute('data-key');
-    if(siteData.issues[i]) siteData.issues[i][k]=el.tagName==='TEXTAREA'?el.value:el.value;
-  });
-
-  document.querySelectorAll('[data-ph]').forEach(function(el){
-    var i=parseInt(el.getAttribute('data-ph'));
-    var k=el.getAttribute('data-key');
-    if(siteData.photos[i]) siteData.photos[i][k]=el.value;
+    if(siteData.links[i]) siteData.links[i][k]=el.value;
   });
 
   return siteData;
 }
 
-/* GitHub API 저장 */
+/* GitHub 저장 */
 function saveToGitHub(){
   var token=localStorage.getItem('gh_pat');
   if(!token){showToast('먼저 GitHub 토큰을 설정하세요','error');return;}
@@ -278,7 +263,7 @@ function saveToGitHub(){
       return fetch(url,{
         method:'PUT',
         headers:{'Authorization':'token '+token,'Content-Type':'application/json'},
-        body:JSON.stringify({message:'데이터 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})
+        body:JSON.stringify({message:'관리자 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})
       });
     })
     .then(function(r){
@@ -288,16 +273,13 @@ function saveToGitHub(){
     .catch(function(e){showToast('오류: '+e,'error');});
 }
 
-/* JSON 클립보드 복사 */
 function copyJSON(){
   var data=collectData();
-  var text=JSON.stringify(data,null,2);
-  navigator.clipboard.writeText(text).then(function(){
-    showToast('📋 JSON 복사 완료! GitHub에 붙여넣기하세요','success');
+  navigator.clipboard.writeText(JSON.stringify(data,null,2)).then(function(){
+    showToast('📋 JSON 복사 완료!','success');
   });
 }
 
-/* 토스트 */
 function showToast(msg,type){
   var t=document.getElementById('toast');
   t.textContent=msg;
@@ -306,7 +288,6 @@ function showToast(msg,type){
   setTimeout(function(){t.style.display='none';},4000);
 }
 
-/* 초기화 */
 updateTokenStatus();
 loadData();
 </script>
