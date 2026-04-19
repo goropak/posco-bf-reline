@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026. 4. 19. 오후 3:43:55"
+    "updatedAt": "2026. 4. 19. 오후 3:48:27"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -111,22 +111,22 @@
     },
     {
       "phase": "본공사",
-      "name": "항목1",
-      "planDate": "2026-06-01",
+      "name": "노저출선",
+      "planDate": "2026-11-13",
       "actualDate": null,
       "status": "예정"
     },
     {
       "phase": "본공사",
-      "name": "항목2",
-      "planDate": "2026-08-01",
+      "name": "주수냉각",
+      "planDate": "2026-11-16",
       "actualDate": null,
       "status": "예정"
     },
     {
       "phase": "본공사",
-      "name": "항목3",
-      "planDate": "2026-12-01",
+      "name": "철거완료",
+      "planDate": "2027-01-13",
       "actualDate": null,
       "status": "예정"
     },
@@ -148,6 +148,27 @@
       "phase": "사전공사",
       "name": "본체 상개조 & 보강 완료",
       "planDate": "2026-11-11",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "기초개조",
+      "planDate": "2027-01-15",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "본체설치",
+      "planDate": "2027-03-16",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "화입준비",
+      "planDate": "2027-03-23",
       "actualDate": null,
       "status": "예정"
     }
