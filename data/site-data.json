@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026. 4. 19. 오후 3:48:27"
+    "updatedAt": "2026. 4. 20. 오전 6:42:55"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -17,7 +17,7 @@
   },
   "project": {
     "name": "광양 2고로 2차 부분개수",
-    "progress": 75,
+    "progress": 14,
     "budgetTotal": 1000,
     "budgetSpent": 920,
     "severeAccident": 0,
