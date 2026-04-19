@@ -22,8 +22,8 @@
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 .row4{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1fr;gap:10px;align-items:end;padding:10px 0;border-bottom:1px solid #f3f4f6}
-.link-block{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
-.btn-row{display:flex;gap:10px;margin-top:24px}
+.item-block{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
+.btn-row{display:flex;gap:10px;margin-top:24px;position:sticky;bottom:20px;z-index:50;background:#f5f6fa;padding:16px 0;border-top:1px solid #e5e7eb}
 .btn-save{padding:14px 32px;background:linear-gradient(135deg,#2563eb,#7c3aed);border:none;border-radius:12px;color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
 .btn-save:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
 .btn-copy{padding:14px 32px;background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;color:#555;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
@@ -38,7 +38,13 @@
 .token-input{display:flex;gap:10px}
 .token-input input{flex:1}
 .token-input button{padding:10px 20px;background:#e0e7ff;border:none;border-radius:10px;color:#4338ca;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
-.track-block{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
+.nav-tabs{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap}
+.nav-tab{padding:8px 16px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid #e5e7eb;background:#fff;color:#888;transition:all .2s}
+.nav-tab.active{background:#e0e7ff;border-color:#818cf8;color:#4338ca}
+.nav-tab:hover{border-color:#a5b4fc}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.sub-title{font-size:.78rem;font-weight:700;color:#999;margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid #f3f4f6}
 </style>
 </head>
 <body>
@@ -51,14 +57,21 @@
 <!-- 토큰 -->
 <div class="section">
   <div class="section-title">🔑 GitHub 토큰 (최초 1회)</div>
-  <div class="token-input">
-    <input type="password" id="ghToken" placeholder="ghp_xxxx... 토큰 붙여넣기">
-    <button onclick="saveToken()">저장</button>
-  </div>
+  <div class="token-input"><input type="password" id="ghToken" placeholder="ghp_xxxx... 토큰 붙여넣기"><button onclick="saveToken()">저장</button></div>
   <div style="font-size:.72rem;color:#999;margin-top:8px" id="tokenStatus">토큰이 설정되지 않았습니다</div>
 </div>
 
-<!-- 히어로 문구 -->
+<!-- 탭 네비게이션 -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="switchTab('dashboard')">📊 대시보드</div>
+  <div class="nav-tab" onclick="switchTab('safety')">🛡️ 안전관리</div>
+  <div class="nav-tab" onclick="switchTab('ai')">🤖 AI Agent</div>
+  <div class="nav-tab" onclick="switchTab('links')">🔗 링크자료</div>
+</div>
+
+<!-- ═══ 대시보드 탭 ═══ -->
+<div class="tab-panel active" id="tab-dashboard">
+
 <div class="section">
   <div class="section-title">🎯 메인 화면 문구</div>
   <div class="field"><label>상단 뱃지</label><input type="text" id="heroBadge"></div>
@@ -66,20 +79,12 @@
   <div class="field"><label>설명 (줄바꿈: &lt;br&gt;)</label><textarea id="heroDesc"></textarea></div>
 </div>
 
-<!-- 섹션 제목 -->
 <div class="section">
   <div class="section-title">📌 섹션 제목</div>
-  <div class="row">
-    <div class="field"><label>최근실적</label><input type="text" id="secTrackRecord"></div>
-    <div class="field"><label>Key Metrics</label><input type="text" id="secKeyMetrics"></div>
-  </div>
-  <div class="row">
-    <div class="field"><label>마일스톤</label><input type="text" id="secMilestone"></div>
-    <div class="field"><label>Explore</label><input type="text" id="secExplore"></div>
-  </div>
+  <div class="row"><div class="field"><label>최근실적</label><input type="text" id="secTrackRecord"></div><div class="field"><label>Key Metrics</label><input type="text" id="secKeyMetrics"></div></div>
+  <div class="row"><div class="field"><label>마일스톤</label><input type="text" id="secMilestone"></div><div class="field"><label>Explore</label><input type="text" id="secExplore"></div></div>
 </div>
 
-<!-- KPI -->
 <div class="section">
   <div class="section-title">📊 프로젝트 KPI</div>
   <div class="row3">
@@ -90,185 +95,202 @@
   <div class="row3">
     <div class="field"><label>중대재해 (건)</label><input type="number" id="severeAccident"></div>
     <div class="field"><label>안전과정지표 (점)</label><input type="number" id="safetyScore" step="0.1"></div>
-    <div class="field"><label>목표일</label><input type="text" id="targetDate" placeholder="2026-12-31"></div>
+    <div class="field"><label>목표일</label><input type="text" id="targetDate" placeholder="2027-03-24"></div>
   </div>
 </div>
 
-<!-- 최근실적 -->
 <div class="section">
   <div class="section-title">🏭 최근실적 <button class="btn-add" onclick="addTrack()" style="margin-left:auto">+ 추가</button></div>
   <div id="trackContainer"></div>
 </div>
 
-<!-- 마일스톤 사전공사 -->
 <div class="section">
   <div class="section-title">🗓️ 마일스톤 — 사전공사 <button class="btn-add" onclick="addMS('사전공사')" style="margin-left:auto">+ 추가</button></div>
   <div id="msContainer-pre"></div>
 </div>
 
-<!-- 마일스톤 본공사 -->
 <div class="section">
   <div class="section-title">🗓️ 마일스톤 — 본공사 <button class="btn-add" onclick="addMS('본공사')" style="margin-left:auto">+ 추가</button></div>
   <div id="msContainer-main"></div>
 </div>
 
-<!-- 링크자료 -->
+</div><!-- /tab-dashboard -->
+
+<!-- ═══ 안전관리 탭 ═══ -->
+<div class="tab-panel" id="tab-safety">
+
+<div class="section">
+  <div class="section-title">🛡️ 안전관리 히어로 문구</div>
+  <div class="field"><label>제목</label><input type="text" id="sfHeroTitle"></div>
+  <div class="field"><label>설명</label><textarea id="sfHeroDesc"></textarea></div>
+</div>
+
+<div class="section">
+  <div class="section-title">📊 안전 KPI</div>
+  <div class="row3">
+    <div class="field"><label>중대재해 (건)</label><input type="number" id="sfAccident"></div>
+    <div class="field"><label>LTIFR</label><input type="number" id="sfLtifr" step="0.01"></div>
+    <div class="field"><label>LTIFR 목표</label><input type="number" id="sfLtifrTarget" step="0.01"></div>
+  </div>
+  <div class="row3">
+    <div class="field"><label>LTIFR 참고</label><input type="text" id="sfLtifrRef"></div>
+    <div class="field"><label>과정지표 점수</label><input type="number" id="sfProcessScore" step="0.1"></div>
+    <div class="field"><label>과정지표 만점</label><input type="number" id="sfProcessMax"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📋 위험성평가 충실도 항목</div>
+  <div class="row"><div class="field"><label>총점</label><input type="number" id="sfRA_score" step="0.01"></div><div class="field"><label>만점</label><input type="number" id="sfRA_max"></div></div>
+  <div id="sfRA_items"></div>
+  <button class="btn-add" onclick="addSfItem('riskAssessment')" style="margin-top:8px">+ 항목 추가</button>
+</div>
+
+<div class="section">
+  <div class="section-title">📋 TBM 운영 내실화 항목</div>
+  <div class="row"><div class="field"><label>총점</label><input type="number" id="sfTBM_score" step="0.01"></div><div class="field"><label>만점</label><input type="number" id="sfTBM_max"></div></div>
+  <div id="sfTBM_items"></div>
+  <button class="btn-add" onclick="addSfItem('tbm')" style="margin-top:8px">+ 항목 추가</button>
+</div>
+
+<div class="section">
+  <div class="section-title">📋 불안전상태 개선율 항목</div>
+  <div class="row"><div class="field"><label>총점</label><input type="number" id="sfIMP_score" step="0.01"></div><div class="field"><label>만점</label><input type="number" id="sfIMP_max"></div></div>
+  <div id="sfIMP_items"></div>
+  <button class="btn-add" onclick="addSfItem('improvement')" style="margin-top:8px">+ 항목 추가</button>
+</div>
+
+<div class="section">
+  <div class="section-title">🔍 안전감시자</div>
+  <div class="row"><div class="field"><label>점수</label><input type="number" id="sfMonitorScore" step="0.1"></div><div class="field"><label>만점</label><input type="number" id="sfMonitorMax"></div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">💬 슬로건</div>
+  <div class="field"><label>하단 메시지</label><textarea id="sfSlogan"></textarea></div>
+</div>
+
+</div><!-- /tab-safety -->
+
+<!-- ═══ AI Agent 탭 ═══ -->
+<div class="tab-panel" id="tab-ai">
+<div class="section">
+  <div class="section-title">🤖 AI 과제 <button class="btn-add" onclick="addAI()" style="margin-left:auto">+ 추가</button></div>
+  <div id="aiContainer"></div>
+</div>
+</div>
+
+<!-- ═══ 링크자료 탭 ═══ -->
+<div class="tab-panel" id="tab-links">
 <div class="section">
   <div class="section-title">🔗 링크자료 <button class="btn-add" onclick="addLink()" style="margin-left:auto">+ 추가</button></div>
   <div id="linkContainer"></div>
 </div>
+</div>
 
 <!-- 저장 -->
 <div class="btn-row">
-  <button class="btn-save" onclick="saveToGitHub()">💾 GitHub에 저장 (바로 반영)</button>
+  <button class="btn-save" onclick="saveToGitHub()">💾 GitHub에 저장</button>
   <button class="btn-copy" onclick="copyJSON()">📋 JSON 복사</button>
 </div>
 </div>
 
 <div class="toast" id="toast"></div>
-
 <script src="js/auth.js"></script>
 <script>
 checkAuth();
 var REPO_OWNER='goropak',REPO_NAME='posco-bf-reline',FILE_PATH='data/site-data.json';
 var siteData=null;
 
+/* 탭 전환 */
+function switchTab(name){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('tab-'+name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+/* 토큰 */
 function saveToken(){var t=document.getElementById('ghToken').value.trim();if(!t){showToast('토큰을 입력하세요','error');return;}localStorage.setItem('gh_pat',t);document.getElementById('ghToken').value='';updateTokenStatus();showToast('토큰 저장 완료!','success');}
 function updateTokenStatus(){var t=localStorage.getItem('gh_pat');var el=document.getElementById('tokenStatus');if(t){el.textContent='✅ 토큰 설정됨 (ghp_...'+t.slice(-4)+')';el.style.color='#16a34a';}else{el.textContent='토큰이 설정되지 않았습니다';el.style.color='#999';}}
 
-function loadData(){fetch('data/site-data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){siteData=d;fillForm(d);}).catch(function(e){showToast('데이터 로드 실패: '+e,'error');});}
+/* 데이터 로드 */
+function loadData(){fetch('data/site-data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){siteData=d;if(!siteData.safety)siteData.safety={heroTitle:'',heroDesc:'',kpi:{},processDetail:{riskAssessment:{label:'',score:0,max:5,items:[]},tbm:{label:'',score:0,max:5,items:[]},improvement:{label:'',score:0,max:5,items:[]}},monitorScore:0,monitorMax:5,slogan:''};fillAll(d);}).catch(function(e){showToast('로드 실패: '+e,'error');});}
 
-function fillForm(d){
-  var h=d.hero||{};
-  document.getElementById('heroBadge').value=h.badge||'';
-  document.getElementById('heroTitle').value=h.title||'';
-  document.getElementById('heroDesc').value=h.desc||'';
-  var s=d.sectionTitles||{};
-  document.getElementById('secTrackRecord').value=s.trackRecord||'';
-  document.getElementById('secKeyMetrics').value=s.keyMetrics||'';
-  document.getElementById('secMilestone').value=s.milestone||'';
-  document.getElementById('secExplore').value=s.explore||'';
-  var p=d.project||{};
-  document.getElementById('progress').value=p.progress||0;
-  document.getElementById('budgetTotal').value=p.budgetTotal||0;
-  document.getElementById('budgetSpent').value=p.budgetSpent||0;
-  document.getElementById('severeAccident').value=p.severeAccident||0;
-  document.getElementById('safetyScore').value=p.safetyScore||0;
-  document.getElementById('targetDate').value=p.targetDate||'';
-  renderTrackAdmin(d.trackRecord||[]);
-  var pre=(d.milestones||[]).filter(function(m){return m.phase==='사전공사';});
-  var main=(d.milestones||[]).filter(function(m){return m.phase==='본공사';});
-  renderMSAdmin('pre',pre);
-  renderMSAdmin('main',main);
+function fillAll(d){
+  /* 대시보드 */
+  var h=d.hero||{};document.getElementById('heroBadge').value=h.badge||'';document.getElementById('heroTitle').value=h.title||'';document.getElementById('heroDesc').value=h.desc||'';
+  var s=d.sectionTitles||{};document.getElementById('secTrackRecord').value=s.trackRecord||'';document.getElementById('secKeyMetrics').value=s.keyMetrics||'';document.getElementById('secMilestone').value=s.milestone||'';document.getElementById('secExplore').value=s.explore||'';
+  var p=d.project||{};document.getElementById('progress').value=p.progress||0;document.getElementById('budgetTotal').value=p.budgetTotal||0;document.getElementById('budgetSpent').value=p.budgetSpent||0;document.getElementById('severeAccident').value=p.severeAccident||0;document.getElementById('safetyScore').value=p.safetyScore||0;document.getElementById('targetDate').value=p.targetDate||'';
+  renderTrack(d.trackRecord||[]);
+  renderMS('pre',(d.milestones||[]).filter(function(m){return m.phase==='사전공사';}));
+  renderMS('main',(d.milestones||[]).filter(function(m){return m.phase==='본공사';}));
+
+  /* 안전관리 */
+  var sf=d.safety||{};document.getElementById('sfHeroTitle').value=sf.heroTitle||'';document.getElementById('sfHeroDesc').value=sf.heroDesc||'';
+  var k=sf.kpi||{};document.getElementById('sfAccident').value=k.severeAccident||0;document.getElementById('sfLtifr').value=k.ltifr||0;document.getElementById('sfLtifrTarget').value=k.ltifrTarget||0;document.getElementById('sfLtifrRef').value=k.ltifrRef||'';document.getElementById('sfProcessScore').value=k.processScore||0;document.getElementById('sfProcessMax').value=k.processScoreMax||15;
+  var pd=sf.processDetail||{};
+  var ra=pd.riskAssessment||{};document.getElementById('sfRA_score').value=ra.score||0;document.getElementById('sfRA_max').value=ra.max||5;renderSfItems('riskAssessment',ra.items||[]);
+  var tb=pd.tbm||{};document.getElementById('sfTBM_score').value=tb.score||0;document.getElementById('sfTBM_max').value=tb.max||5;renderSfItems('tbm',tb.items||[]);
+  var im=pd.improvement||{};document.getElementById('sfIMP_score').value=im.score||0;document.getElementById('sfIMP_max').value=im.max||5;renderSfItems('improvement',im.items||[]);
+  document.getElementById('sfMonitorScore').value=sf.monitorScore||0;document.getElementById('sfMonitorMax').value=sf.monitorMax||5;
+  document.getElementById('sfSlogan').value=sf.slogan||'';
+
+  /* AI */
+  renderAI(d.aiAgents||[]);
+  /* 링크 */
   renderLinks(d.links||[]);
 }
 
-/* 최근실적 관리 */
-function renderTrackAdmin(list){
-  var c=document.getElementById('trackContainer');c.innerHTML='';
-  list.forEach(function(item,i){
-    var div=document.createElement('div');div.className='track-block';
-    div.innerHTML='<div class="row" style="margin-bottom:10px">'
-      +'<div class="field"><label>연도</label><input data-tr="'+i+'" data-key="year" value="'+(item.year||'')+'"></div>'
-      +'<div class="field"><label>상태</label><select data-tr="'+i+'" data-key="status"><option value="done"'+(item.status==='done'?' selected':'')+'>완료</option><option value="current"'+(item.status==='current'?' selected':'')+'>진행중</option><option value="plan"'+(item.status==='plan'?' selected':'')+'>계획</option></select></div></div>'
-      +'<div class="row" style="margin-bottom:10px">'
-      +'<div class="field"><label>1줄 (이름)</label><input data-tr="'+i+'" data-key="line1" value="'+(item.line1||'')+'"></div>'
-      +'<div class="field"><label>2줄 (유형)</label><input data-tr="'+i+'" data-key="line2" value="'+(item.line2||'')+'"></div></div>'
-      +'<button class="btn-del" onclick="delTrack('+i+')">삭제</button>';
-    c.appendChild(div);
-  });
-}
-function addTrack(){if(!siteData.trackRecord)siteData.trackRecord=[];siteData.trackRecord.push({year:'',line1:'',line2:'',status:'plan'});renderTrackAdmin(siteData.trackRecord);}
-function delTrack(i){siteData.trackRecord.splice(i,1);renderTrackAdmin(siteData.trackRecord);}
+/* ── 최근실적 ── */
+function renderTrack(list){var c=document.getElementById('trackContainer');c.innerHTML='';list.forEach(function(item,i){var div=document.createElement('div');div.className='item-block';div.innerHTML='<div class="row" style="margin-bottom:8px"><div class="field"><label>연도</label><input data-tr="'+i+'" data-key="year" value="'+(item.year||'')+'"></div><div class="field"><label>상태</label><select data-tr="'+i+'" data-key="status"><option value="done"'+(item.status==='done'?' selected':'')+'>완료</option><option value="current"'+(item.status==='current'?' selected':'')+'>진행중</option><option value="plan"'+(item.status==='plan'?' selected':'')+'>계획</option></select></div></div><div class="row" style="margin-bottom:8px"><div class="field"><label>1줄</label><input data-tr="'+i+'" data-key="line1" value="'+(item.line1||'')+'"></div><div class="field"><label>2줄</label><input data-tr="'+i+'" data-key="line2" value="'+(item.line2||'')+'"></div></div><button class="btn-del" onclick="delTrack('+i+')">삭제</button>';c.appendChild(div);});}
+function addTrack(){if(!siteData.trackRecord)siteData.trackRecord=[];siteData.trackRecord.push({year:'',line1:'',line2:'',status:'plan'});renderTrack(siteData.trackRecord);}
+function delTrack(i){siteData.trackRecord.splice(i,1);renderTrack(siteData.trackRecord);}
 
-/* 마일스톤 관리 */
-function renderMSAdmin(type,list){
-  var c=document.getElementById('msContainer-'+type);c.innerHTML='';
-  list.forEach(function(m,i){
-    var div=document.createElement('div');div.className='row4';
-    div.innerHTML='<div class="field"><label>이름</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div>'
-      +'<div class="field"><label>계획일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div>'
-      +'<div class="field"><label>실적일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div>'
-      +'<div class="field"><label>상태</label><select data-ms-type="'+type+'" data-ms="'+i+'" data-key="status"><option value="완료"'+(m.status==='완료'?' selected':'')+'>완료</option><option value="진행중"'+(m.status==='진행중'?' selected':'')+'>진행중</option><option value="예정"'+(m.status==='예정'?' selected':'')+'>예정</option></select><button class="btn-del" style="margin-top:6px" onclick="delMS(\''+type+'\','+i+')">삭제</button></div>';
-    c.appendChild(div);
-  });
-}
-function addMS(phase){if(!siteData.milestones)siteData.milestones=[];siteData.milestones.push({phase:phase,name:'',planDate:'',actualDate:null,status:'예정'});var type=phase==='사전공사'?'pre':'main';var list=siteData.milestones.filter(function(m){return m.phase===phase;});renderMSAdmin(type,list);}
-function delMS(type,i){var phase=type==='pre'?'사전공사':'본공사';var list=siteData.milestones.filter(function(m){return m.phase===phase;});var target=list[i];var idx=siteData.milestones.indexOf(target);if(idx!==-1)siteData.milestones.splice(idx,1);list=siteData.milestones.filter(function(m){return m.phase===phase;});renderMSAdmin(type,list);}
+/* ── 마일스톤 ── */
+function renderMS(type,list){var c=document.getElementById('msContainer-'+type);c.innerHTML='';list.forEach(function(m,i){var div=document.createElement('div');div.className='row4';div.innerHTML='<div class="field"><label>이름</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div><div class="field"><label>계획일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div><div class="field"><label>실적일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div><div class="field"><label>상태</label><select data-ms-type="'+type+'" data-ms="'+i+'" data-key="status"><option value="완료"'+(m.status==='완료'?' selected':'')+'>완료</option><option value="진행중"'+(m.status==='진행중'?' selected':'')+'>진행중</option><option value="예정"'+(m.status==='예정'?' selected':'')+'>예정</option></select><button class="btn-del" style="margin-top:6px" onclick="delMS(\''+type+'\','+i+')">삭제</button></div>';c.appendChild(div);});}
+function addMS(phase){if(!siteData.milestones)siteData.milestones=[];siteData.milestones.push({phase:phase,name:'',planDate:'',actualDate:null,status:'예정'});var type=phase==='사전공사'?'pre':'main';renderMS(type,siteData.milestones.filter(function(m){return m.phase===phase;}));}
+function delMS(type,i){var phase=type==='pre'?'사전공사':'본공사';var list=siteData.milestones.filter(function(m){return m.phase===phase;});var idx=siteData.milestones.indexOf(list[i]);if(idx!==-1)siteData.milestones.splice(idx,1);renderMS(type,siteData.milestones.filter(function(m){return m.phase===phase;}));}
 
-/* 링크 관리 */
-function renderLinks(list){
-  var c=document.getElementById('linkContainer');c.innerHTML='';
-  list.forEach(function(link,i){
-    var div=document.createElement('div');div.className='link-block';
-    div.innerHTML='<div class="row" style="margin-bottom:10px"><div class="field"><label>이름</label><input data-lnk="'+i+'" data-key="name" value="'+(link.name||'')+'"></div><div class="field"><label>카테고리</label><input data-lnk="'+i+'" data-key="category" value="'+(link.category||'')+'"></div></div>'
-      +'<div class="row" style="margin-bottom:10px"><div class="field"><label>URL</label><input data-lnk="'+i+'" data-key="url" value="'+(link.url||'')+'"></div><div class="field"><label>설명</label><input data-lnk="'+i+'" data-key="desc" value="'+(link.desc||'')+'"></div></div>'
-      +'<button class="btn-del" onclick="delLink('+i+')">삭제</button>';
-    c.appendChild(div);
-  });
-}
+/* ── 안전 과정지표 항목 ── */
+var sfKeyMap={riskAssessment:'sfRA',tbm:'sfTBM',improvement:'sfIMP'};
+function renderSfItems(category,list){var prefix=sfKeyMap[category];var c=document.getElementById(prefix+'_items');c.innerHTML='';list.forEach(function(item,i){var div=document.createElement('div');div.className='row3';div.style.marginBottom='8px';div.innerHTML='<div class="field"><label>항목명</label><input data-sf="'+category+'" data-si="'+i+'" data-key="name" value="'+(item.name||'')+'"></div><div class="field"><label>점검주기</label><input data-sf="'+category+'" data-si="'+i+'" data-key="cycle" value="'+(item.cycle||'')+'"></div><div class="field"><label>점수</label><input type="number" step="0.1" data-sf="'+category+'" data-si="'+i+'" data-key="score" value="'+(item.score||0)+'"><button class="btn-del" style="margin-top:4px" onclick="delSfItem(\''+category+'\','+i+')">삭제</button></div>';c.appendChild(div);});}
+function addSfItem(category){var pd=siteData.safety.processDetail;if(!pd[category])pd[category]={label:'',score:0,max:5,items:[]};pd[category].items.push({name:'',cycle:'매일',score:0});renderSfItems(category,pd[category].items);}
+function delSfItem(category,i){siteData.safety.processDetail[category].items.splice(i,1);renderSfItems(category,siteData.safety.processDetail[category].items);}
+
+/* ── AI Agent ── */
+function renderAI(list){var c=document.getElementById('aiContainer');c.innerHTML='';list.forEach(function(a,i){var div=document.createElement('div');div.className='item-block';div.innerHTML='<div class="row" style="margin-bottom:8px"><div class="field"><label>이름</label><input data-ai="'+i+'" data-key="name" value="'+(a.name||'')+'"></div><div class="field"><label>상태</label><select data-ai="'+i+'" data-key="status"><option value="운영중"'+(a.status==='운영중'?' selected':'')+'>운영중</option><option value="개발중"'+(a.status==='개발중'?' selected':'')+'>개발중</option><option value="기획중"'+(a.status==='기획중'?' selected':'')+'>기획중</option></select></div></div><div class="field"><label>요약</label><input data-ai="'+i+'" data-key="summary" value="'+(a.summary||'')+'"></div><div class="field"><label>상세</label><input data-ai="'+i+'" data-key="detail" value="'+(a.detail||'')+'"></div><button class="btn-del" onclick="delAI('+i+')">삭제</button>';c.appendChild(div);});}
+function addAI(){if(!siteData.aiAgents)siteData.aiAgents=[];var newId=siteData.aiAgents.length>0?Math.max.apply(null,siteData.aiAgents.map(function(x){return x.id||0;}))+1:1;siteData.aiAgents.push({id:newId,name:'',summary:'',status:'기획중',detail:''});renderAI(siteData.aiAgents);}
+function delAI(i){siteData.aiAgents.splice(i,1);renderAI(siteData.aiAgents);}
+
+/* ── 링크 ── */
+function renderLinks(list){var c=document.getElementById('linkContainer');c.innerHTML='';list.forEach(function(link,i){var div=document.createElement('div');div.className='item-block';div.innerHTML='<div class="row" style="margin-bottom:8px"><div class="field"><label>이름</label><input data-lnk="'+i+'" data-key="name" value="'+(link.name||'')+'"></div><div class="field"><label>카테고리</label><input data-lnk="'+i+'" data-key="category" value="'+(link.category||'')+'"></div></div><div class="row" style="margin-bottom:8px"><div class="field"><label>URL</label><input data-lnk="'+i+'" data-key="url" value="'+(link.url||'')+'"></div><div class="field"><label>설명</label><input data-lnk="'+i+'" data-key="desc" value="'+(link.desc||'')+'"></div></div><button class="btn-del" onclick="delLink('+i+')">삭제</button>';c.appendChild(div);});}
 function addLink(){if(!siteData.links)siteData.links=[];siteData.links.push({category:'',name:'',url:'',desc:''});renderLinks(siteData.links);}
 function delLink(i){siteData.links.splice(i,1);renderLinks(siteData.links);}
 
-/* 데이터 수집 */
+/* ══ 데이터 수집 ══ */
 function collectData(){
   siteData.meta.updatedAt=new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'});
-  siteData.hero.badge=document.getElementById('heroBadge').value;
-  siteData.hero.title=document.getElementById('heroTitle').value;
-  siteData.hero.desc=document.getElementById('heroDesc').value;
-  siteData.sectionTitles.trackRecord=document.getElementById('secTrackRecord').value;
-  siteData.sectionTitles.keyMetrics=document.getElementById('secKeyMetrics').value;
-  siteData.sectionTitles.milestone=document.getElementById('secMilestone').value;
-  siteData.sectionTitles.explore=document.getElementById('secExplore').value;
-  siteData.project.progress=parseInt(document.getElementById('progress').value)||0;
-  siteData.project.budgetTotal=parseInt(document.getElementById('budgetTotal').value)||0;
-  siteData.project.budgetSpent=parseInt(document.getElementById('budgetSpent').value)||0;
-  siteData.project.severeAccident=parseInt(document.getElementById('severeAccident').value)||0;
-  siteData.project.safetyScore=parseFloat(document.getElementById('safetyScore').value)||0;
-  siteData.project.targetDate=document.getElementById('targetDate').value;
-
-  /* 최근실적 수집 */
-  document.querySelectorAll('[data-tr]').forEach(function(el){
-    var i=parseInt(el.getAttribute('data-tr'));
-    var k=el.getAttribute('data-key');
-    if(siteData.trackRecord[i])siteData.trackRecord[i][k]=el.value;
-  });
-
-  /* 마일스톤 수집 */
-  ['pre','main'].forEach(function(type){
-    var phase=type==='pre'?'사전공사':'본공사';
-    var list=siteData.milestones.filter(function(m){return m.phase===phase;});
-    document.querySelectorAll('[data-ms-type="'+type+'"]').forEach(function(el){
-      var i=parseInt(el.getAttribute('data-ms'));
-      var k=el.getAttribute('data-key');
-      if(list[i]){if(k==='actualDate'){list[i][k]=el.value||null;}else{list[i][k]=el.value;}}
-    });
-  });
-
-  /* 링크 수집 */
-  document.querySelectorAll('[data-lnk]').forEach(function(el){
-    var i=parseInt(el.getAttribute('data-lnk'));
-    var k=el.getAttribute('data-key');
-    if(siteData.links[i])siteData.links[i][k]=el.value;
-  });
+  /* 대시보드 */
+  siteData.hero.badge=document.getElementById('heroBadge').value;siteData.hero.title=document.getElementById('heroTitle').value;siteData.hero.desc=document.getElementById('heroDesc').value;
+  siteData.sectionTitles.trackRecord=document.getElementById('secTrackRecord').value;siteData.sectionTitles.keyMetrics=document.getElementById('secKeyMetrics').value;siteData.sectionTitles.milestone=document.getElementById('secMilestone').value;siteData.sectionTitles.explore=document.getElementById('secExplore').value;
+  siteData.project.progress=parseInt(document.getElementById('progress').value)||0;siteData.project.budgetTotal=parseInt(document.getElementById('budgetTotal').value)||0;siteData.project.budgetSpent=parseInt(document.getElementById('budgetSpent').value)||0;siteData.project.severeAccident=parseInt(document.getElementById('severeAccident').value)||0;siteData.project.safetyScore=parseFloat(document.getElementById('safetyScore').value)||0;siteData.project.targetDate=document.getElementById('targetDate').value;
+  document.querySelectorAll('[data-tr]').forEach(function(el){var i=parseInt(el.getAttribute('data-tr'));var k=el.getAttribute('data-key');if(siteData.trackRecord[i])siteData.trackRecord[i][k]=el.value;});
+  ['pre','main'].forEach(function(type){var phase=type==='pre'?'사전공사':'본공사';var list=siteData.milestones.filter(function(m){return m.phase===phase;});document.querySelectorAll('[data-ms-type="'+type+'"]').forEach(function(el){var i=parseInt(el.getAttribute('data-ms'));var k=el.getAttribute('data-key');if(list[i]){list[i][k]=k==='actualDate'?(el.value||null):el.value;}});});
+  /* 안전관리 */
+  siteData.safety.heroTitle=document.getElementById('sfHeroTitle').value;siteData.safety.heroDesc=document.getElementById('sfHeroDesc').value;
+  siteData.safety.kpi.severeAccident=parseInt(document.getElementById('sfAccident').value)||0;siteData.safety.kpi.ltifr=parseFloat(document.getElementById('sfLtifr').value)||0;siteData.safety.kpi.ltifrTarget=parseFloat(document.getElementById('sfLtifrTarget').value)||0;siteData.safety.kpi.ltifrRef=document.getElementById('sfLtifrRef').value;siteData.safety.kpi.processScore=parseFloat(document.getElementById('sfProcessScore').value)||0;siteData.safety.kpi.processScoreMax=parseInt(document.getElementById('sfProcessMax').value)||15;
+  ['riskAssessment','tbm','improvement'].forEach(function(cat){var prefix=sfKeyMap[cat];siteData.safety.processDetail[cat].score=parseFloat(document.getElementById(prefix+'_score').value)||0;siteData.safety.processDetail[cat].max=parseInt(document.getElementById(prefix+'_max').value)||5;document.querySelectorAll('[data-sf="'+cat+'"]').forEach(function(el){var i=parseInt(el.getAttribute('data-si'));var k=el.getAttribute('data-key');if(siteData.safety.processDetail[cat].items[i]){siteData.safety.processDetail[cat].items[i][k]=k==='score'?parseFloat(el.value)||0:el.value;}});});
+  siteData.safety.monitorScore=parseFloat(document.getElementById('sfMonitorScore').value)||0;siteData.safety.monitorMax=parseInt(document.getElementById('sfMonitorMax').value)||5;siteData.safety.slogan=document.getElementById('sfSlogan').value;
+  /* AI */
+  document.querySelectorAll('[data-ai]').forEach(function(el){var i=parseInt(el.getAttribute('data-ai'));var k=el.getAttribute('data-key');if(siteData.aiAgents[i])siteData.aiAgents[i][k]=el.value;});
+  /* 링크 */
+  document.querySelectorAll('[data-lnk]').forEach(function(el){var i=parseInt(el.getAttribute('data-lnk'));var k=el.getAttribute('data-key');if(siteData.links[i])siteData.links[i][k]=el.value;});
   return siteData;
 }
 
-function saveToGitHub(){
-  var token=localStorage.getItem('gh_pat');
-  if(!token){showToast('먼저 GitHub 토큰을 설정하세요','error');return;}
-  var data=collectData();
-  var content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-  var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH;
-  fetch(url,{headers:{'Authorization':'token '+token}})
-    .then(function(r){return r.json();})
-    .then(function(info){
-      return fetch(url,{method:'PUT',headers:{'Authorization':'token '+token,'Content-Type':'application/json'},body:JSON.stringify({message:'관리자 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})});
-    })
-    .then(function(r){if(r.ok){showToast('✅ 저장 완료! 1~2분 후 반영','success');}else{r.json().then(function(e){showToast('저장 실패: '+e.message,'error');});}})
-    .catch(function(e){showToast('오류: '+e,'error');});
-}
-
+/* 저장 */
+function saveToGitHub(){var token=localStorage.getItem('gh_pat');if(!token){showToast('먼저 GitHub 토큰을 설정하세요','error');return;}var data=collectData();var content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH;fetch(url,{headers:{'Authorization':'token '+token}}).then(function(r){return r.json();}).then(function(info){return fetch(url,{method:'PUT',headers:{'Authorization':'token '+token,'Content-Type':'application/json'},body:JSON.stringify({message:'관리자 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})});}).then(function(r){if(r.ok){showToast('✅ 저장 완료! 1~2분 후 반영','success');}else{r.json().then(function(e){showToast('저장 실패: '+e.message,'error');});}}).catch(function(e){showToast('오류: '+e,'error');});}
 function copyJSON(){var data=collectData();navigator.clipboard.writeText(JSON.stringify(data,null,2)).then(function(){showToast('📋 JSON 복사 완료!','success');});}
 function showToast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type;t.style.display='block';setTimeout(function(){t.style.display='none';},4000);}
 
