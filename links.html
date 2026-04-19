@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>고로개수TF - 링크자료</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.links-hero{text-align:center;padding:60px 24px 48px;position:relative;z-index:1}
+.links-hero .badge{display:inline-block;font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;background:rgba(37,99,235,.08);color:#2563eb;margin-bottom:16px}
+.links-hero h1{font-size:28px;font-weight:900;color:#1a1a2e;margin-bottom:8px;line-height:1.4}
+.links-hero p{font-size:13px;color:#888;line-height:1.7}
+.s-section{margin-bottom:48px}
+.s-head{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.s-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.s-title{font-size:16px;font-weight:800;color:#1a1a2e}
+.s-desc{font-size:11px;color:#aaa;font-weight:500;margin-left:4px}
+.s-line{flex:1;height:1px;background:rgba(0,0,0,.06);margin-left:12px}
+.link-group-title{font-size:13px;font-weight:700;color:#2563eb;margin-bottom:14px;padding-left:4px;display:flex;align-items:center;gap:6px}
+.link-group-title::before{content:'';width:6px;height:6px;border-radius:50%;background:#2563eb;flex-shrink:0}
+.link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:32px}
+.link-card{background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);transition:all .25s;text-decoration:none;display:flex;align-items:center;gap:16px;cursor:pointer}
+.link-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.07);border-color:rgba(37,99,235,.15)}
+.link-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(124,58,237,.08))}
+.link-info{flex:1;min-width:0}
+.link-name{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+.link-desc{font-size:11px;color:#999;line-height:1.5}
+.link-arrow{font-size:16px;color:#ccc;flex-shrink:0;transition:all .2s}
+.link-card:hover .link-arrow{color:#2563eb;transform:translateX(4px)}
+.link-url{font-size:10px;color:#bbb;margin-top:4px;word-break:break-all}
+.links-empty{text-align:center;padding:48px;color:#ccc;font-size:14px}
+@media(max-width:700px){.link-grid{grid-template-columns:1fr}.links-hero h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo-area"><div class="logo-mark">TF</div><div class="logo-text">고로개수TF <span>Gwangyang BF#2 · 2025–2026</span></div></div>
+  <nav>
+    <a href="dashboard.html">대시보드</a><a href="team.html">조직소개</a><a href="invest.html">사업개요</a>
+    <a href="safety.html">안전관리</a><a href="ai.html">AI Agent</a><a href="links.html" class="active">링크자료</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="admin.html" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;text-decoration:none;transition:all .2s;" onmouseover="this.style.color='#a78bfa';this.style.borderColor='rgba(123,104,238,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'"></a>
+    <button onclick="doLogout()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(239,68,68,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.4)';this.style.borderColor='rgba(255,255,255,0.1)'"></button>
+  </div>
+</div>
+
+<div style="max-width:960px;margin:0 auto;padding:0 24px 80px;">
+  <div class="links-hero">
+    <div class="badge">고로개수TF · 자료실</div>
+    <h1>🔗 링크자료</h1>
+    <p>사내 시스템, 프로젝트 문서, 외부 참고자료를<br>한 곳에서 빠르게 접근할 수 있습니다</p>
+  </div>
+
+  <div class="s-section">
+    <div class="s-head">
+      <div class="s-dot" style="background:#2563eb"></div>
+      <div class="s-title">바로가기</div>
+      <div class="s-desc">Quick Links</div>
+      <div class="s-line"></div>
+    </div>
+    <div id="linksContainer"><div class="links-empty">링크를 불러오는 중...</div></div>
+  </div>
+</div>
+
+<div class="footer">© 2026 고로개수TF · POSCO Gwangyang Steelworks · Blast Furnace #2 Partial Reline</div>
+
+<script src="js/auth.js"></script>
+<script>
+checkAuth();
+var catIcons={'사내 시스템':'🏢','외부 참고':'🌐','프로젝트 문서':'📄','설계·도면':'📐','사진·미디어':'📷'};
+var itemIcons={'투자집행':'💰','공정관리':'📋','설계':'📐','도면':'📐','사진':'📷','NAS':'💾','GitHub':'🐙'};
+
+function getIcon(name){
+  var keys=Object.keys(itemIcons);
+  for(var i=0;i<keys.length;i++){if(name.indexOf(keys[i])!==-1)return itemIcons[keys[i]];}
+  return '🔗';
+}
+
+fetch('data/site-data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
+  var links=d.links||[];
+  if(links.length===0){document.getElementById('linksContainer').innerHTML='<div class="links-empty">등록된 링크가 없습니다.<br>관리자 페이지에서 추가해 주세요.</div>';return;}
+
+  var groups={};
+  links.forEach(function(l){
+    var cat=l.category||'기타';
+    if(!groups[cat])groups[cat]=[];
+    groups[cat].push(l);
+  });
+
+  var html='';
+  Object.keys(groups).forEach(function(cat){
+    html+='<div class="link-group-title">'+(catIcons[cat]||'📁')+' '+cat+'</div>';
+    html+='<div class="link-grid">';
+    groups[cat].forEach(function(l){
+      html+='<a class="link-card" href="'+l.url+'" target="_blank" rel="noopener">'
+        +'<div class="link-icon">'+getIcon(l.name)+'</div>'
+        +'<div class="link-info"><div class="link-name">'+l.name+'</div><div class="link-desc">'+l.desc+'</div><div class="link-url">'+l.url+'</div></div>'
+        +'<div class="link-arrow">→</div>'
+        +'</a>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('linksContainer').innerHTML=html;
+
+  setTimeout(function(){
+    var els=document.querySelectorAll('.link-card');
+    if(!('IntersectionObserver' in window))return;
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:0.1});
+    els.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';obs.observe(el);});
+  },100);
+});
+</script>
+</body>
+</html>
