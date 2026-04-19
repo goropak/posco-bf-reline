@@ -5,44 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>고로개수TF</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body class="login-body">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;height:100vh;display:flex;overflow:hidden;background:#0f1117}
 
-<!-- 배경 영상 -->
-<div class="video-bg">
-  <video autoplay muted loop playsinline>
-    <source src="videos/bg-video.mp4" type="video/mp4">
-  </video>
+/* 왼쪽: 영상 배경 */
+.video-side{width:50%;height:100vh;position:relative;overflow:hidden}
+.video-side video{width:100%;height:100%;object-fit:cover}
+.video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,0.3) 0%,rgba(124,58,237,0.3) 100%)}
+.video-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;padding:60px;text-align:center}
+.video-title{font-size:2.2rem;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-1px}
+.video-sub{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:40px}
+.video-features{list-style:none;display:flex;flex-direction:column;gap:16px}
+.video-features li{display:flex;align-items:center;gap:14px;font-size:.9rem;color:rgba(255,255,255,.9);font-weight:500}
+.v-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+
+/* 파티클 */
+.particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-10px;border-radius:50%;animation:rise linear forwards}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(1)}10%{opacity:1}90%{opacity:.6}100%{opacity:0;transform:translateY(-100vh) scale(0)}}
+
+/* 오른쪽: 로그인 */
+.login-side{width:50%;height:100vh;background:#0f1117;display:flex;align-items:center;justify-content:center;padding:60px}
+.login-box{width:100%;max-width:400px}
+.login-eyebrow{font-size:.72rem;font-weight:700;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.login-title{font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:8px}
+.login-desc{font-size:.88rem;color:#888;margin-bottom:36px;line-height:1.6}
+.input-group{margin-bottom:20px}
+.input-label{display:block;font-size:.75rem;font-weight:700;color:#888;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.input-field{width:100%;padding:14px 16px;border-radius:10px;border:1px solid #2a2d3a;background:#161922;color:#fff;font-size:.9rem;font-family:'Noto Sans KR',sans-serif;transition:all .2s}
+.input-field:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.input-field::placeholder{color:#555}
+.remember-row{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.remember-row input{accent-color:#2563eb;width:14px;height:14px}
+.remember-row label{font-size:.82rem;color:#888}
+.login-btn{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Noto Sans KR',sans-serif}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,.4)}
+.login-error{display:none;margin-top:14px;padding:12px 16px;border-radius:8px;background:rgba(225,112,85,.1);border:1px solid rgba(225,112,85,.3);color:#e17055;font-size:.82rem;font-weight:600;text-align:center}
+.login-footer{margin-top:40px;padding-top:20px;border-top:1px solid #1e2130;text-align:center}
+.login-footer p{font-size:.75rem;color:#555;line-height:1.7}
+
+@media(max-width:900px){.video-side{display:none}.login-side{width:100%}}
+@media(max-width:500px){.login-side{padding:30px 20px}.login-title{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<!-- 왼쪽: 영상 + 브랜드 -->
+<div class="video-side">
+  <video autoplay muted loop playsinline><source src="videos/bg-video.mp4" type="video/mp4"></video>
+  <div class="video-overlay"></div>
+  <div class="particles" id="particles"></div>
+  <div class="video-content">
+    <div class="video-title">고로개수TF</div>
+    <p class="video-sub">광양 2고로 부분개수 투자 관리 시스템<br>Blast Furnace #2 Partial Reline Dashboard</p>
+    <ul class="video-features">
+      <li><div class="v-icon">🏭</div>내용적 4,350m³ · 연산 435만톤</li>
+      <li><div class="v-icon">🔧</div>냉각장치 + 내화물 교체</li>
+      <li><div class="v-icon">💰</div>투자 약 1,000억원</li>
+      <li><div class="v-icon">📊</div>실시간 프로젝트 현황 대시보드</li>
+    </ul>
+  </div>
 </div>
 
-<!-- 어두운 오버레이 -->
-<div class="login-overlay"></div>
-
-<!-- 불꽃 파티클 -->
-<div class="particles" id="particles"></div>
-
-<!-- 로그인 -->
-<div class="login-wrap">
+<!-- 오른쪽: 로그인 -->
+<div class="login-side">
   <div class="login-box">
     <div class="login-eyebrow">POSCO · Gwangyang Steelworks</div>
-    <div class="login-title">고로개수TF</div>
-    <div class="login-sub">
-      광양 2고로 부분개수 투자 관리 시스템<br>
-      Blast Furnace #2 Partial Reline Dashboard
+    <h1 class="login-title">로그인</h1>
+    <p class="login-desc">고로개수TF 대시보드에 접속합니다.<br>Access Code를 입력하세요.</p>
+
+    <div class="input-group">
+      <label class="input-label" for="pwInput">Access Code</label>
+      <input class="input-field" id="pwInput" type="password" placeholder="비밀번호를 입력하세요" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
-    <div class="input-wrap">
-      <span class="input-icon">🔑</span>
-      <input type="password" id="pwInput" placeholder="Access Code" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <div class="remember">
+
+    <div class="remember-row">
       <input type="checkbox" id="rememberMe">
       <label for="rememberMe">이 기기에서 기억하기</label>
     </div>
+
     <button class="login-btn" onclick="doLogin()">ENTER DASHBOARD →</button>
+
     <div class="login-error" id="loginError">비밀번호가 올바르지 않습니다</div>
+
     <div class="login-footer">
-      © 2026 고로개수TF · POSCO Blast Furnace Reline Investment Team
+      <p>© 2026 고로개수TF · POSCO Blast Furnace Reline Investment Team</p>
     </div>
   </div>
 </div>
