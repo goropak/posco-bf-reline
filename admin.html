@@ -7,43 +7,41 @@
 <title>고로개수TF - 관리자</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.admin-wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:32px 24px 80px}
+.admin-wrap{max-width:900px;margin:0 auto;padding:32px 24px 80px}
 .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
-.admin-title{font-size:24px;font-weight:800;background:linear-gradient(135deg,#a78bfa,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.admin-back{color:rgba(255,255,255,.4);font-size:13px;text-decoration:none;padding:8px 16px;border:1px solid rgba(255,255,255,.1);border-radius:8px;transition:all .2s}
-.admin-back:hover{color:#fff;border-color:rgba(123,104,238,.4)}
-.section{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;margin-bottom:20px}
-.section-title{font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.admin-title{font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.admin-back{color:#888;font-size:.82rem;padding:8px 16px;border:1px solid #e5e7eb;border-radius:8px;transition:all .2s;text-decoration:none;background:#fff}
+.admin-back:hover{color:#2563eb;border-color:#2563eb}
+.section{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.section-title{font-size:.88rem;font-weight:800;color:#4338ca;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .field{margin-bottom:14px}
-.field label{display:block;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:6px;font-weight:600}
-.field input,.field textarea,.field select{width:100%;padding:10px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border .3s}
-.field input:focus,.field textarea:focus{border-color:rgba(123,104,238,.4)}
+.field label{display:block;font-size:.75rem;color:#888;margin-bottom:6px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.field input,.field textarea,.field select{width:100%;padding:10px 14px;background:#f8f9fc;border:1px solid #e5e7eb;border-radius:10px;color:#1a1a2e;font-size:.88rem;font-family:inherit;outline:none;transition:border .3s}
+.field input:focus,.field textarea:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
 .field textarea{resize:vertical;min-height:60px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.row4{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1fr;gap:10px;align-items:end;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.issue-block{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:16px;margin-bottom:12px}
-.link-block{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:16px;margin-bottom:12px}
+.row4{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1fr;gap:10px;align-items:end;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.link-block{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
 .btn-row{display:flex;gap:10px;margin-top:24px}
-.btn-save{padding:14px 32px;background:linear-gradient(135deg,#7b68ee,#06b6d4);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
-.btn-save:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,104,238,.3)}
-.btn-copy{padding:14px 32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
-.btn-copy:hover{border-color:rgba(123,104,238,.4)}
-.btn-add{padding:8px 16px;background:rgba(123,104,238,.1);border:1px solid rgba(123,104,238,.2);border-radius:8px;color:#a78bfa;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-add:hover{background:rgba(123,104,238,.2)}
-.btn-del{padding:6px 12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:8px;color:#fca5a5;font-size:11px;cursor:pointer;font-family:inherit}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);padding:14px 28px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;display:none;animation:toastIn .3s ease}
-.toast.success{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6ee7b7}
-.toast.error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#fca5a5}
+.btn-save{padding:14px 32px;background:linear-gradient(135deg,#2563eb,#7c3aed);border:none;border-radius:12px;color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-save:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
+.btn-copy{padding:14px 32px;background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;color:#555;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-copy:hover{border-color:#2563eb;color:#2563eb}
+.btn-add{padding:8px 16px;background:#e0e7ff;border:none;border-radius:8px;color:#4338ca;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-add:hover{background:#c7d2fe}
+.btn-del{padding:6px 12px;background:#fef2f2;border:none;border-radius:8px;color:#dc2626;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);padding:14px 28px;border-radius:12px;font-size:.88rem;font-weight:600;z-index:999;display:none;animation:toastIn .3s ease}
+.toast.success{background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a}
+.toast.error{background:#fef2f2;border:1px solid #fecaca;color:#dc2626}
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 .token-input{display:flex;gap:10px}
 .token-input input{flex:1}
-.token-input button{padding:10px 20px;background:rgba(123,104,238,.15);border:1px solid rgba(123,104,238,.3);border-radius:10px;color:#a78bfa;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.phase-label{font-size:12px;font-weight:700;color:#fb923c;margin:16px 0 8px;padding:6px 12px;background:rgba(249,115,22,.1);border-radius:8px;display:inline-block}
+.token-input button{padding:10px 20px;background:#e0e7ff;border:none;border-radius:10px;color:#4338ca;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.track-block{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
 </style>
 </head>
 <body>
-<div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 <div class="admin-wrap">
 <div class="admin-header">
   <div class="admin-title">⚙️ 관리자 페이지</div>
@@ -52,12 +50,33 @@
 
 <!-- 토큰 -->
 <div class="section">
-  <div class="section-title">🔑 GitHub 토큰 (최초 1회 설정)</div>
+  <div class="section-title">🔑 GitHub 토큰 (최초 1회)</div>
   <div class="token-input">
     <input type="password" id="ghToken" placeholder="ghp_xxxx... 토큰 붙여넣기">
     <button onclick="saveToken()">저장</button>
   </div>
-  <div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px" id="tokenStatus">토큰이 설정되지 않았습니다</div>
+  <div style="font-size:.72rem;color:#999;margin-top:8px" id="tokenStatus">토큰이 설정되지 않았습니다</div>
+</div>
+
+<!-- 히어로 문구 -->
+<div class="section">
+  <div class="section-title">🎯 메인 화면 문구</div>
+  <div class="field"><label>상단 뱃지</label><input type="text" id="heroBadge"></div>
+  <div class="field"><label>제목 (줄바꿈: &lt;br&gt;)</label><input type="text" id="heroTitle"></div>
+  <div class="field"><label>설명 (줄바꿈: &lt;br&gt;)</label><textarea id="heroDesc"></textarea></div>
+</div>
+
+<!-- 섹션 제목 -->
+<div class="section">
+  <div class="section-title">📌 섹션 제목</div>
+  <div class="row">
+    <div class="field"><label>최근실적</label><input type="text" id="secTrackRecord"></div>
+    <div class="field"><label>Key Metrics</label><input type="text" id="secKeyMetrics"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label>마일스톤</label><input type="text" id="secMilestone"></div>
+    <div class="field"><label>Explore</label><input type="text" id="secExplore"></div>
+  </div>
 </div>
 
 <!-- KPI -->
@@ -73,6 +92,12 @@
     <div class="field"><label>안전과정지표 (점)</label><input type="number" id="safetyScore" step="0.1"></div>
     <div class="field"><label>목표일</label><input type="text" id="targetDate" placeholder="2026-12-31"></div>
   </div>
+</div>
+
+<!-- 최근실적 -->
+<div class="section">
+  <div class="section-title">🏭 최근실적 <button class="btn-add" onclick="addTrack()" style="margin-left:auto">+ 추가</button></div>
+  <div id="trackContainer"></div>
 </div>
 
 <!-- 마일스톤 사전공사 -->
@@ -105,36 +130,24 @@
 <script src="js/auth.js"></script>
 <script>
 checkAuth();
-var REPO_OWNER='goropak';
-var REPO_NAME='posco-bf-reline';
-var FILE_PATH='data/site-data.json';
+var REPO_OWNER='goropak',REPO_NAME='posco-bf-reline',FILE_PATH='data/site-data.json';
 var siteData=null;
 
-/* 토큰 */
-function saveToken(){
-  var t=document.getElementById('ghToken').value.trim();
-  if(!t){showToast('토큰을 입력하세요','error');return;}
-  localStorage.setItem('gh_pat',t);
-  document.getElementById('ghToken').value='';
-  updateTokenStatus();
-  showToast('토큰 저장 완료!','success');
-}
-function updateTokenStatus(){
-  var t=localStorage.getItem('gh_pat');
-  var el=document.getElementById('tokenStatus');
-  if(t){el.textContent='✅ 토큰 설정됨 (ghp_...'+t.slice(-4)+')';el.style.color='#6ee7b7';}
-  else{el.textContent='토큰이 설정되지 않았습니다';el.style.color='rgba(255,255,255,.25)';}
-}
+function saveToken(){var t=document.getElementById('ghToken').value.trim();if(!t){showToast('토큰을 입력하세요','error');return;}localStorage.setItem('gh_pat',t);document.getElementById('ghToken').value='';updateTokenStatus();showToast('토큰 저장 완료!','success');}
+function updateTokenStatus(){var t=localStorage.getItem('gh_pat');var el=document.getElementById('tokenStatus');if(t){el.textContent='✅ 토큰 설정됨 (ghp_...'+t.slice(-4)+')';el.style.color='#16a34a';}else{el.textContent='토큰이 설정되지 않았습니다';el.style.color='#999';}}
 
-/* 데이터 로드 */
-function loadData(){
-  fetch('data/site-data.json?t='+Date.now())
-    .then(function(r){return r.json();})
-    .then(function(d){siteData=d;fillForm(d);})
-    .catch(function(e){showToast('데이터 로드 실패: '+e,'error');});
-}
+function loadData(){fetch('data/site-data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){siteData=d;fillForm(d);}).catch(function(e){showToast('데이터 로드 실패: '+e,'error');});}
 
 function fillForm(d){
+  var h=d.hero||{};
+  document.getElementById('heroBadge').value=h.badge||'';
+  document.getElementById('heroTitle').value=h.title||'';
+  document.getElementById('heroDesc').value=h.desc||'';
+  var s=d.sectionTitles||{};
+  document.getElementById('secTrackRecord').value=s.trackRecord||'';
+  document.getElementById('secKeyMetrics').value=s.keyMetrics||'';
+  document.getElementById('secMilestone').value=s.milestone||'';
+  document.getElementById('secExplore').value=s.explore||'';
   var p=d.project||{};
   document.getElementById('progress').value=p.progress||0;
   document.getElementById('budgetTotal').value=p.budgetTotal||0;
@@ -142,6 +155,7 @@ function fillForm(d){
   document.getElementById('severeAccident').value=p.severeAccident||0;
   document.getElementById('safetyScore').value=p.safetyScore||0;
   document.getElementById('targetDate').value=p.targetDate||'';
+  renderTrackAdmin(d.trackRecord||[]);
   var pre=(d.milestones||[]).filter(function(m){return m.phase==='사전공사';});
   var main=(d.milestones||[]).filter(function(m){return m.phase==='본공사';});
   renderMSAdmin('pre',pre);
@@ -149,81 +163,76 @@ function fillForm(d){
   renderLinks(d.links||[]);
 }
 
-/* 마일스톤 관리 */
-function renderMSAdmin(type,list){
-  var c=document.getElementById('msContainer-'+type);
-  c.innerHTML='';
-  list.forEach(function(m,i){
-    var div=document.createElement('div');
-    div.className='row4';
-    div.innerHTML='<div class="field"><label>이름</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div>'
-      +'<div class="field"><label>계획일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div>'
-      +'<div class="field"><label>실적일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div>'
-      +'<div class="field"><label>상태</label><select data-ms-type="'+type+'" data-ms="'+i+'" data-key="status">'
-      +'<option value="완료"'+(m.status==='완료'?' selected':'')+'>완료</option>'
-      +'<option value="진행중"'+(m.status==='진행중'?' selected':'')+'>진행중</option>'
-      +'<option value="예정"'+(m.status==='예정'?' selected':'')+'>예정</option>'
-      +'</select><button class="btn-del" style="margin-top:6px" onclick="delMS(\''+type+'\','+i+')">삭제</button></div>';
+/* 최근실적 관리 */
+function renderTrackAdmin(list){
+  var c=document.getElementById('trackContainer');c.innerHTML='';
+  list.forEach(function(item,i){
+    var div=document.createElement('div');div.className='track-block';
+    div.innerHTML='<div class="row" style="margin-bottom:10px">'
+      +'<div class="field"><label>연도</label><input data-tr="'+i+'" data-key="year" value="'+(item.year||'')+'"></div>'
+      +'<div class="field"><label>상태</label><select data-tr="'+i+'" data-key="status"><option value="done"'+(item.status==='done'?' selected':'')+'>완료</option><option value="current"'+(item.status==='current'?' selected':'')+'>진행중</option><option value="plan"'+(item.status==='plan'?' selected':'')+'>계획</option></select></div></div>'
+      +'<div class="row" style="margin-bottom:10px">'
+      +'<div class="field"><label>1줄 (이름)</label><input data-tr="'+i+'" data-key="line1" value="'+(item.line1||'')+'"></div>'
+      +'<div class="field"><label>2줄 (유형)</label><input data-tr="'+i+'" data-key="line2" value="'+(item.line2||'')+'"></div></div>'
+      +'<button class="btn-del" onclick="delTrack('+i+')">삭제</button>';
     c.appendChild(div);
   });
 }
+function addTrack(){if(!siteData.trackRecord)siteData.trackRecord=[];siteData.trackRecord.push({year:'',line1:'',line2:'',status:'plan'});renderTrackAdmin(siteData.trackRecord);}
+function delTrack(i){siteData.trackRecord.splice(i,1);renderTrackAdmin(siteData.trackRecord);}
 
-function addMS(phase){
-  if(!siteData.milestones) siteData.milestones=[];
-  siteData.milestones.push({phase:phase,name:'',planDate:'',actualDate:null,status:'예정'});
-  var type=phase==='사전공사'?'pre':'main';
-  var list=siteData.milestones.filter(function(m){return m.phase===phase;});
-  renderMSAdmin(type,list);
+/* 마일스톤 관리 */
+function renderMSAdmin(type,list){
+  var c=document.getElementById('msContainer-'+type);c.innerHTML='';
+  list.forEach(function(m,i){
+    var div=document.createElement('div');div.className='row4';
+    div.innerHTML='<div class="field"><label>이름</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="name" value="'+(m.name||'')+'"></div>'
+      +'<div class="field"><label>계획일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="planDate" value="'+(m.planDate||'')+'"></div>'
+      +'<div class="field"><label>실적일</label><input data-ms-type="'+type+'" data-ms="'+i+'" data-key="actualDate" value="'+(m.actualDate||'')+'"></div>'
+      +'<div class="field"><label>상태</label><select data-ms-type="'+type+'" data-ms="'+i+'" data-key="status"><option value="완료"'+(m.status==='완료'?' selected':'')+'>완료</option><option value="진행중"'+(m.status==='진행중'?' selected':'')+'>진행중</option><option value="예정"'+(m.status==='예정'?' selected':'')+'>예정</option></select><button class="btn-del" style="margin-top:6px" onclick="delMS(\''+type+'\','+i+')">삭제</button></div>';
+    c.appendChild(div);
+  });
 }
-
-function delMS(type,i){
-  var phase=type==='pre'?'사전공사':'본공사';
-  var list=siteData.milestones.filter(function(m){return m.phase===phase;});
-  var target=list[i];
-  var idx=siteData.milestones.indexOf(target);
-  if(idx!==-1) siteData.milestones.splice(idx,1);
-  list=siteData.milestones.filter(function(m){return m.phase===phase;});
-  renderMSAdmin(type,list);
-}
+function addMS(phase){if(!siteData.milestones)siteData.milestones=[];siteData.milestones.push({phase:phase,name:'',planDate:'',actualDate:null,status:'예정'});var type=phase==='사전공사'?'pre':'main';var list=siteData.milestones.filter(function(m){return m.phase===phase;});renderMSAdmin(type,list);}
+function delMS(type,i){var phase=type==='pre'?'사전공사':'본공사';var list=siteData.milestones.filter(function(m){return m.phase===phase;});var target=list[i];var idx=siteData.milestones.indexOf(target);if(idx!==-1)siteData.milestones.splice(idx,1);list=siteData.milestones.filter(function(m){return m.phase===phase;});renderMSAdmin(type,list);}
 
 /* 링크 관리 */
 function renderLinks(list){
-  var c=document.getElementById('linkContainer');
-  c.innerHTML='';
+  var c=document.getElementById('linkContainer');c.innerHTML='';
   list.forEach(function(link,i){
-    var div=document.createElement('div');
-    div.className='link-block';
-    div.innerHTML='<div class="row" style="margin-bottom:10px">'
-      +'<div class="field"><label>이름</label><input data-lnk="'+i+'" data-key="name" value="'+(link.name||'')+'"></div>'
-      +'<div class="field"><label>카테고리</label><input data-lnk="'+i+'" data-key="category" value="'+(link.category||'')+'"></div></div>'
-      +'<div class="row" style="margin-bottom:10px">'
-      +'<div class="field"><label>URL</label><input data-lnk="'+i+'" data-key="url" value="'+(link.url||'')+'"></div>'
-      +'<div class="field"><label>설명</label><input data-lnk="'+i+'" data-key="desc" value="'+(link.desc||'')+'"></div></div>'
+    var div=document.createElement('div');div.className='link-block';
+    div.innerHTML='<div class="row" style="margin-bottom:10px"><div class="field"><label>이름</label><input data-lnk="'+i+'" data-key="name" value="'+(link.name||'')+'"></div><div class="field"><label>카테고리</label><input data-lnk="'+i+'" data-key="category" value="'+(link.category||'')+'"></div></div>'
+      +'<div class="row" style="margin-bottom:10px"><div class="field"><label>URL</label><input data-lnk="'+i+'" data-key="url" value="'+(link.url||'')+'"></div><div class="field"><label>설명</label><input data-lnk="'+i+'" data-key="desc" value="'+(link.desc||'')+'"></div></div>'
       +'<button class="btn-del" onclick="delLink('+i+')">삭제</button>';
     c.appendChild(div);
   });
 }
-
-function addLink(){
-  if(!siteData.links) siteData.links=[];
-  siteData.links.push({category:'',name:'',url:'',desc:''});
-  renderLinks(siteData.links);
-}
-
-function delLink(i){
-  siteData.links.splice(i,1);
-  renderLinks(siteData.links);
-}
+function addLink(){if(!siteData.links)siteData.links=[];siteData.links.push({category:'',name:'',url:'',desc:''});renderLinks(siteData.links);}
+function delLink(i){siteData.links.splice(i,1);renderLinks(siteData.links);}
 
 /* 데이터 수집 */
 function collectData(){
   siteData.meta.updatedAt=new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'});
+  siteData.hero.badge=document.getElementById('heroBadge').value;
+  siteData.hero.title=document.getElementById('heroTitle').value;
+  siteData.hero.desc=document.getElementById('heroDesc').value;
+  siteData.sectionTitles.trackRecord=document.getElementById('secTrackRecord').value;
+  siteData.sectionTitles.keyMetrics=document.getElementById('secKeyMetrics').value;
+  siteData.sectionTitles.milestone=document.getElementById('secMilestone').value;
+  siteData.sectionTitles.explore=document.getElementById('secExplore').value;
   siteData.project.progress=parseInt(document.getElementById('progress').value)||0;
   siteData.project.budgetTotal=parseInt(document.getElementById('budgetTotal').value)||0;
   siteData.project.budgetSpent=parseInt(document.getElementById('budgetSpent').value)||0;
   siteData.project.severeAccident=parseInt(document.getElementById('severeAccident').value)||0;
   siteData.project.safetyScore=parseFloat(document.getElementById('safetyScore').value)||0;
   siteData.project.targetDate=document.getElementById('targetDate').value;
+
+  /* 최근실적 수집 */
+  document.querySelectorAll('[data-tr]').forEach(function(el){
+    var i=parseInt(el.getAttribute('data-tr'));
+    var k=el.getAttribute('data-key');
+    if(siteData.trackRecord[i])siteData.trackRecord[i][k]=el.value;
+  });
 
   /* 마일스톤 수집 */
   ['pre','main'].forEach(function(type){
@@ -232,10 +241,7 @@ function collectData(){
     document.querySelectorAll('[data-ms-type="'+type+'"]').forEach(function(el){
       var i=parseInt(el.getAttribute('data-ms'));
       var k=el.getAttribute('data-key');
-      if(list[i]){
-        if(k==='actualDate'){list[i][k]=el.value||null;}
-        else{list[i][k]=el.value;}
-      }
+      if(list[i]){if(k==='actualDate'){list[i][k]=el.value||null;}else{list[i][k]=el.value;}}
     });
   });
 
@@ -243,50 +249,28 @@ function collectData(){
   document.querySelectorAll('[data-lnk]').forEach(function(el){
     var i=parseInt(el.getAttribute('data-lnk'));
     var k=el.getAttribute('data-key');
-    if(siteData.links[i]) siteData.links[i][k]=el.value;
+    if(siteData.links[i])siteData.links[i][k]=el.value;
   });
-
   return siteData;
 }
 
-/* GitHub 저장 */
 function saveToGitHub(){
   var token=localStorage.getItem('gh_pat');
   if(!token){showToast('먼저 GitHub 토큰을 설정하세요','error');return;}
   var data=collectData();
   var content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
   var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH;
-
   fetch(url,{headers:{'Authorization':'token '+token}})
     .then(function(r){return r.json();})
     .then(function(info){
-      return fetch(url,{
-        method:'PUT',
-        headers:{'Authorization':'token '+token,'Content-Type':'application/json'},
-        body:JSON.stringify({message:'관리자 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})
-      });
+      return fetch(url,{method:'PUT',headers:{'Authorization':'token '+token,'Content-Type':'application/json'},body:JSON.stringify({message:'관리자 업데이트 '+new Date().toLocaleString('ko-KR'),content:content,sha:info.sha})});
     })
-    .then(function(r){
-      if(r.ok){showToast('✅ 저장 완료! 1~2분 후 사이트에 반영됩니다','success');}
-      else{r.json().then(function(e){showToast('저장 실패: '+e.message,'error');});}
-    })
+    .then(function(r){if(r.ok){showToast('✅ 저장 완료! 1~2분 후 반영','success');}else{r.json().then(function(e){showToast('저장 실패: '+e.message,'error');});}})
     .catch(function(e){showToast('오류: '+e,'error');});
 }
 
-function copyJSON(){
-  var data=collectData();
-  navigator.clipboard.writeText(JSON.stringify(data,null,2)).then(function(){
-    showToast('📋 JSON 복사 완료!','success');
-  });
-}
-
-function showToast(msg,type){
-  var t=document.getElementById('toast');
-  t.textContent=msg;
-  t.className='toast '+type;
-  t.style.display='block';
-  setTimeout(function(){t.style.display='none';},4000);
-}
+function copyJSON(){var data=collectData();navigator.clipboard.writeText(JSON.stringify(data,null,2)).then(function(){showToast('📋 JSON 복사 완료!','success');});}
+function showToast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type;t.style.display='block';setTimeout(function(){t.style.display='none';},4000);}
 
 updateTokenStatus();
 loadData();
