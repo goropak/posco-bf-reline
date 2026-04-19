@@ -385,4 +385,107 @@ table.penalty-tbl .heavy{color:#dc2626;font-weight:700}
         <tr><td>2</td><td>안전화 미착용</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
         <tr><td>3</td><td>안전대 미착용 (2m 이상)</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
         <tr><td>4</td><td>보호구 미착용 (기타)</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
-        <tr><td>5</td><td>흡연구역 외 흡연</td><td>교<span class="cursor">█</span>
+        <tr><td>5</td><td>흡연구역 외 흡연</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>6</td><td>작업 전 TBM 미실시</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>7</td><td>정리정돈 불량</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>8</td><td>통행금지구역 무단 출입</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>9</td><td>안전표지·경고 무시</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>10</td><td>휴대폰 사용 (작업 중)</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>11</td><td>작업복장 불량</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>12</td><td>위험성평가 서명 누락</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+        <tr><td>13</td><td>기타 일반 안전수칙 위반</td><td>교육4hr/1일</td><td>5일</td><td>10일</td><td>1개월</td><td>1년</td></tr>
+      </tbody>
+    </table>
+    <div class="vio-note" style="color:#92400e">※ 1회: 안전교육 4시간 또는 출입제한 1일 중 택 1</div>
+  </div>
+</section>
+
+<!-- 감점 카드 -->
+<section class="sf-section" id="sfDed">
+  <div class="sf-sec-title"><div class="dot" style="background:#f59e0b"></div><h2>안전감시자 감점 기준</h2></div>
+  <div class="ded-row">
+    <div class="ded-card"><div class="dc-score">-0.5</div><div class="dc-label">이석(자리이탈)</div><div class="dc-desc">안전감시자 부재 1건당</div></div>
+    <div class="ded-card"><div class="dc-score">-0.3</div><div class="dc-label">혼재작업 미조치</div><div class="dc-desc">부적절 작업 방치 1건당</div></div>
+    <div class="ded-card"><div class="dc-score">-0.2</div><div class="dc-label">복장 위반</div><div class="dc-desc">감시자 복장 기준 미준수 1건당</div></div>
+  </div>
+</section>
+
+<!-- 슬로건 -->
+<div class="sf-slogan">
+  숫자가 아니라 <em>사람</em>을 지킵니다.<br>
+  과정지표 만점, 중대재해 ZERO —<br>
+  그것이 <em>광양 2고로 개수</em>의 안전 기준입니다.
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PART B — 안전·보건 용어사전
+     ══════════════════════════════════════════ -->
+
+<div class="gl-divider"><span>📖 안전·보건 용어사전</span></div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="용어, 약어, 키워드 검색 (예: LTIFR, 중대재해, LOTO)">
+    <button onclick="filterAll()">검색</button>
+  </div>
+</div>
+
+<!-- 1. 사고 피라미드 -->
+<section class="gl-section" id="glSec1">
+  <div class="sec-title"><div class="num c-red">1</div><h2>사고 피라미드</h2><span class="sub">Safety Triangle</span></div>
+  <div class="pyramid-wrap">
+    <div class="pyr-row" onclick="togglePyr(1)"><div class="pyr-block pw1">사망</div><div class="pyr-label">Fatality<br><span class="en">업무상 사망 — 중대재해처벌법 적용</span></div></div>
+    <div class="pyr-detail" id="pyr1"><strong>사망 (Fatality)</strong><br>업무상 사고 또는 직업성 질병으로 근로자가 사망한 경우. 중대재해처벌법에 따라 경영책임자에게 <strong>1년 이상 징역 또는 10억 원 이하 벌금</strong>, 법인에는 <strong>50억 원 이하 벌금</strong>이 적용됩니다.</div>
+
+    <div class="pyr-row" onclick="togglePyr(2)"><div class="pyr-block pw2">LTI</div><div class="pyr-label">Lost Time Injury (휴업재해)<br><span class="en">1일 이상 휴업 — LTIFR 산정 대상</span></div></div>
+    <div class="pyr-detail" id="pyr2"><strong>휴업재해 (LTI)</strong><br>부상·질병으로 <strong>1일 이상 정상 근무 불가</strong>. 3일 이상 휴업 시 1개월 이내 산업재해조사표 제출 의무.<br>공식: <strong>LTIFR = (LTI건수 ÷ 총근로시간) × 1,000,000</strong></div>
+
+    <div class="pyr-row" onclick="togglePyr(3)"><div class="pyr-block pw3">RWC</div><div class="pyr-label">Restricted Work Case (근무제한)<br><span class="en">원래 업무 수행 불가 → 경작업 전환</span></div></div>
+    <div class="pyr-detail" id="pyr3"><strong>근무제한재해 (RWC)</strong><br>원래 업무 수행 불가로 경작업 전환 배치. OSHA TRIR 산정 포함. 휴업까지는 가지 않지만 정상 근무 불가 상태.</div>
+
+    <div class="pyr-row" onclick="togglePyr(4)"><div class="pyr-block pw4">MTC</div><div class="pyr-label">Medical Treatment Case (의료조치)<br><span class="en">봉합·골절 고정·처방약 등 의료 처치</span></div></div>
+    <div class="pyr-detail" id="pyr4"><strong>의료조치재해 (MTC/MTI)</strong><br>응급처치를 넘어서는 의료 행위(봉합, 골절 고정, 처방약 투여 등)가 필요한 부상. TRIR에 포함.</div>
+
+    <div class="pyr-row" onclick="togglePyr(5)"><div class="pyr-block pw5">FAC</div><div class="pyr-label">First Aid Case (응급처치)<br><span class="en">소독·밴드·냉찜질 등으로 종결</span></div></div>
+    <div class="pyr-detail" id="pyr5"><strong>응급처치재해 (FAC/FAI)</strong><br>현장 응급처치(소독, 밴드, 냉찜질, 비처방 진통제)만으로 종결. OSHA 기록 대상 제외이나 사내 통계에는 기록.</div>
+
+    <div class="pyr-row" onclick="togglePyr(6)"><div class="pyr-block pw6">Near Miss</div><div class="pyr-label">아차사고<br><span class="en">조건이 달랐으면 재해 발생 가능</span></div></div>
+    <div class="pyr-detail" id="pyr6"><strong>아차사고 (Near Miss)</strong><br>재해로 이어지지 않았으나 상황이 달랐으면 부상·사망 가능했던 사건. 버드의 법칙: 중대사고 1건 뒤 아차사고 600건 존재.</div>
+
+    <div class="pyr-row" onclick="togglePyr(7)"><div class="pyr-block pw7">Unsafe Act / Condition</div><div class="pyr-label">불안전행동 / 불안전상태<br><span class="en">재해의 근본 원인 — 피라미드의 토대</span></div></div>
+    <div class="pyr-detail" id="pyr7"><strong>불안전행동</strong>: 안전모 미착용, 절차 무시, 음주 작업 등.<br><strong>불안전상태</strong>: 개구부 미방호, 조명 불량, 가스 누출 등.<br>하인리히 분석: 산업재해의 <strong>88%가 불안전행동</strong>에서 비롯.</div>
+  </div>
+  <div class="theory-cards">
+    <div class="theory-card"><h4>하인리히 법칙 (1931)</h4><div class="ratio">1 : 29 : 300</div><p>중상해 1건 뒤에 경상해 29건,<br>무상해 사고 300건이 숨어 있다</p></div>
+    <div class="theory-card"><h4>버드의 법칙 (1969)</h4><div class="ratio">1 : 10 : 30 : 600</div><p>사망·중상 1 : 경상 10 :<br>물적 피해 30 : 아차사고 600</p></div>
+  </div>
+  <div class="pyr-msg"><em>바닥(불안전행동·상태)을 줄이면 꼭대기(사망)는 발생하지 않는다.</em><br>과정지표에 집중하는 이유입니다.</div>
+</section>
+
+<!-- 2. 재해 통계 지표 -->
+<section class="gl-section" id="glSec2">
+  <div class="sec-title"><div class="num c-blue">2</div><h2>재해 통계 지표</h2><span class="sub">Disaster Statistics</span></div>
+  <div class="gl-table-wrap">
+    <table class="gl-tbl">
+      <thead><tr><th>지표</th><th>영문</th><th>공식</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td><strong>도수율</strong></td><td>Frequency Rate</td><td><span class="formula">(재해건수 ÷ 연근로시간) × 1,000,000</span></td><td>100만 시간당</td></tr>
+        <tr><td><strong>강도율</strong></td><td>Severity Rate</td><td><span class="formula">(근로손실일수 ÷ 연근로시간) × 1,000</span></td><td>1,000시간당</td></tr>
+        <tr><td><strong>환산도수율</strong></td><td>Converted FR</td><td><span class="formula">(환산재해건수 ÷ 연근로시간) × 1,000,000</span></td><td>사망=25건 가중</td></tr>
+        <tr><td><strong>환산강도율</strong></td><td>Converted SR</td><td><span class="formula">(환산근로손실일수 ÷ 연근로시간) × 1,000</span></td><td>사망=7,500일 가중</td></tr>
+        <tr><td><strong>연천인율</strong></td><td>Annual Incidence Rate</td><td><span class="formula">(재해자수 ÷ 상시근로자수) × 1,000</span></td><td>1,000명당</td></tr>
+        <tr><td><strong>LTIFR</strong></td><td>Lost Time Injury FR</td><td><span class="formula">(LTI건수 ÷ 총근로시간) × 1,000,000</span></td><td>국제 표준</td></tr>
+        <tr><td><strong>TRIR</strong></td><td>Total Recordable IR</td><td><span class="formula">(총기록재해건수 ÷ 총근로시간) × 200,000</span></td><td>OSHA 기준</td></tr>
+        <tr><td><strong>Safe-T-Score</strong></td><td>—</td><td><span class="formula">(현 FR − 과거 FR) ÷ √(과거 FR ÷ 총시간 × 10⁶)</span></td><td>±2 밖 유의</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3. 재해 분류 체계 -->
+<section class="gl-section" id="glSec3">
+  <div class="sec-title"><div class="num c-rose">3</div><h2>재해 분류 체계</h2><span class="sub">Incident Classification</span></div>
+  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">중대재해 (중대산업재해)</div><div class="acc-body"><p><strong>중대재해처벌법 제2조 제2호:</strong></p><ul><li>사망자 <strong>1명 이상</strong></li><li>동일 사고 <strong>2개월↑ 치료</strong> 부상자 <strong>10명↑</strong></li><li>동일 유해요인 <strong>3개월↑ 치료</strong> 질병자 <strong>10명↑</strong></li></ul><p style="margin-top:8px"><strong>산안법 시행규칙 제3조:</strong></p><ul><li>사망자 1명↑</li><li>3개월↑ 요양 부상자 동시 2명↑</li><li>부상·질병자 동시 10명↑</li></ul></div></div>
+  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">일반 산업재해</div><div class="acc-body"><ul><li><strong>3일↑ 휴업</strong>: 산업재해조사표 제출 (1개월 이내)</li><li><strong>3일 미만</strong>: 사업장 자체 기록·보존<span class="cursor">█</span>
