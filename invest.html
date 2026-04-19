@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>고로개수TF - 사업개요</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero{padding:80px 0 40px;text-align:center;background:linear-gradient(180deg,#eef2ff 0%,#f8f9fc 100%)}
+.page-hero .badge{display:inline-block;padding:6px 18px;border-radius:50px;background:#e0e7ff;color:#4338ca;font-size:.78rem;font-weight:700;margin-bottom:16px}
+.page-hero h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-.03em;margin-bottom:12px}
+.page-hero h1 .gr{background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.page-hero p{max-width:640px;margin:0 auto;font-size:.95rem;color:#666;line-height:1.8}
+.page-main{max-width:1140px;margin:0 auto;padding:32px 24px 80px}
+
+/* 스토리 타임라인 */
+.story-section{margin-bottom:56px}
+.story-card{position:relative;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:40px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,.04);overflow:hidden;transition:all .3s}
+.story-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.story-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:20px 0 0 20px}
+.story-pain::before{background:linear-gradient(180deg,#ef4444,#f97316)}
+.story-pride::before{background:linear-gradient(180deg,#2563eb,#7c3aed)}
+.story-delay::before{background:linear-gradient(180deg,#f59e0b,#ef4444)}
+.story-spirit::before{background:linear-gradient(180deg,#16a34a,#06b6d4)}
+.story-emoji{font-size:2rem;margin-bottom:12px}
+.story-card h3{font-size:1.15rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
+.story-card p{font-size:.88rem;color:#666;line-height:1.8}
+.story-highlight{display:inline;background:linear-gradient(180deg,transparent 60%,#fef3c7 60%);font-weight:700;color:#1a1a2e}
+.story-tag{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:50px;font-size:.72rem;font-weight:700}
+.tag-red{background:#fef2f2;color:#dc2626}
+.tag-blue{background:#eff6ff;color:#2563eb}
+.tag-yellow{background:#fefce8;color:#a16207}
+.tag-green{background:#f0fdf4;color:#16a34a}
+
+/* 연기 타임라인 */
+.delay-timeline{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:36px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.delay-title{font-size:1rem;font-weight:800;color:#1a1a2e;margin-bottom:24px;text-align:center}
+.delay-track{display:flex;align-items:center;justify-content:space-between;position:relative;padding:20px 0}
+.delay-rail{position:absolute;top:50%;left:40px;right:40px;height:3px;background:#e5e7eb;transform:translateY(-50%)}
+.delay-item{text-align:center;position:relative;z-index:2;flex:1}
+.delay-dot{width:48px;height:48px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800}
+.dd-plan{background:#fef2f2;border:2px solid #fca5a5;color:#dc2626}
+.dd-delay{background:#fefce8;border:2px solid #fcd34d;color:#a16207}
+.dd-now{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.3);animation:nowPulse 2s infinite}
+@keyframes nowPulse{0%,100%{box-shadow:0 4px 16px rgba(37,99,235,.3)}50%{box-shadow:0 4px 28px rgba(37,99,235,.15)}}
+.delay-year{font-size:.88rem;font-weight:800;color:#1a1a2e}
+.delay-desc{font-size:.72rem;color:#999;margin-top:4px;line-height:1.4}
+.delay-arrow{font-size:1.2rem;color:#d1d5db;position:relative;z-index:2}
+
+/* 원팀 */
+.oneteam-section{margin-bottom:56px}
+.oneteam-banner{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:20px;padding:48px 40px;text-align:center;margin-bottom:32px;position:relative;overflow:hidden}
+.oneteam-banner::before{content:'';position:absolute;top:-50%;left:-30%;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.2),transparent 70%);pointer-events:none}
+.oneteam-banner::after{content:'';position:absolute;bottom:-50%;right:-30%;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.2),transparent 70%);pointer-events:none}
+.oneteam-title{font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:8px;position:relative;z-index:1}
+.oneteam-sub{font-size:.92rem;color:#c4b5fd;line-height:1.7;position:relative;z-index:1}
+
+.oneteam-label{font-size:.82rem;font-weight:700;color:#888;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.oneteam-label span{background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.oneteam-label::after{content:'';flex:1;height:1px;background:#e5e7eb}
+
+.ot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.ot-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;text-align:center;transition:all .2s;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.ot-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.ot-avatar{width:48px;height:48px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;color:#fff}
+.ot-blue{background:linear-gradient(135deg,#2563eb,#3b82f6)}
+.ot-purple{background:linear-gradient(135deg,#7c3aed,#8b5cf6)}
+.ot-cyan{background:linear-gradient(135deg,#0891b2,#06b6d4)}
+.ot-green{background:linear-gradient(135deg,#16a34a,#22c55e)}
+.ot-orange{background:linear-gradient(135deg,#ea580c,#f97316)}
+.ot-pink{background:linear-gradient(135deg,#db2777,#ec4899)}
+.ot-teal{background:linear-gradient(135deg,#0d9488,#14b8a6)}
+.ot-indigo{background:linear-gradient(135deg,#4338ca,#6366f1)}
+.ot-card h4{font-size:.85rem;font-weight:800;color:#1a1a2e;margin-bottom:2px}
+.ot-card .ot-role{font-size:.72rem;color:#2563eb;font-weight:600;margin-bottom:4px}
+.ot-card .ot-org{font-size:.68rem;color:#999;line-height:1.4}
+
+/* 교체범위 */
+.scope-section{margin-bottom:56px}
+
+/* 고로 다이어그램 */
+.bf-diagram{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:40px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.04);display:flex;gap:40px;align-items:center}
+.bf-visual{flex:0 0 320px;position:relative}
+.bf-svg{width:100%;height:auto}
+.bf-labels{flex:1}
+.bf-part{padding:14px 18px;border-radius:12px;margin-bottom:10px;border-left:4px solid;transition:all .2s;cursor:default}
+.bf-part:hover{transform:translateX(4px)}
+.bf-part h4{font-size:.88rem;font-weight:800;margin-bottom:2px}
+.bf-part p{font-size:.75rem;color:#888;line-height:1.4}
+.bp-1{background:#eff6ff;border-color:#2563eb;color:#1e40af}
+.bp-2{background:#f5f3ff;border-color:#7c3aed;color:#5b21b6}
+.bp-3{background:#ecfdf5;border-color:#16a34a;color:#166534}
+.bp-4{background:#fff7ed;border-color:#ea580c;color:#9a3412}
+.bp-5{background:#fef2f2;border-color:#dc2626;color:#991b1b}
+
+/* 부대설비 그리드 */
+.scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.scope-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;transition:all .2s;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.scope-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.scope-icon{font-size:1.4rem;margin-bottom:10px}
+.scope-card h4{font-size:.92rem;font-weight:800;color:#1a1a2e;margin-bottom:4px}
+.scope-card p{font-size:.78rem;color:#888;line-height:1.6}
+.scope-badge{display:inline-block;margin-top:10px;padding:3px 12px;border-radius:50px;font-size:.68rem;font-weight:700}
+.sb-full{background:#e0e7ff;color:#4338ca}
+.sb-partial{background:#fef3c7;color:#a16207}
+.sb-replace{background:#fef2f2;color:#dc2626}
+
+@media(max-width:1024px){.ot-grid{grid-template-columns:repeat(2,1fr)}.scope-grid{grid-template-columns:repeat(2,1fr)}.bf-diagram{flex-direction:column}.bf-visual{flex:none;width:100%;max-width:320px;margin:0 auto}}
+@media(max-width:768px){.ot-grid,.scope-grid{grid-template-columns:1fr}.delay-track{flex-direction:column;gap:16px}.delay-rail{display:none}.delay-arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+<div class="content-wrap">
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-mark">TF</div>
+      <div class="logo-text">고로개수TF <span>Gwangyang BF#2 · 2025–2026</span></div>
+    </div>
+    <nav>
+      <a href="dashboard.html">대시보드</a>
+      <a href="team.html">조직소개</a>
+      <a href="invest.html" class="active">사업개요</a>
+      <a href="safety.html">안전관리</a>
+      <a href="ai.html">AI Agent</a>
+      <a href="links.html">링크자료</a>
+    </nav>
+    <div class="header-right">
+      <a href="admin.html" class="header-btn">⚙️ 관리자</a>
+      <button onclick="doLogout()" class="header-btn logout">로그아웃</button>
+    </div>
+  </div>
+
+  <!-- 페이지 히어로 -->
+  <div class="page-hero">
+    <div class="badge">광양 2고로 · 2005년 화입 · 21년 가동</div>
+    <h1><span class="gr">효자 고로</span>이자 <span class="gr">아픈 고로</span>,<br>광양 2고로의 이야기</h1>
+    <p>경영층에게는 감가상각이 끝난 캐시카우, 현장에게는 냉입 2회 · 21년 가동의 고통.<br>3차례 연기 끝에 드디어 시작된 개수 사업의 전모.</p>
+  </div>
+
+  <div class="page-main">
+
+    <!-- ── 광양 2고로 스토리 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">📖</div>
+      <div class="sec-label">광양 2고로 이야기</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="story-section">
+      <div class="story-card story-pride fade-up">
+        <div class="story-emoji">💰</div>
+        <h3>경영층이 보는 광양 2고로 — "효자 고로"</h3>
+        <p>2005년 화입 이후 21년간 쉬지 않고 쇳물을 생산해 온 광양 2고로. <span class="story-highlight">감가상각이 끝난 뒤에도 매년 수천억 원의 매출을 올려주는 캐시카우</span>, 포스코의 대표적인 효자 고로입니다.</p>
+        <div class="story-tag tag-blue">💎 Cash Cow · 효자 고로</div>
+      </div>
+
+      <div class="story-card story-pain fade-up">
+        <div class="story-emoji">💔</div>
+        <h3>현장이 보는 광양 2고로 — "아픈 손가락"</h3>
+        <p>하지만 현장의 시선은 다릅니다. <span class="story-highlight">냉입을 2번이나 겪었고, 21년째 노후화된 설비로 조업과 정비에 극심한 어려움</span>을 겪고 있습니다. 매일 설비 트러블과 싸우는 현장 직원들에게 광양 2고로는 정말 '아픈 손가락'인 고로입니다.</p>
+        <div class="story-tag tag-red">😰 냉입 2회 · 21년 노후</div>
+      </div>
+
+      <div class="story-card story-delay fade-up">
+        <div class="story-emoji">⏳</div>
+        <h3>3차례 연기된 개수 — "기다림의 역사"</h3>
+        <p>2020년부터 개수를 추진했지만, <span class="story-highlight">광양 3고로 · 포항 4고로 등 더 늦게 가동한 고로들이 먼저 개수</span>되는 상황이 반복되었습니다. 거기에 부분개수 이슈로 1년이 추가 순연되면서, 총 3차례나 미뤄진 끝에 드디어 사업이 시작되었습니다.</p>
+        <div class="story-tag tag-yellow">📅 3차례 연기 · 2026 착수</div>
+      </div>
+
+      <!-- 연기 타임라인 -->
+      <div class="delay-timeline fade-up">
+        <div class="delay-title">📅 광양 2고로 개수 추진 경과</div>
+        <div class="delay-track">
+          <div class="delay-item">
+            <div class="delay-dot dd-plan">1차</div>
+            <div class="delay-year">2020</div>
+            <div class="delay-desc">최초 개수 계획<br>→ 광양3·포항4 우선</div>
+          </div>
+          <div class="delay-arrow">→</div>
+          <div class="delay-item">
+            <div class="delay-dot dd-delay">2차</div>
+            <div class="delay-year">2023</div>
+            <div class="delay-desc">재추진<br>→ 투자 우선순위 조정</div>
+          </div>
+          <div class="delay-arrow">→</div>
+          <div class="delay-item">
+            <div class="delay-dot dd-delay">3차</div>
+            <div class="delay-year">2025</div>
+            <div class="delay-desc">부분개수 이슈<br>→ 1년 추가 순연</div>
+          </div>
+          <div class="delay-arrow">→</div>
+          <div class="delay-item">
+            <div class="delay-dot dd-now">착수</div>
+            <div class="delay-year">2026</div>
+            <div class="delay-desc">드디어 착수!<br>전면개수 확정</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card story-spirit fade-up">
+        <div class="story-emoji">🤝</div>
+        <h3>원팀 정신 — "제선인의 열정으로 하나 된 가족"</h3>
+        <p>3차례나 미뤄진 만큼, 이번 개수에 거는 기대와 열정은 그 어느 사업보다 뜨겁습니다. <span class="story-highlight">투자엔지니어링실 · 제선부 · 설비기술부 · 전략실 · 연구원이 가족처럼 하나 되어</span> 상호 협력하고 소통하며 사업을 진행하고 있습니다. 어느 사업보다 강한 원팀, 그것이 광양 2고로 개수의 힘입니다.</p>
+        <div class="story-tag tag-green">💪 ONE TEAM · 제선인의 열정</div>
+      </div>
+    </div>
+
+    <!-- ── 원팀 조직 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">💪</div>
+      <div class="sec-label">ONE TEAM 조직</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="oneteam-section">
+      <div class="oneteam-banner fade-up">
+        <div class="oneteam-title">🤝 ONE TEAM — 광양 2고로 개수</div>
+        <div class="oneteam-sub">투자엔지니어링실 · 광양제선부 · 설비기술부 · 전략실 · 기술연구원 · 구매실<br>유관부서가 하나 되어, 제선인의 열정으로 만들어가는 프로젝트</div>
+      </div>
+
+      <div class="oneteam-label fade-up"><span>🔵 핵심 원팀</span> — 프로젝트 직접 수행</div>
+      <div class="ot-grid fade-up">
+        <div class="ot-card">
+          <div class="ot-avatar ot-blue">박</div>
+          <h4>박태환 팀장</h4>
+          <div class="ot-role">고로개수 사업 총괄</div>
+          <div class="ot-org">투자엔지니어링1실</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-avatar ot-purple">손</div>
+          <h4>손기완 부장</h4>
+          <div class="ot-role">제선부 총괄</div>
+          <div class="ot-org">광양제철소 제선부</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-avatar ot-cyan">김</div>
+          <h4>김승보 공장장</h4>
+          <div class="ot-role">1제선 공장 총괄</div>
+          <div class="ot-org">광양제철소 제선부 1제선</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-avatar ot-green">이</div>
+          <h4>이창민 리더</h4>
+          <div class="ot-role">개수 품질향상 총괄</div>
+          <div class="ot-org">광양제철소 제선부</div>
+        </div>
+      </div>
+
+      <div class="ot-grid fade-up" style="grid-template-columns:repeat(1,1fr);max-width:280px">
+        <div class="ot-card">
+          <div class="ot-avatar ot-orange">서</div>
+          <h4>서평환 리더</h4>
+          <div class="ot-role">고로정비 총괄</div>
+          <div class="ot-org">광양 설비기술부 고로정비섹션</div>
+        </div>
+      </div>
+
+      <div class="oneteam-label fade-up" style="margin-top:32px"><span>🟢 전문 지원</span> — 기술 · 전략 · 구매 지원</div>
+      <div class="ot-grid fade-up" style="grid-template-columns:repeat(3,1fr)">
+        <div class="ot-card">
+          <div class="ot-avatar ot-indigo">이</div>
+          <h4>이상호 전무</h4>
+          <div class="ot-role">노저출선 업무 지원</div>
+          <div class="ot-org">전략실</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-avatar ot-teal">이</div>
+          <h4>이동조 그룹장</h4>
+          <div class="ot-role">엔지니어링 지원</div>
+          <div class="ot-org">기술연구원</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-avatar ot-pink">강</div>
+          <h4>강미미 과장</h4>
+          <div class="ot-role">최적 설비 & 계약</div>
+          <div class="ot-org">설비자재구매실</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 교체 범위 ── -->
+    <div class="sec-head fade-up">
+      <div class="sec-icon">🔧</div>
+      <div class="sec-label">교체 범위</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="scope-section">
+      <!-- 고로 본체 다이어그램 -->
+      <div class="bf-diagram fade-up">
+        <div class="bf-visual">
+          <svg viewBox="0 0 300 500" class="bf-svg" xmlns="http://www.w3.org/2000/svg">
+            <!-- 고로 외형 -->
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>
+              <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16a34a"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+              <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
+              <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dc2626"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient>
+            </defs>
+            <!-- 노구 (Top) -->
+            <path d="M120,20 L180,20 L185,80 L115,80 Z" fill="url(#g1)" rx="4" opacity=".9"/>
+            <text x="150" y="55" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">노구</text>
+            <!-- 샤프트 (Shaft) -->
+            <path d="M115,80 L185,80 L200,200 L100,200 Z" fill="url(#g2)" opacity=".9"/>
+            <text x="150" y="148" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">샤프트</text>
+            <!-- 벨리 (Belly) -->
+            <path d="M100,200 L200,200 L210,260 L90,260 Z" fill="url(#g3)" opacity=".9"/>
+            <text x="150" y="237" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">벨리</text>
+            <!-- 보쉬 (Bosh) -->
+            <path d="M90,260 L210,260 L190,340 L110,340 Z" fill="url(#g4)" opacity=".9"/>
+            <text x="150" y="307" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">보쉬</text>
+            <!-- 노저 (Hearth) -->
+            <rect x="110" y="340" width="80" height="100" rx="6" fill="url(#g5)" opacity=".9"/>
+            <text x="150" y="397" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">노저</text>
+            <!-- 출선구 표시 -->
+            <circle cx="115" cy="400" r="8" fill="#fbbf24" stroke="#fff" stroke-width="2"/>
+            <circle cx="185" cy="400" r="8" fill="#fbbf24" stroke="#fff" stroke-width="2"/>
+            <text x="150" y="470" text-anchor="middle" fill="#999" font-size="11">▲ 고로 본체 단면도</text>
+            <!-- 전체교체 표시 -->
+            <rect x="70" y="15" width="160" height="430" rx="12" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="6,4" opacity=".5"/>
+            <text x="255" y="240" fill="#2563eb" font-size="10" font-weight="700" transform="rotate(90,255,240)">전체 교체</text>
+          </svg>
+        </div>
+        <div class="bf-labels">
+          <div style="font-size:1.1rem;font-weight:900;color:#1a1a2e;margin-bottom:4px">고로 본체 — 전체 교체</div>
+          <div style="font-size:.82rem;color:#888;margin-bottom:20px">5개 구역 냉각장치 + 내화물 전면 교체</div>
+          <div class="bf-part bp-1"><h4>❶ 노구 (Throat)</h4><p>장입물 투입구 · 노정 장치 교체</p></div>
+          <div class="bf-part bp-2"><h4>❷ 샤프트 (Shaft)</h4><p>예열·환원대 · 철피+스테이브 교체</p></div>
+          <div class="bf-part bp-3"><h4>❸ 벨리 (Belly)</h4><p>최대 직경부 · 구조 보강 교체</p></div>
+          <div class="bf-part bp-4"><h4>❹ 보쉬 (Bosh)</h4><p>용융대 · 고열 구간 냉각장치 교체</p></div>
+          <div class="bf-part bp-5"><h4>❺ 노저 (Hearth)</h4><p>용선·슬래그 저장부 · 출선구 교체</p></div>
+        </div>
+      </div>
+
+      <!-- 부대설비 -->
+      <div class="sec-head fade-up">
+        <div class="sec-icon">⚙️</div>
+        <div class="sec-label">부대설비 교체 범위</div>
+        <div class="sec-line"></div>
+      </div>
+      <div class="scope-grid fade-up">
+        <div class="scope-card">
+          <div class="scope-icon">💧</div>
+          <h4>수재설비</h4>
+          <p>고로 수재설비 전체 교체</p>
+          <div class="scope-badge sb-full">전체 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🔩</div>
+          <h4>주상기기</h4>
+          <p>고로 주상기기 전체 교체</p>
+          <div class="scope-badge sb-full">전체 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🌬️</div>
+          <h4>열풍로 CAF팬</h4>
+          <p>열풍로 CAF팬 교체</p>
+          <div class="scope-badge sb-partial">부분 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🔥</div>
+          <h4>주상 탕도</h4>
+          <p>고로 주상 탕도 부분 교체</p>
+          <div class="scope-badge sb-partial">부분 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🌿</div>
+          <h4>청정설비</h4>
+          <p>고로 청정설비 부분 교체</p>
+          <div class="scope-badge sb-partial">부분 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">⚡</div>
+          <h4>노정압발전기 (TRT)</h4>
+          <p>고로 노정압발전기 부분 교체</p>
+          <div class="scope-badge sb-partial">부분 교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🏗️</div>
+          <h4>미분탄 백필터</h4>
+          <p>고로 미분탄 백필터 교체</p>
+          <div class="scope-badge sb-replace">교체</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">📦</div>
+          <h4>원료설비</h4>
+          <p>고로 원료설비 보강</p>
+          <div class="scope-badge sb-partial">보강</div>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon">🔧</div>
+          <h4>기타 부대설비</h4>
+          <p>고로 부대설비 부분 교체</p>
+          <div class="scope-badge sb-partial">부분 교체</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">© 2026 고로개수TF · POSCO Gwangyang Steelworks · Blast Furnace #2 Partial Reline</div>
+</div>
+
+<script src="js/auth.js"></script>
+<script>checkAuth();initScrollAnim();
+function initScrollAnim(){var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('show');o.unobserve(entry.target);}});},{threshold:0.1});document.querySelectorAll('.fade-up').forEach(function(el){o.observe(el);});}
+</script>
+</body>
+</html>
