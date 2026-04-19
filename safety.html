@@ -488,4 +488,374 @@ table.penalty-tbl .heavy{color:#dc2626;font-weight:700}
 <section class="gl-section" id="glSec3">
   <div class="sec-title"><div class="num c-rose">3</div><h2>재해 분류 체계</h2><span class="sub">Incident Classification</span></div>
   <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">중대재해 (중대산업재해)</div><div class="acc-body"><p><strong>중대재해처벌법 제2조 제2호:</strong></p><ul><li>사망자 <strong>1명 이상</strong></li><li>동일 사고 <strong>2개월↑ 치료</strong> 부상자 <strong>10명↑</strong></li><li>동일 유해요인 <strong>3개월↑ 치료</strong> 질병자 <strong>10명↑</strong></li></ul><p style="margin-top:8px"><strong>산안법 시행규칙 제3조:</strong></p><ul><li>사망자 1명↑</li><li>3개월↑ 요양 부상자 동시 2명↑</li><li>부상·질병자 동시 10명↑</li></ul></div></div>
-  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">일반 산업재해</div><div class="acc-body"><ul><li><strong>3일↑ 휴업</strong>: 산업재해조사표 제출 (1개월 이내)</li><li><strong>3일 미만</strong>: 사업장 자체 기록·보존<span class="cursor">█</span>
+  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">일반 산업재해</div><div class="acc-body"><ul><li><strong>3일↑ 휴업</strong>: 산업재해조사표 제출 (1개월 이내)</li><li><strong>3일 미만</strong>: 사업장 자체 기록·보존</li></ul></div></div>
+  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">아차사고 (Near Miss)</div><div class="acc-body"><p>재해로 이어지지 않았으나 조건이 달랐으면 재해 발생 가능했던 상황. 사내 보고·분석이 재해 예방의 핵심.</p></div></div>
+  <div class="acc-item"><div class="acc-head" onclick="toggleAcc(this)">직업성 질병 (Occupational Disease)</div><div class="acc-body"><p>업무 수행 중 유해요인 노출로 발생하는 질환. 진폐증, 소음성 난청, 근골격계 질환, 화학물질 중독 등. 산재보험 대상.</p></div></div>
+</section>
+
+<!-- 4. 사고 분석 기법 -->
+<section class="gl-section" id="glSec4">
+  <div class="sec-title"><div class="num c-purple">4</div><h2>사고 분석 기법</h2><span class="sub">Analysis Techniques</span></div>
+  <div class="ana-cards">
+    <div class="ana-card"><h4>SCAT</h4><div class="full">Systematic Cause Analysis Technique</div><p>직접원인 → 간접원인 → 기본원인 → 관리체계 역추적</p></div>
+    <div class="ana-card"><h4>ICAM</h4><div class="full">Incident Cause Analysis Method</div><p>조직·환경·개인·결함방어 4개 층위 분석</p></div>
+    <div class="ana-card"><h4>5-Why</h4><div class="full">—</div><p>"왜?"를 5회 반복하여 근본 원인 도달</p></div>
+    <div class="ana-card"><h4>FTA</h4><div class="full">Fault Tree Analysis</div><p>상위사건에서 AND/OR 게이트로 논리적 전개</p></div>
+    <div class="ana-card"><h4>FMEA</h4><div class="full">Failure Mode & Effects Analysis</div><p>심각도·발생도·검출도 → RPN 우선순위</p></div>
+    <div class="ana-card"><h4>JSA / JHA</h4><div class="full">Job Safety / Hazard Analysis</div><p>작업 단계별 위험요인 식별 → 대책 수립</p></div>
+    <div class="ana-card"><h4>HAZOP</h4><div class="full">Hazard & Operability Study</div><p>공정변수 이탈 가이드워드 분석 (화학·플랜트)</p></div>
+    <div class="ana-card"><h4>BBS</h4><div class="full">Behavior Based Safety</div><p>행동 관찰 → 안전행동 강화 피드백 루프</p></div>
+  </div>
+</section>
+
+<!-- 5. 현장 안전 용어 -->
+<section class="gl-section" id="glSec5">
+  <div class="sec-title"><div class="num c-orange">5</div><h2>현장 안전 용어</h2><span class="sub">Field Safety Terms</span></div>
+  <div class="field-filters">
+    <button class="active" onclick="filterField('all',this)">전체</button>
+    <button onclick="filterField('일반',this)">일반</button>
+    <button onclick="filterField('추락',this)">추락</button>
+    <button onclick="filterField('감전',this)">감전</button>
+    <button onclick="filterField('화재',this)">화재·폭발</button>
+    <button onclick="filterField('밀폐',this)">밀폐공간</button>
+    <button onclick="filterField('중장비',this)">중장비</button>
+    <button onclick="filterField('제철',this)">제철 특화</button>
+  </div>
+  <div class="field-cards" id="fieldCards">
+    <div class="field-card" data-cat="일반"><div class="fc-top"><span class="fc-name">안전작업허가 (PTW)</span><span class="fc-cat">일반</span></div><div class="fc-desc">위험작업 사전 허가·조건 확인 제도. Permit to Work</div></div>
+    <div class="field-card" data-cat="감전"><div class="fc-top"><span class="fc-name">잠금·표시 (LOTO)</span><span class="fc-cat">감전</span></div><div class="fc-desc">에너지원 차단 + 잠금장치·표지 부착 후 작업. Lock Out Tag Out</div></div>
+    <div class="field-card" data-cat="일반"><div class="fc-top"><span class="fc-name">TBM</span><span class="fc-cat">일반</span></div><div class="fc-desc">작업 전 5~10분 위험요인 공유·역할 확인. Tool Box Meeting</div></div>
+    <div class="field-card" data-cat="일반"><div class="fc-top"><span class="fc-name">안전감시자</span><span class="fc-cat">일반</span></div><div class="fc-desc">위험작업 현장 전담 감시 인력. Safety Monitor</div></div>
+    <div class="field-card" data-cat="화재"><div class="fc-top"><span class="fc-name">SDS / MSDS</span><span class="fc-cat">화재·폭발</span></div><div class="fc-desc">화학물질 위험·취급 정보 문서. Safety Data Sheet</div></div>
+    <div class="field-card" data-cat="밀폐"><div class="fc-top"><span class="fc-name">LEL</span><span class="fc-cat">밀폐공간</span></div><div class="fc-desc">폭발 하한 농도. Lower Explosive Limit — 진입 전 측정 필수</div></div>
+    <div class="field-card" data-cat="밀폐"><div class="fc-top"><span class="fc-name">산소농도 (O₂)</span><span class="fc-cat">밀폐공간</span></div><div class="fc-desc">18~23.5% 정상. 18% 미만 질식 위험 → 진입 불가</div></div>
+    <div class="field-card" data-cat="추락"><div class="fc-top"><span class="fc-name">고소작업대 (MEWP)</span><span class="fc-cat">추락</span></div><div class="fc-desc">2m↑ 이동식 작업대. Mobile Elevating Work Platform</div></div>
+    <div class="field-card" data-cat="중장비"><div class="fc-top"><span class="fc-name">인양계획서</span><span class="fc-cat">중장비</span></div><div class="fc-desc">양중작업 전 하중·반경·지반 사전 검토. Lifting Plan</div></div>
+    <div class="field-card" data-cat="제철"><div class="fc-top"><span class="fc-name">슬래그 / 용선</span><span class="fc-cat">제철 특화</span></div><div class="fc-desc">고로 출선 시 부산물·용융 철. 화상·수증기 폭발 위험</div></div>
+    <div class="field-card" data-cat="제철"><div class="fc-top"><span class="fc-name">쿨링 스테이브</span><span class="fc-cat">제철 특화</span></div><div class="fc-desc">고로 노체 냉각판. 설치 시 중량물·고소 복합 위험</div></div>
+    <div class="field-card" data-cat="제철"><div class="fc-top"><span class="fc-name">잔선 처리</span><span class="fc-cat">제철 특화</span></div><div class="fc-desc">고로 정지 후 잔류 용선 배출. 폭발·화상 위험 최고 등급</div></div>
+  </div>
+</section>
+
+<!-- 6. 측정·위생 -->
+<section class="gl-section" id="glSec6">
+  <div class="sec-title"><div class="num c-green">6</div><h2>측정·위생 항목</h2><span class="sub">Measurement & Hygiene</span></div>
+  <div class="gl-table-wrap">
+    <table class="gl-tbl">
+      <thead><tr><th>항목</th><th>기준치</th><th>측정 주기</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td><strong>소음</strong></td><td>90 dB(A) / 8hr TWA</td><td>6개월</td><td>85 dB↑ → 청력보존</td></tr>
+        <tr><td><strong>분진 (총)</strong></td><td>10 mg/m³ TWA</td><td>6개월</td><td>호흡성 분진 별도</td></tr>
+        <tr><td><strong>CO</strong></td><td>30 ppm TWA</td><td>수시/밀폐 진입 전</td><td>고로 주변 상시 모니터링</td></tr>
+        <tr><td><strong>H₂S</strong></td><td>10 ppm TWA</td><td>밀폐 진입 전</td><td>슬래그 피트 등</td></tr>
+        <tr><td><strong>조도</strong></td><td>일반 75 lx / 정밀 300 lx</td><td>6개월</td><td>야간·밀폐 보강</td></tr>
+        <tr><td><strong>온열 (WBGT)</strong></td><td>경작업 30℃ / 중작업 26℃</td><td>하절기 상시</td><td>폭염 특별대책</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. 중대재해 법적 기준 -->
+<section class="gl-section" id="glSec7">
+  <div class="sec-title"><div class="num c-red">7</div><h2>중대재해 법적 기준</h2><span class="sub">Serious Disaster Legal Standards</span></div>
+
+  <div class="legal-box">
+    <h3>중대산업재해의 정의</h3>
+    <div class="ref">중대재해처벌법 제2조 제2호 · 산안법 시행규칙 제3조</div>
+    <div class="gl-table-wrap">
+      <table class="gl-tbl">
+        <thead><tr><th>법률</th><th>구분</th><th>기준</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><strong>중대재해처벌법</strong></td><td>사망</td><td>사망자 <strong>1명↑</strong></td></tr>
+          <tr><td>부상</td><td>동일 사고 <strong>2개월↑ 치료</strong> 부상자 <strong>10명↑</strong></td></tr>
+          <tr><td>질병</td><td>동일 유해요인 <strong>3개월↑ 치료</strong> 질병자 <strong>10명↑</strong></td></tr>
+          <tr><td rowspan="3"><strong>산안법</strong></td><td>①</td><td>사망자 <strong>1명↑</strong></td></tr>
+          <tr><td>②</td><td><strong>3개월↑</strong> 요양 부상자 동시 <strong>2명↑</strong></td></tr>
+          <tr><td>③</td><td>부상·질병자 동시 <strong>10명↑</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legal-box">
+    <h3>처벌 기준</h3>
+    <div class="ref">중대재해처벌법 제6조·제7조 · 산안법 제167조·제168조</div>
+    <div class="gl-table-wrap">
+      <table class="penalty-tbl">
+        <thead><tr><th>법률</th><th>대상</th><th>사망 발생</th><th>부상·질병 발생</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>중대재해<br>처벌법</strong></td><td>경영책임자</td><td class="heavy">1년↑ 징역 / 10억↓ 벌금</td><td>7년↓ 징역 / 1억↓ 벌금</td></tr>
+          <tr><td>법인 (양벌)</td><td class="heavy">50억↓ 벌금</td><td>10억↓ 벌금</td></tr>
+          <tr><td rowspan="2"><strong>산안법</strong></td><td>사업주</td><td class="heavy">7년↓ 징역 / 1억↓ 벌금</td><td>5년↓ 징역 / 5천만↓ 벌금</td></tr>
+          <tr><td>재해 은폐</td><td colspan="2" style="text-align:center">1,500만↓ 과태료 + 형사 처벌 (산안법 §57)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legal-box">
+    <h3>적용 범위</h3>
+    <div class="ref">중대재해처벌법 부칙</div>
+    <div class="gl-table-wrap">
+      <table class="gl-tbl">
+        <thead><tr><th>시행일</th><th>적용 대상</th></tr></thead>
+        <tbody>
+          <tr><td>2022. 1. 27.</td><td>상시근로자 <strong>50인↑</strong> · 건설 공사금액 50억↑</td></tr>
+          <tr><td>2024. 1. 27.</td><td><strong>5인↑</strong> 전면 확대</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 재해 발생 시 대응 기준 -->
+<section class="gl-section" id="glSec8">
+  <div class="sec-title"><div class="num c-amber">8</div><h2>재해 발생 시 대응 기준</h2><span class="sub">Emergency Response Protocol</span></div>
+  <div class="timeline">
+    <div class="tl-step">
+      <h4>단계 1 — 즉시 조치 (발생 직후)</h4>
+      <div class="tl-content"><strong>① 긴급 구조·응급처치</strong> — 부상자 구출, CPR, 지혈, AED. 119 신고 병행.<br><strong>② 2차 재해 방지</strong> — 전원 차단, 가스 밸브 폐쇄, 위험구역 통제·대피.<br><strong>③ 현장 보존</strong> — 노동부 조사 완료까지 원상태 유지 (산안법 §56). 추가 피해 방지는 예외.</div>
+    </div>
+    <div class="tl-step">
+      <h4>단계 2 — 보고</h4>
+      <div class="tl-content"><strong>중대재해:</strong> <strong style="color:#dc2626">지체 없이(즉시)</strong> 관할 노동관서 전화·팩스 보고. 보고 항목 — 발생 개요, 피해 상황, 조치 사항 (시행규칙 §73).<br><strong>일반 산업재해 (3일↑ 휴업):</strong> 발생일로부터 <strong>1개월 이내</strong> 산업재해조사표 제출.<br><strong>3일 미만:</strong> 사업장 자체 기록·보존.<br><strong style="color:#dc2626">⚠ 재해 은폐 금지</strong> (산안법 §57) — 위반 시 1,500만↓ 과태료 + 형사 처벌.</div>
+    </div>
+    <div class="tl-step">
+      <h4>단계 3 — 사고 조사 및 원인 분석</h4>
+      <div class="tl-content"><strong>①</strong> 노동부·안전보건공단 합동 조사 (중대재해 시).<br><strong>②</strong> 사업장 자체 조사팀 — 안전관리자 + 관리감독자 + 근로자 대표 + 공정 전문가.<br><strong>③</strong> 분석 기법 — SCAT, ICAM, 5-Why, FTA 등.<br><strong>④</strong> 직접원인(불안전행동·상태) + 간접원인(관리적·교육적·기술적) 도출.</div>
+    </div>
+    <div class="tl-step">
+      <h4>단계 4 — 재발 방지 대책</h4>
+      <div class="tl-content"><strong>① 기술적</strong> — 설비 개선, 방호장치, 인터록 추가.<br><strong>② 관리적</strong> — 절차서 개정, PTW 강화, 위험성평가 재실시.<br><strong>③ 교육적</strong> — 특별교육(16hr), 유사 사례 전파, TBM 반영.<br><strong>④ 건강</strong> — 요양·복직 지원, 동료 심리 상담(트라우마 케어).</div>
+    </div>
+    <div class="tl-step">
+      <h4>단계 5 — 행정·법적 후속</h4>
+      <div class="tl-content"><strong>①</strong> 산재보험 신청 — 요양·휴업·장해급여 (근로복지공단).<br><strong>②</strong> 작업중지 해제 — 안전조치 완료 입증 후 신청.<br><strong>③</strong> 과태료·사법 처리 — 산안법·중처법 위반 여부 판단.<br><strong>④</strong> 이행 점검 — 재발방지 대책 반기 1회↑ 점검 (중처법 시행령 §4).</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 법적 안전관리자 -->
+<section class="gl-section" id="glSec9">
+  <div class="sec-title"><div class="num c-navy">9</div><h2>법적 안전관리자의 범위·역할</h2><span class="sub">Legal Safety Officers</span></div>
+
+  <div class="org-tree">
+    <div class="ot-root">🏢 사업주 (대표이사)</div>
+    <div class="ot-node"><span class="ot-label">안전보건관리책임자</span><span class="ot-sub"> · 산안법 §15 · 상시 100인↑ (건설 50억↑)</span>
+      <div class="ot-node"><span class="ot-label">관리감독자</span><span class="ot-sub"> · 산안법 §16 · 현장 직접 지휘·감독</span></div>
+      <div class="ot-node"><span class="ot-label">안전관리자</span><span class="ot-sub"> · 산안법 §17 · 상시 50인↑ · 기술적 보좌</span></div>
+      <div class="ot-node"><span class="ot-label">보건관리자</span><span class="ot-sub"> · 산안법 §18 · 상시 50인↑ · 보건 보좌</span></div>
+      <div class="ot-node"><span class="ot-label">산업보건의</span><span class="ot-sub"> · 산안법 §22 · 의사 · 건강관리</span></div>
+    </div>
+    <div class="ot-node"><span class="ot-label">안전보건총괄책임자 (도급사업)</span><span class="ot-sub"> · 산안법 §62 · 도급+수급 합산 관리</span></div>
+  </div>
+
+  <div class="gl-table-wrap">
+    <table class="gl-tbl">
+      <thead><tr><th>역할</th><th>선임 기준</th><th>자격</th><th>핵심 업무</th></tr></thead>
+      <tbody>
+        <tr><td><strong>안전보건관리책임자</strong></td><td>100인↑ / 건설 50억↑</td><td>사업장 총괄관리자</td><td>산안위 위원장, 관리규정, 위험성평가 총괄, 예산</td></tr>
+        <tr><td><strong>안전관리자</strong></td><td>50인↑ / 건설 50억↑</td><td>산업안전 산업기사↑</td><td>위험성평가 보좌, 교육, 순회점검, 재해조사, 통계, 기록</td></tr>
+        <tr><td><strong>보건관리자</strong></td><td>50인↑</td><td>산업위생 산업기사↑</td><td>작업환경측정, 건강검진, 보건교육, 질병 예방</td></tr>
+        <tr><td><strong>관리감독자</strong></td><td>해당 직위자</td><td>현장 지휘 직위</td><td>작업 전 점검, 위험방지, 보호구 지도, 정리정돈</td></tr>
+        <tr><td><strong>산업보건의</strong></td><td>보건관리자 의무 사업장</td><td>의사</td><td>검진 결과 검토, 직업병 진단, 배치전환 의견</td></tr>
+        <tr><td><strong>안전보건총괄책임자</strong></td><td>도급사업 (같은 장소)</td><td>도급인 관리책임자급</td><td>협의체 운영, 합동 점검, 수급인 교육 지원</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;margin:24px 0 12px">건설업 안전관리자 선임 인원</h3>
+  <div class="gl-table-wrap">
+    <table class="gl-tbl">
+      <thead><tr><th>공사금액</th><th>인원</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td>50억 ~ 120억 미만</td><td>1명</td><td>겸직 가능</td></tr>
+        <tr><td>120억 ~ 150억 미만</td><td>1명</td><td>전담</td></tr>
+        <tr><td>150억 ~ 700억 미만</td><td>1명</td><td>전담</td></tr>
+        <tr><td>700억 ~ 1,500억 미만</td><td>2명</td><td>전담</td></tr>
+        <tr><td>1,500억↑</td><td>2명+α</td><td>700억 초과 시 1명 추가</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 10. 사업주 의무 -->
+<section class="gl-section" id="glSec10">
+  <div class="sec-title"><div class="num c-rose">10</div><h2>사업주의 안전보건 의무</h2><span class="sub">Employer's Legal Duties</span></div>
+
+  <h3 style="font-size:15px;font-weight:800;margin-bottom:14px">산업안전보건법상 사업주 의무</h3>
+  <div class="duty-grid">
+    <div class="duty-card"><h4>안전·보건조치 의무</h4><div class="law">산안법 §38·§39</div><p>기계·전기·폭발·추락·붕괴 등 유형별 위험 방지 및 건강장해 예방 조치 이행</p></div>
+    <div class="duty-card"><h4>위험성평가 실시</h4><div class="law">산안법 §36</div><p>유해·위험요인 파악 → 위험성 결정 → 감소대책 수립·이행. 정기(연1회↑)+수시</p></div>
+    <div class="duty-card"><h4>안전보건교육</h4><div class="law">산안법 §29</div><p>정기(분기 3~6hr), 채용 시(8hr), 변경 시(2hr), 특별(16hr)</p></div>
+    <div class="duty-card"><h4>작업환경측정</h4><div class="law">산안법 §125</div><p>유해인자 노출 사업장 6개월 1회. 결과 근로자 통보 의무</p></div>
+    <div class="duty-card"><h4>건강검진</h4><div class="law">산안법 §129·§130</div><p>일반(매년), 특수(유해인자 배치 전·정기), 임시(질병 의심)</p></div>
+    <div class="duty-card"><h4>도급 시 조치</h4><div class="law">산안법 §63~§66</div><p>수급인 근로자 안전보건 조치 의무. 협의체·합동점검</p></div>
+    <div class="duty-card"><h4>재해 기록·보고</h4><div class="law">산안법 §57</div><p>은폐 금지. 산재조사표 기록·보존. 중대재해 즉시 보고</p></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;margin:28px 0 14px">중대재해처벌법 — 경영책임자 7대 의무</h3>
+  <div style="font-size:12px;color:#94a3b8;margin-bottom:14px">중대재해처벌법 제4조 · 시행령 제4조</div>
+  <div class="seven-duties">
+    <div class="sd-item"><strong>안전보건 목표·경영방침 설정</strong> — 이사회·대표이사 승인, 문서화, 전 종사자 공유. 매년 목표 수립·평가.</div>
+    <div class="sd-item"><strong>전담 조직 설치</strong> — 500인↑ 사업장: 안전보건 총괄·관리 전담 조직 설치, 인력·예산·권한 부여.</div>
+    <div class="sd-item"><strong>유해·위험요인 확인·개선</strong> — 반기 1회↑ 점검, 결과에 따라 인력·예산 추가 편성·집행.</div>
+    <div class="sd-item"><strong>재발방지 대책 수립·이행</strong> — 중대재해 발생 시 원인 조사 → 대책 수립 → 반기 1회↑ 이행 점검.</div>
+    <div class="sd-item"><strong>관계 법령 의무 이행 관리</strong> — 법정 인력(안전·보건관리자 등) 배치·업무 수행 여부 반기 1회↑ 점검.</div>
+    <div class="sd-item"><strong>인력·시설·장비·예산 확보</strong> — 안전장비·보호구·교육 예산 충분히 편성·실제 집행.</div>
+    <div class="sd-item"><strong>종사자 의견 청취</strong> — 산안위·협의체·근로자 대표 소통 절차 마련, 개선방안 반영·이행.</div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;margin:28px 0 14px">위반 시 제재 요약</h3>
+  <div class="gl-table-wrap">
+    <table class="penalty-tbl">
+      <thead><tr><th>법률</th><th>대상</th><th>사망 발생</th><th>부상·질병</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><strong>중처법</strong></td><td>경영책임자</td><td class="heavy">1년↑ 징역 / 10억↓ 벌금</td><td>7년↓ 징역 / 1억↓ 벌금</td></tr>
+        <tr><td>법인 (양벌)</td><td class="heavy">50억↓ 벌금</td><td>10억↓ 벌금</td></tr>
+        <tr><td rowspan="2"><strong>산안법</strong></td><td>사업주</td><td class="heavy">7년↓ 징역 / 1억↓ 벌금</td><td>5년↓ / 5천만↓</td></tr>
+        <tr><td>재해 은폐</td><td colspan="2" style="text-align:center">1,500만↓ 과태료 + 형사 처벌</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 11. 영문 약어 -->
+<section class="gl-section" id="glSec11">
+  <div class="sec-title"><div class="num c-indigo">11</div><h2>영문 약어 총정리</h2><span class="sub">Abbreviations A–Z</span></div>
+  <div class="abbr-index" id="abbrIndex"></div>
+  <div class="gl-table-wrap">
+    <table class="gl-tbl" id="abbrTable">
+      <thead><tr><th>약어</th><th>풀네임</th><th>한국어</th></tr></thead>
+      <tbody>
+        <tr data-letter="B"><td><strong>BBS</strong></td><td>Behavior Based Safety</td><td>행동기반안전</td></tr>
+        <tr data-letter="F"><td><strong>FAC/FAI</strong></td><td>First Aid Case / Injury</td><td>응급처치재해</td></tr>
+        <tr data-letter="F"><td><strong>FMEA</strong></td><td>Failure Mode & Effects Analysis</td><td>고장모드·영향분석</td></tr>
+        <tr data-letter="F"><td><strong>FR</strong></td><td>Frequency Rate</td><td>도수율</td></tr>
+        <tr data-letter="F"><td><strong>FTA</strong></td><td>Fault Tree Analysis</td><td>결함수 분석</td></tr>
+        <tr data-letter="H"><td><strong>HAZOP</strong></td><td>Hazard & Operability Study</td><td>위험과 운전성 분석</td></tr>
+        <tr data-letter="I"><td><strong>ICAM</strong></td><td>Incident Cause Analysis Method</td><td>사고원인분석기법</td></tr>
+        <tr data-letter="J"><td><strong>JSA</strong></td><td>Job Safety Analysis</td><td>작업안전분석</td></tr>
+        <tr data-letter="K"><td><strong>KOSHA</strong></td><td>Korea Occupational Safety & Health Agency</td><td>한국산업안전보건공단</td></tr>
+        <tr data-letter="L"><td><strong>LEL</strong></td><td>Lower Explosive Limit</td><td>폭발하한계</td></tr>
+        <tr data-letter="L"><td><strong>LOTO</strong></td><td>Lock Out Tag Out</td><td>잠금·표시</td></tr>
+        <tr data-letter="L"><td><strong>LTI</strong></td><td>Lost Time Injury</td><td>휴업재해</td></tr>
+        <tr data-letter="L"><td><strong>LTIFR</strong></td><td>Lost Time Injury Frequency Rate</td><td>도수율(국제)</td></tr>
+        <tr data-letter="M"><td><strong>MEWP</strong></td><td>Mobile Elevating Work Platform</td><td>이동식 고소작업대</td></tr>
+        <tr data-letter="M"><td><strong>MSDS/SDS</strong></td><td>(Material) Safety Data Sheet</td><td>물질안전보건자료</td></tr>
+        <tr data-letter="M"><td><strong>MTC/MTI</strong></td><td>Medical Treatment Case / Injury</td><td>의료조치재해</td></tr>
+        <tr data-letter="O"><td><strong>OSHA</strong></td><td>Occupational Safety & Health Admin.</td><td>미국 산업안전보건청</td></tr>
+        <tr data-letter="P"><td><strong>PSM</strong></td><td>Process Safety Management</td><td>공정안전관리</td></tr>
+        <tr data-letter="P"><td><strong>PTW</strong></td><td>Permit to Work</td><td>안전작업허가</td></tr>
+        <tr data-letter="R"><td><strong>RPN</strong></td><td>Risk Priority Number</td><td>위험우선순위</td></tr>
+        <tr data-letter="R"><td><strong>RWC</strong></td><td>Restricted Work Case</td><td>근무제한재해</td></tr>
+        <tr data-letter="S"><td><strong>SCAT</strong></td><td>Systematic Cause Analysis Technique</td><td>체계적 원인분석</td></tr>
+        <tr data-letter="S"><td><strong>SR</strong></td><td>Severity Rate</td><td>강도율</td></tr>
+        <tr data-letter="T"><td><strong>TBM</strong></td><td>Tool Box Meeting</td><td>작업 전 안전회의</td></tr>
+        <tr data-letter="T"><td><strong>TRIR</strong></td><td>Total Recordable Incident Rate</td><td>총기록재해율</td></tr>
+        <tr data-letter="W"><td><strong>WBGT</strong></td><td>Wet Bulb Globe Temperature</td><td>습구흑구온도</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="gl-footer">
+  <p>© 2026 고로개수TF · POSCO 광양제철소 · 2고로 부분 개수<br>
+  본 페이지는 광양 2고로 개수 사업장의 안전 교육·참고용으로 제작되었습니다.</p>
+</div>
+
+</div><!-- /page-wrap -->
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="js/auth.js"></script>
+<script>
+checkAuth();
+
+/* ── violation tab switch ── */
+function switchVio(type,el){
+  document.querySelectorAll('.vio-tabs button').forEach(b=>{b.classList.remove('active');b.classList.remove('active-amber')});
+  if(type==='critical'){
+    el.classList.add('active');
+    document.getElementById('vioCritical').style.display='';
+    document.getElementById('vioGeneral').style.display='none';
+  }else{
+    el.classList.add('active-amber');
+    document.getElementById('vioCritical').style.display='none';
+    document.getElementById('vioGeneral').style.display='';
+  }
+}
+
+/* ── pyramid toggle ── */
+function togglePyr(n){
+  const el=document.getElementById('pyr'+n);
+  const wasOpen=el.classList.contains('open');
+  document.querySelectorAll('.pyr-detail').forEach(d=>d.classList.remove('open'));
+  if(!wasOpen) el.classList.add('open');
+}
+
+/* ── accordion ── */
+function toggleAcc(head){
+  const item=head.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(a=>a.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+/* ── field filter ── */
+function filterField(cat,btn){
+  document.querySelectorAll('.field-filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.field-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+}
+
+/* ── search ── */
+function filterAll(){
+  const q=document.getElementById('searchInput').value.trim().toLowerCase();
+  if(!q){
+    document.querySelectorAll('.gl-section').forEach(s=>s.style.display='');
+    document.querySelectorAll('table.gl-tbl tbody tr,.ana-card,.field-card,.acc-item,.sd-item').forEach(el=>el.style.display='');
+    return;
+  }
+  document.querySelectorAll('table.gl-tbl tbody tr').forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none'});
+  document.querySelectorAll('.ana-card').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none'});
+  document.querySelectorAll('.field-card').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none'});
+  document.querySelectorAll('.acc-item').forEach(a=>{a.style.display=a.textContent.toLowerCase().includes(q)?'':'none'});
+}
+
+/* ── abbreviation index ── */
+(function(){
+  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const idx=document.getElementById('abbrIndex');
+  const rows=document.querySelectorAll('#abbrTable tbody tr');
+  const used=new Set();
+  rows.forEach(r=>{if(r.dataset.letter)used.add(r.dataset.letter)});
+  const allBtn=document.createElement('button');
+  allBtn.textContent='All';allBtn.className='active';
+  allBtn.onclick=function(){
+    document.querySelectorAll('.abbr-index button').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');rows.forEach(r=>r.style.display='');
+  };
+  idx.appendChild(allBtn);
+  letters.forEach(l=>{
+    if(!used.has(l))return;
+    const btn=document.createElement('button');btn.textContent=l;
+    btn.onclick=function(){
+      document.querySelectorAll('.abbr-index button').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      rows.forEach(r=>{r.style.display=(r.dataset.letter===l)?'':'none'});
+    };
+    idx.appendChild(btn);
+  });
+})();
+
+/* ── scroll animation ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08});
+document.querySelectorAll('.sf-section,.gl-section').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
