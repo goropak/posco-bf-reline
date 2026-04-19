@@ -1,20 +1,63 @@
-/* 고로개수TF - 메인 대시보드 로직 v2 */
+/* 고로개수TF - 메인 대시보드 v3 (Light Theme) */
 checkAuth();
 
 fetch('data/site-data.json?t='+Date.now())
   .then(function(r){return r.json();})
   .then(function(data){
+    renderHero(data.hero);
+    renderSectionTitles(data.sectionTitles);
     renderUpdate(data.meta);
+    renderTrackRecord(data.trackRecord);
     renderKPI(data.project);
     renderMilestones(data.milestones);
     initScrollAnim();
   })
   .catch(function(e){console.error('데이터 로드 실패:',e);});
 
+/* 히어로 */
+function renderHero(hero){
+  if(!hero) return;
+  var badge=document.getElementById('heroBadge');
+  var title=document.getElementById('heroTitle');
+  var desc=document.getElementById('heroDesc');
+  if(badge) badge.textContent=hero.badge;
+  if(title) title.innerHTML='<span class="gradient">'+hero.title.split('<br>')[0]+'</span><br>'+(hero.title.split('<br>')[1]||'');
+  if(desc) desc.innerHTML=hero.desc;
+}
+
+/* 섹션 타이틀 */
+function renderSectionTitles(titles){
+  if(!titles) return;
+  var map={trackRecord:'secTrackRecord',keyMetrics:'secKeyMetrics',milestone:'secMilestone',explore:'secExplore'};
+  for(var key in map){
+    var el=document.getElementById(map[key]);
+    if(el && titles[key]) el.textContent=titles[key];
+  }
+}
+
 /* 업데이트 시간 */
 function renderUpdate(meta){
   var el=document.getElementById('updateTime');
   if(el && meta && meta.updatedAt) el.textContent='Updated '+meta.updatedAt;
+}
+
+/* 최근실적 타임라인 */
+function renderTrackRecord(list){
+  if(!list||!list.length) return;
+  var section=document.getElementById('trackSection');
+  var html='<div class="track-row"><div class="track-rail"></div>';
+  list.forEach(function(item){
+    html+='<div class="track-item">'
+      +'<div class="track-dot '+item.status+'"></div>'
+      +'<div class="track-year">'+item.year+'</div>'
+      +'<div class="track-line1">'+item.line1+'</div>'
+      +'<div class="track-line2">'+item.line2+'</div>'
+      +'<div class="track-badge '+(item.status==='done'?'done-b':item.status==='current'?'current-b':'plan-b')+'">'
+      +(item.status==='done'?'완료':item.status==='current'?'진행중':'계획')+'</div>'
+      +'</div>';
+  });
+  html+='</div>';
+  section.innerHTML=html;
 }
 
 /* KPI 카드 */
@@ -61,7 +104,7 @@ function startCountUp(){
   });
 }
 
-/* 마일스톤 탭 전환 */
+/* 마일스톤 탭 */
 function switchMS(type){
   document.querySelectorAll('.ms-tab').forEach(function(t){t.classList.remove('active');});
   document.querySelectorAll('.ms-panel').forEach(function(p){p.classList.remove('active');});
@@ -83,37 +126,28 @@ function renderMSTrack(type,list){
   var railFill=document.getElementById('msRailFill-'+type);
   if(!track||!list||!list.length) return;
 
-  var today=new Date();
-  today.setHours(0,0,0,0);
+  var today=new Date();today.setHours(0,0,0,0);
   var todayStr=today.toISOString().slice(0,10);
 
-  /* 완료 비율 */
   var done=list.filter(function(m){return m.status==='완료';}).length;
   var active=list.filter(function(m){return m.status==='진행중';}).length;
   var pct=Math.round((done+(active*0.5))/list.length*100);
   railFill.style.width=pct+'%';
 
-  /* 오늘 위치 계산 */
   var dates=list.map(function(m){return new Date(m.planDate);});
   var minDate=new Date(Math.min.apply(null,dates));
   var maxDate=new Date(Math.max.apply(null,dates));
   var totalRange=maxDate-minDate;
   var todayPct=0;
-  if(totalRange>0){
-    todayPct=Math.max(0,Math.min(100,(today-minDate)/totalRange*100));
-  }
+  if(totalRange>0){todayPct=Math.max(0,Math.min(100,(today-minDate)/totalRange*100));}
 
   list.forEach(function(m,i){
     var item=document.createElement('div');
     item.className='ms-item';
-    var dotClass='ms-dot ';
-    var dotContent='';
-    var statusClass='ms-status ';
-
+    var dotClass='ms-dot ',dotContent='',statusClass='ms-status ';
     if(m.status==='완료'){dotClass+='done';dotContent='✓';statusClass+='done';}
     else if(m.status==='진행중'){dotClass+='active';dotContent='●';statusClass+='active';}
     else{dotClass+='pending';dotContent=i+1;statusClass+='pending';}
-
     var dateStr=m.actualDate||m.planDate;
     item.innerHTML='<div class="'+dotClass+'">'+dotContent+'</div>'
       +'<div class="ms-name">'+m.name+'</div>'
@@ -122,7 +156,6 @@ function renderMSTrack(type,list){
     track.appendChild(item);
   });
 
-  /* 오늘 마커 추가 */
   var marker=document.createElement('div');
   marker.className='today-marker';
   marker.style.left=todayPct+'%';
