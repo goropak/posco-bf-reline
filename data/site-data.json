@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "고로개수TF",
     "subtitle": "광양 2고로 부분개수 투자 관리",
-    "updatedAt": "2026-04-20 09:00"
+    "updatedAt": "2026. 4. 20. 오전 7:25:37"
   },
   "hero": {
     "badge": "투자엔지니어링1실 철강그룹 고로개TF",
@@ -26,78 +26,316 @@
     "targetDate": "2027-03-24"
   },
   "trackRecord": [
-    {"year":"'16","line1":"광양 5고로","line2":"개수","status":"done"},
-    {"year":"'17","line1":"포항 3고로","line2":"개수","status":"done"},
-    {"year":"'20","line1":"광양 3고로","line2":"개수","status":"done"},
-    {"year":"'22","line1":"포항 4고로","line2":"개수","status":"done"},
-    {"year":"'24","line1":"포항 4고로","line2":"개수","status":"done"},
-    {"year":"'25","line1":"3FINEX","line2":"개수","status":"done"},
-    {"year":"'26","line1":"광양 2고로","line2":"개수","status":"current"},
-    {"year":"'28","line1":"PT.KP 열풍로","line2":"증설","status":"plan"},
-    {"year":"'30","line1":"PK.KP 개수","line2":"지원","status":"plan"},
-    {"year":"'31","line1":"광양 1고로","line2":"개수","status":"plan"}
+    {
+      "year": "'16",
+      "line1": "광양 5고로",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'17",
+      "line1": "포항 3고로",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'20",
+      "line1": "광양 3고로",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'22",
+      "line1": "포항 4고로",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'24",
+      "line1": "포항 4고로",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'25",
+      "line1": "3FINEX",
+      "line2": "개수",
+      "status": "done"
+    },
+    {
+      "year": "'26",
+      "line1": "광양 2고로",
+      "line2": "개수",
+      "status": "current"
+    },
+    {
+      "year": "'28",
+      "line1": "PT.KP 열풍로",
+      "line2": "증설",
+      "status": "plan"
+    },
+    {
+      "year": "'30",
+      "line1": "PK.KP 개수",
+      "line2": "지원",
+      "status": "plan"
+    },
+    {
+      "year": "'31",
+      "line1": "광양 1고로",
+      "line2": "개수",
+      "status": "plan"
+    }
   ],
   "milestones": [
-    {"phase":"사전공사","name":"본체설계","planDate":"2025-06-30","actualDate":"2025-06-14","status":"완료"},
-    {"phase":"사전공사","name":"철피생산","planDate":"2025-07-30","actualDate":"2025-07-17","status":"완료"},
-    {"phase":"사전공사","name":"Hearth철피입고","planDate":"2026-03-01","actualDate":"2026-02-17","status":"완료"},
-    {"phase":"사전공사","name":"Top Cone입고","planDate":"2026-07-31","actualDate":null,"status":"예정"},
-    {"phase":"사전공사","name":"철피 지조립 완료","planDate":"2026-11-07","actualDate":null,"status":"예정"},
-    {"phase":"사전공사","name":"본체 상개조 & 보강 완료","planDate":"2026-11-11","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"노저출선","planDate":"2026-11-13","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"주수냉각","planDate":"2026-11-16","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"철거완료","planDate":"2027-01-13","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"기초개조","planDate":"2027-01-15","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"본체설치","planDate":"2027-03-16","actualDate":null,"status":"예정"},
-    {"phase":"본공사","name":"화입준비","planDate":"2027-03-23","actualDate":null,"status":"예정"}
+    {
+      "phase": "사전공사",
+      "name": "본체설계",
+      "planDate": "2025-06-30",
+      "actualDate": "2025-06-14",
+      "status": "완료"
+    },
+    {
+      "phase": "사전공사",
+      "name": "철피생산",
+      "planDate": "2025-07-30",
+      "actualDate": "2025-07-17",
+      "status": "완료"
+    },
+    {
+      "phase": "사전공사",
+      "name": "Hearth철피입고",
+      "planDate": "2026-03-01",
+      "actualDate": "2026-02-17",
+      "status": "완료"
+    },
+    {
+      "phase": "사전공사",
+      "name": "Top Cone입고",
+      "planDate": "2026-07-31",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "사전공사",
+      "name": "철피 지조립 완료",
+      "planDate": "2026-11-07",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "사전공사",
+      "name": "본체 상개조 & 보강 완료",
+      "planDate": "2026-11-11",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "노저출선",
+      "planDate": "2026-11-13",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "주수냉각",
+      "planDate": "2026-11-16",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "철거완료",
+      "planDate": "2027-01-13",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "기초개조",
+      "planDate": "2027-01-15",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "본체설치",
+      "planDate": "2027-03-16",
+      "actualDate": null,
+      "status": "예정"
+    },
+    {
+      "phase": "본공사",
+      "name": "화입준비",
+      "planDate": "2027-03-23",
+      "actualDate": null,
+      "status": "예정"
+    }
   ],
   "team": {
-    "heroTitle": "하나의 목표, 하나의 팀",
-    "heroDesc": "광양 2고로 개수를 위해 핵심 원팀 · 공급사 원팀 · 지원 조직이 유기적으로 움직입니다",
+    "heroTitle": "열정과 도전으로 똘똘 뭉친! 제선 원팀의 목표는 단 하나, 성공적 개수!",
+    "heroDesc": "광양 2고로 개수를 위해 핵심 원팀 · 공급사 원팀 · 지원 조직 유기적 소통",
     "core": [
-      {"name":"박태환","position":"TF 리더","task":"개수 사업 총괄 지휘 · 투자·공정·안전 의사결정"},
-      {"name":"손기완","position":"조업파트","task":"조업 조건 검토 · 노황관리 · 출선계획"},
-      {"name":"김승보","position":"현장관리","task":"시공사 관리 · 공정관리 · 현장 안전"},
-      {"name":"이창민","position":"품질파트","task":"자재 품질검사 · 시공 품질관리"},
-      {"name":"서평환","position":"정비파트","task":"설비 정비계획 · 예비품 관리"}
+      {
+        "name": "박태환",
+        "position": "TF 리더",
+        "task": "개수 사업 총괄 지휘 · 투자·공정·안전 의사결정"
+      },
+      {
+        "name": "손기완",
+        "position": "제선부장",
+        "task": "조업 조건 검토 · 노황관리 · 출선계획"
+      },
+      {
+        "name": "김승보",
+        "position": "2고로 공장장",
+        "task": "공사 관리 · 공정관리 · 현장 안전"
+      },
+      {
+        "name": "이창민",
+        "position": "제선부 리더",
+        "task": "자재 품질검사 · 시공 품질관리"
+      },
+      {
+        "name": "서평환",
+        "position": "고로정비 리더",
+        "task": "설비 관리 · 정비성투자, 예비품 관리"
+      }
     ],
     "supplier": [
-      {"name":"김만호","company":"P-이앤씨","position":"소장","task":"고로 본체 시공 · 철피·냉각판 설치 총괄"},
-      {"name":"김홍곤","company":"플렌텍","position":"상무","task":"부대설비 시공 · 배관·덕트 설치"},
-      {"name":"함준열","company":"P-DX","position":"리더","task":"EIC(전기·계장·제어) 시공"},
-      {"name":"신상종","company":"P-퓨처엠","position":"그룹장","task":"내화물 공사 · 축로 시공"}
+      {
+        "name": "김만호",
+        "company": "P-이앤씨",
+        "position": "소장",
+        "task": "고로 본체 시공 · 철피·냉각판 설치 총괄"
+      },
+      {
+        "name": "김홍곤",
+        "company": "플렌텍",
+        "position": "상무",
+        "task": "부대설비 시공 · 배관·덕트 설치"
+      },
+      {
+        "name": "함준열, 한준기",
+        "company": "P-DX",
+        "position": "리더",
+        "task": "EIC(전기·계장·제어) 시공"
+      },
+      {
+        "name": "신상종",
+        "company": "P-퓨처엠",
+        "position": "그룹장",
+        "task": "내화물 공사 · 축로 시공"
+      }
     ],
     "support": [
-      {"name":"이상호","position":"전략오피스 상무","task":"투자 심의·예산 승인 · 경영 전략 연계"},
-      {"name":"이동조","position":"기술그룹 수석","task":"고로 본체 설계 · 냉각시스템 기술 검토"},
-      {"name":"강미미","position":"구매그룹 수석","task":"주요 자재 조달 · 계약 관리 · 납기 조율"}
+      {
+        "name": "이상호",
+        "position": "전무",
+        "task": "고로 노저출선 (잔선 최소화)"
+      },
+      {
+        "name": "이동조",
+        "position": "연구원 그룹장",
+        "task": "고로 본체 설계 · 냉각시스템 기술 검토"
+      },
+      {
+        "name": "강미미",
+        "position": "구매실 과장",
+        "task": "주요 자재 조달 · 계약 관리 · 납기 조율"
+      }
     ]
   },
   "invest": {
     "heroTitle": "광양 2고로 — 2차 부분개수",
     "heroDesc": "내용적 4,350m³ · 연산 340만톤 · 본체 냉각장치 + 내화물 교체",
     "stories": [
-      {"icon":"🔥","title":"왜 지금 개수하나?","desc":"2016년 1차 부분개수 이후 10년 경과, 노체 냉각 효율 저하로 안정 조업 한계"},
-      {"icon":"🏗️","title":"무엇을 바꾸나?","desc":"냉각 스테이브 전량 교체, 노저·노벽 내화물 신규 축조, 철피 보강"},
-      {"icon":"📅","title":"일정은?","desc":"사전공사 '25.6~'26.11 → 본공사 '26.11~'27.3 → 화입 '27.3"},
-      {"icon":"💰","title":"투자 규모는?","desc":"총 1,000억 원 (본체 60% · 부대 25% · EIC 10% · 내화물 5%)"}
+      {
+        "icon": "🔥",
+        "title": "왜 지금 개수하나?",
+        "desc": "2016년 1차 부분개수 이후 10년 경과, 노체 냉각 효율 저하로 안정 조업 한계"
+      },
+      {
+        "icon": "🏗️",
+        "title": "무엇을 바꾸나?",
+        "desc": "냉각 스테이브 전량 교체, 노저·노벽 내화물 신규 축조, 철피 보강"
+      },
+      {
+        "icon": "📅",
+        "title": "일정은?",
+        "desc": "사전공사 '25.6~'26.11 → 본공사 '26.11~'27.3 → 화입 '27.3"
+      },
+      {
+        "icon": "💰",
+        "title": "투자 규모는?",
+        "desc": "총 1,000억 원 (본체 60% · 부대 25% · EIC 10% · 내화물 5%)"
+      }
     ],
     "timeline": [
-      {"year":"2020","label":"3고로 개수 완료"},
-      {"year":"2025","label":"2고로 본체설계 착수"},
-      {"year":"2026","label":"사전공사 · 본공사"},
-      {"year":"2027","label":"화입 · 조업개시"}
+      {
+        "year": "2020",
+        "label": "3고로 개수 완료"
+      },
+      {
+        "year": "2025",
+        "label": "2고로 본체설계 착수"
+      },
+      {
+        "year": "2026",
+        "label": "사전공사 · 본공사"
+      },
+      {
+        "year": "2027",
+        "label": "화입 · 조업개시"
+      }
     ],
     "scopeCards": [
-      {"type":"full","title":"냉각 스테이브","desc":"구리·주철 스테이브 전량 교체 (약 1,200매)"},
-      {"type":"full","title":"노저 카본블록","desc":"노저부 카본블록 전면 교체"},
-      {"type":"partial","title":"철피 보강","desc":"손상 구간 철피 부분 교체 + 보강 용접"},
-      {"type":"partial","title":"풍구·출선구","desc":"풍구 대금구 교체 · 출선구 개조"},
-      {"type":"reinforce","title":"노체 내화물","desc":"노벽·노저 내화물 전면 신규 축조"},
-      {"type":"reinforce","title":"냉각배관","desc":"냉각수 배관 갱신 · 밸브 교체"},
-      {"type":"new","title":"계측 시스템","desc":"노체 온도·압력 센서 최신형 교체"},
-      {"type":"new","title":"집진설비","desc":"주상집진 설비 증설"},
-      {"type":"new","title":"안전설비","desc":"가스감지·화재감지 시스템 신규"}
+      {
+        "type": "full",
+        "title": "냉각 스테이브",
+        "desc": "구리·주철 스테이브 전량 교체 (약 1,200매)"
+      },
+      {
+        "type": "full",
+        "title": "노저 카본블록",
+        "desc": "노저부 카본블록 전면 교체"
+      },
+      {
+        "type": "partial",
+        "title": "철피 보강",
+        "desc": "손상 구간 철피 부분 교체 + 보강 용접"
+      },
+      {
+        "type": "partial",
+        "title": "풍구·출선구",
+        "desc": "풍구 대금구 교체 · 출선구 개조"
+      },
+      {
+        "type": "reinforce",
+        "title": "노체 내화물",
+        "desc": "노벽·노저 내화물 전면 신규 축조"
+      },
+      {
+        "type": "reinforce",
+        "title": "냉각배관",
+        "desc": "냉각수 배관 갱신 · 밸브 교체"
+      },
+      {
+        "type": "new",
+        "title": "계측 시스템",
+        "desc": "노체 온도·압력 센서 최신형 교체"
+      },
+      {
+        "type": "new",
+        "title": "집진설비",
+        "desc": "주상집진 설비 증설"
+      },
+      {
+        "type": "new",
+        "title": "안전설비",
+        "desc": "가스감지·화재감지 시스템 신규"
+      }
     ]
   },
   "safety": {
@@ -105,50 +343,184 @@
     "heroDesc": "광양 2고로 개수 사업장 — 중대재해 ZERO, 과정지표 만점이 목표",
     "kpi": {
       "severeAccident": 0,
-      "ltifr": 0.00,
+      "ltifr": 0,
       "ltifrTarget": 0.59,
       "ltifrRef": "23년 전사 1.08",
       "processScore": 14.7,
       "processScoreMax": 15
     },
     "processDetail": {
-      "riskAssessment": {"label":"위험성평가 충실도","score":4.53,"max":5,"items":[
-        {"name":"위험성평가 실시율","cycle":"매일","score":1.0},
-        {"name":"근로자 참여 위험성평가율","cycle":"매일","score":1.0},
-        {"name":"단위작업 일치율","cycle":"주1회","score":0.6},
-        {"name":"주변위험요인 발굴율","cycle":"주1회","score":0.6},
-        {"name":"유해·위험요인 적합도","cycle":"주1회","score":0.6},
-        {"name":"감소대책 적합도","cycle":"주1회","score":0.6},
-        {"name":"평가등급 적합도","cycle":"주1회","score":0.6}
-      ]},
-      "tbm": {"label":"TBM 운영 내실화","score":4.85,"max":5,"items":[
-        {"name":"TBM 내실화","cycle":"매일","score":2.0},
-        {"name":"임의작업 근절","cycle":"매일","score":2.0},
-        {"name":"안전작업허가","cycle":"매일","score":1.0}
-      ]},
-      "improvement": {"label":"불안전상태 개선율","score":5.00,"max":5,"items":[
-        {"name":"지적사항 조치율","cycle":"매일","score":2.0},
-        {"name":"조치시한 준수율","cycle":"매일","score":3.0},
-        {"name":"중대 지적 (감점)","cycle":"매일","score":0}
-      ]}
+      "riskAssessment": {
+        "label": "위험성평가 충실도",
+        "score": 4.53,
+        "max": 5,
+        "items": [
+          {
+            "name": "위험성평가 실시율",
+            "cycle": "매일",
+            "score": 1
+          },
+          {
+            "name": "근로자 참여 위험성평가율",
+            "cycle": "매일",
+            "score": 1
+          },
+          {
+            "name": "단위작업 일치율",
+            "cycle": "주1회",
+            "score": 0.6
+          },
+          {
+            "name": "주변위험요인 발굴율",
+            "cycle": "주1회",
+            "score": 0.6
+          },
+          {
+            "name": "유해·위험요인 적합도",
+            "cycle": "주1회",
+            "score": 0.6
+          },
+          {
+            "name": "감소대책 적합도",
+            "cycle": "주1회",
+            "score": 0.6
+          },
+          {
+            "name": "평가등급 적합도",
+            "cycle": "주1회",
+            "score": 0.6
+          }
+        ]
+      },
+      "tbm": {
+        "label": "TBM 운영 내실화",
+        "score": 4.85,
+        "max": 5,
+        "items": [
+          {
+            "name": "TBM 내실화",
+            "cycle": "매일",
+            "score": 2
+          },
+          {
+            "name": "임의작업 근절",
+            "cycle": "매일",
+            "score": 2
+          },
+          {
+            "name": "안전작업허가",
+            "cycle": "매일",
+            "score": 1
+          }
+        ]
+      },
+      "improvement": {
+        "label": "불안전상태 개선율",
+        "score": 5,
+        "max": 5,
+        "items": [
+          {
+            "name": "지적사항 조치율",
+            "cycle": "매일",
+            "score": 2
+          },
+          {
+            "name": "조치시한 준수율",
+            "cycle": "매일",
+            "score": 3
+          },
+          {
+            "name": "중대 지적 (감점)",
+            "cycle": "매일",
+            "score": 0
+          }
+        ]
+      }
     },
-    "monitorScore": 5.0,
+    "monitorScore": 5,
     "monitorMax": 5,
     "slogan": "숫자가 아니라 사람을 지킵니다. 과정지표 만점, 중대재해 ZERO — 그것이 광양 2고로 개수의 안전 기준입니다."
   },
   "aiAgents": [
-    {"id":1,"name":"노황예측 AI","summary":"고로 내부 상태를 실시간 예측하여 조업 최적화","status":"운영중","detail":"센서 데이터 기반 LSTM 모델로 노황 지수를 30분 전 예측","url":""},
-    {"id":2,"name":"안전감지 AI","summary":"현장 CCTV 영상 분석으로 안전 위험 실시간 감지","status":"개발중","detail":"YOLO 기반 객체 감지로 안전모·안전벨트 미착용 실시간 알림","url":""},
-    {"id":3,"name":"보고서 자동화","summary":"주간/월간 보고서 데이터 수집 및 초안 자동 생성","status":"개발중","detail":"SAP 데이터 연동 + GPT 기반 보고서 초안 작성","url":""},
-    {"id":4,"name":"납기예측 AI","summary":"자재 납기 지연 위험을 사전 예측","status":"기획중","detail":"협력사 납품 이력 분석으로 지연 확률 예측","url":""},
-    {"id":5,"name":"품질예측 AI","summary":"내화물 시공 품질을 사전 예측","status":"기획중","detail":"시공 조건 데이터 기반 품질 등급 예측 모델","url":""},
-    {"id":6,"name":"에너지최적화 AI","summary":"고로 에너지 소비 패턴 분석 및 최적화","status":"기획중","detail":"열풍로·냉각수 에너지 효율 최적화 알고리즘","url":""}
+    {
+      "id": 1,
+      "name": "노황예측 AI",
+      "summary": "고로 내부 상태를 실시간 예측하여 조업 최적화",
+      "status": "운영중",
+      "detail": "센서 데이터 기반 LSTM 모델로 노황 지수를 30분 전 예측",
+      "url": ""
+    },
+    {
+      "id": 2,
+      "name": "안전감지 AI",
+      "summary": "현장 CCTV 영상 분석으로 안전 위험 실시간 감지",
+      "status": "개발중",
+      "detail": "YOLO 기반 객체 감지로 안전모·안전벨트 미착용 실시간 알림",
+      "url": ""
+    },
+    {
+      "id": 3,
+      "name": "보고서 자동화",
+      "summary": "주간/월간 보고서 데이터 수집 및 초안 자동 생성",
+      "status": "개발중",
+      "detail": "SAP 데이터 연동 + GPT 기반 보고서 초안 작성",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "name": "납기예측 AI",
+      "summary": "자재 납기 지연 위험을 사전 예측",
+      "status": "기획중",
+      "detail": "협력사 납품 이력 분석으로 지연 확률 예측",
+      "url": ""
+    },
+    {
+      "id": 5,
+      "name": "품질예측 AI",
+      "summary": "내화물 시공 품질을 사전 예측",
+      "status": "기획중",
+      "detail": "시공 조건 데이터 기반 품질 등급 예측 모델",
+      "url": ""
+    },
+    {
+      "id": 6,
+      "name": "에너지최적화 AI",
+      "summary": "고로 에너지 소비 패턴 분석 및 최적화",
+      "status": "기획중",
+      "detail": "열풍로·냉각수 에너지 효율 최적화 알고리즘",
+      "url": ""
+    }
   ],
   "links": [
-    {"category":"사내 시스템","name":"투자집행 상세","url":"http://intra.posco.co.kr/invest/bf2","desc":"투자 집행 현황 조회"},
-    {"category":"사내 시스템","name":"공정관리 (EDMS)","url":"http://edms.posco.co.kr/project/bf2","desc":"공정 관리 문서"},
-    {"category":"사내 시스템","name":"설계 도면함","url":"http://edms.posco.co.kr/drawing/bf2","desc":"설계 도면 열람"},
-    {"category":"사내 시스템","name":"현장 사진 저장소","url":"http://nas.posco.co.kr/photos/bf2","desc":"현장 사진 NAS"},
-    {"category":"외부 참고","name":"GitHub 리포지터리","url":"https://github.com/goropak/posco-bf-reline","desc":"본 사이트 소스 코드"}
+    {
+      "category": "사내 시스템",
+      "name": "투자집행 상세",
+      "url": "http://intra.posco.co.kr/invest/bf2",
+      "desc": "투자 집행 현황 조회"
+    },
+    {
+      "category": "사내 시스템",
+      "name": "공정관리 (EDMS)",
+      "url": "http://edms.posco.co.kr/project/bf2",
+      "desc": "공정 관리 문서"
+    },
+    {
+      "category": "사내 시스템",
+      "name": "설계 도면함",
+      "url": "http://edms.posco.co.kr/drawing/bf2",
+      "desc": "설계 도면 열람"
+    },
+    {
+      "category": "사내 시스템",
+      "name": "현장 사진 저장소",
+      "url": "http://nas.posco.co.kr/photos/bf2",
+      "desc": "현장 사진 NAS"
+    },
+    {
+      "category": "외부 참고",
+      "name": "GitHub 리포지터리",
+      "url": "https://github.com/goropak/posco-bf-reline",
+      "desc": "본 사이트 소스 코드"
+    }
   ]
 }
